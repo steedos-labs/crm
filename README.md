@@ -52,6 +52,10 @@
 - Copilot 项目指令：`.github/copilot-instructions.md`
 - Claude Code 项目指令：`CLAUDE.md`
 - 总体设计文档：`docs/design.md`
+- 项目路线图：`docs/project-management/roadmap.md`
+- 任务进度：`docs/project-management/tasks.md`
+- 通用验收清单：`docs/project-management/acceptance-checklist.md`
+- 变更记录：`docs/project-management/change-log.md`
 
 AI Agent 在本仓库中开发时必须遵循以上指令文件，尤其是 Steedos 元数据优先、`crm_` 前缀和中文文档要求。
 
