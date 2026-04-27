@@ -28,6 +28,18 @@
   - 明确所有项目文档必须使用中文。
 - 后续动作：后续任务必须先读取 AI 指令、总体设计和项目管理文档。
 
+## 2026-04-27：文档体系模块化重构 + `crm_` 前缀强约束
+
+- 变更类型：设计 / 计划
+- 影响范围：全部 docs/、命名规范、对象 API、权限矩阵
+- 变更原因：原 `docs/design.md` 单文件聚合无法支撑企业级评审；多包共存需要稳定命名空间。
+- 变更内容：
+  - 拆分 `docs/` 为 architecture / data-model / business-flows / permissions / api / coding-standards / delivery / ai-workflow / project-management / product 模块，每文档带 doc_id + 版本 + 生命周期。
+  - 新增 [coding-standards/directory.md](./coding-standards/directory.md)（CS-002）、[coding-standards/naming.md](./coding-standards/naming.md)（CS-001）、ADR-0001..0004。
+  - 统一所有业务对象、应用、角色 API name 至 `crm_` 前缀（详见 [ADR-0004](./adr/0004-object-naming-prefix.md)）。
+  - 新增 [risks.md](./risks.md)、sprints/meetings 模板、[ai-workflow/prompts/](../ai-workflow/prompts/) 7 个提示词。
+- 后续动作：W1 启动前完成 `docs/README.md` 索引刷新；CI 落地 yamllint + markdownlint + 命名前缀校验。
+
 ## 2026-04-27：初始化总体设计和项目管理文档
 
 - 变更类型：设计

@@ -1,0 +1,4 @@
+name: crm_sales_user
+label: 销售人员
+type: permission_set
+locked: false

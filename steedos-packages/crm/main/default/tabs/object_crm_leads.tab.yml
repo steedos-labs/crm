@@ -1,0 +1,18 @@
+name: object_crm_leads
+type: object
+object: crm_leads
+label: 线索
+icon: lead
+desktop: true
+mobile: true
+permissions:
+  - permission: 'on'
+    permission_set: admin
+  - permission: 'on'
+    permission_set: crm_sales_manager
+  - permission: 'on'
+    permission_set: crm_sales_user
+  - permission: 'on'
+    permission_set: crm_service_user
+  - permission: 'off'
+    permission_set: crm_finance_user

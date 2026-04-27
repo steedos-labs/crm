@@ -1,0 +1,17 @@
+{
+  "name": "crm-app",
+  "version": "0.0.1",
+  "private": true,
+  "description": "基于 Steedos 的 CRM 应用，由 AI 主导开发",
+  "workspaces": [
+    "steedos-packages/*"
+  ],
+  "scripts": {
+    "start": "steedos start",
+    "build": "echo \"no build step\""
+  },
+  "dependencies": {
+    "@crm/steedos-package-crm": "*",
+    "@steedos/server": "latest"
+  }
+}

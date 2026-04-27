@@ -1,0 +1,4 @@
+# Steedos 项目配置
+# 注册需要加载的元数据包
+metadata_packages:
+  - "@crm/steedos-package-crm"

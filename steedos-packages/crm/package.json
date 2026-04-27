@@ -1,0 +1,7 @@
+{
+  "name": "@crm/steedos-package-crm",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Steedos CRM 元数据包",
+  "main": "package.service.js"
+}

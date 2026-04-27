@@ -1,0 +1,33 @@
+_id: crm
+name: 客户关系管理
+code: crm
+description: 基于 Steedos 的 CRM 应用，覆盖线索、客户、联系人、商机等核心业务
+icon_slds: opportunity
+color: orange
+is_creator: true
+showSidebar: true
+mobile: true
+visible: true
+sort: 100
+
+tabs:
+  - object_crm_leads
+  - object_crm_accounts
+  - object_crm_contacts
+
+tab_groups:
+  - group_name: 客户
+    default_open: true
+  - group_name: 销售
+    default_open: true
+
+tab_items:
+  object_crm_accounts:
+    group: 客户
+    index: 1
+  object_crm_contacts:
+    group: 客户
+    index: 2
+  object_crm_leads:
+    group: 销售
+    index: 1

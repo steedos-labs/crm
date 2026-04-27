@@ -1,0 +1,4 @@
+name: crm_sales_manager
+label: 销售经理
+type: permission_set
+locked: false

@@ -1,0 +1,4 @@
+name: crm_service_user
+label: 服务人员
+type: permission_set
+locked: false
