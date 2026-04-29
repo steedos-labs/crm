@@ -1,0 +1,15 @@
+name: source
+label: 线索来源
+type: select
+defaultValue: manual
+options:
+  - label: 官网
+    value: website
+  - label: 展会
+    value: exhibition
+  - label: 转介绍
+    value: referral
+  - label: 广告
+    value: advertising
+  - label: 手工录入
+    value: manual

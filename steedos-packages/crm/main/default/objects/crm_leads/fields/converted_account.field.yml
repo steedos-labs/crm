@@ -1,0 +1,5 @@
+name: converted_account
+label: 转化客户
+type: lookup
+reference_to: crm_accounts
+readonly: true

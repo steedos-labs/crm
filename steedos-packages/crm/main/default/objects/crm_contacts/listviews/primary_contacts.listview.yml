@@ -1,0 +1,16 @@
+name: primary_contacts
+label: 主要联系人
+filter_scope: space
+shared: true
+filters:
+  - [is_primary, "=", true]
+  - [status, "=", on_duty]
+columns:
+  - field: name
+  - field: account
+  - field: title
+  - field: mobile
+  - field: email
+sort:
+  - field: account
+    order: asc

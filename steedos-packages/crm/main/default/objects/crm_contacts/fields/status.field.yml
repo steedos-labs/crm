@@ -1,0 +1,11 @@
+name: status
+label: 状态
+type: select
+defaultValue: on_duty
+options:
+  - label: 在职
+    value: on_duty
+  - label: 离职
+    value: left
+  - label: 未知
+    value: unknown

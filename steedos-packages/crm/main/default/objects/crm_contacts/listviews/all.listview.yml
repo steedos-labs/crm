@@ -1,0 +1,16 @@
+name: all
+label: 全部联系人
+filter_scope: space
+shared: true
+columns:
+  - field: name
+  - field: account
+  - field: title
+  - field: mobile
+  - field: email
+  - field: is_primary
+  - field: status
+  - field: owner
+sort:
+  - field: created
+    order: desc

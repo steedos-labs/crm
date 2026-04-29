@@ -1,0 +1,10 @@
+name: crm_service_user
+label: 服务人员
+permission_set_id: crm_service_user
+object_name: crm_leads
+allowCreate: false
+allowEdit: false
+allowRead: true
+allowDelete: false
+modifyAllRecords: false
+viewAllRecords: true

@@ -1,0 +1,13 @@
+name: account_type
+label: 客户类型
+type: select
+defaultValue: prospect
+options:
+  - label: 潜在客户
+    value: prospect
+  - label: 正式客户
+    value: customer
+  - label: 渠道伙伴
+    value: partner
+  - label: 供应商
+    value: vendor

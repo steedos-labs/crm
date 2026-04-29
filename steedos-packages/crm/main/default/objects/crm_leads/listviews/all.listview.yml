@@ -1,0 +1,16 @@
+name: all
+label: 全部线索
+filter_scope: space
+shared: true
+columns:
+  - field: lead_number
+  - field: company
+  - field: contact_name
+  - field: mobile
+  - field: source
+  - field: status
+  - field: owner
+  - field: created
+sort:
+  - field: created
+    order: desc

@@ -1,0 +1,6 @@
+name: company
+label: 公司名称
+type: text
+required: true
+searchable: true
+sortable: true

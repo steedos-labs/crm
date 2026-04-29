@@ -1,0 +1,14 @@
+name: my_contacts
+label: 我的联系人
+filter_scope: mine
+shared: true
+columns:
+  - field: name
+  - field: account
+  - field: title
+  - field: mobile
+  - field: email
+  - field: status
+sort:
+  - field: modified
+    order: desc

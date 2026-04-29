@@ -1,0 +1,17 @@
+name: key_accounts
+label: 重点客户
+filter_scope: space
+shared: true
+filters:
+  - [level, "=", a]
+  - [status, "=", active]
+columns:
+  - field: name
+  - field: account_number
+  - field: industry
+  - field: level
+  - field: phone
+  - field: owner
+sort:
+  - field: name
+    order: asc

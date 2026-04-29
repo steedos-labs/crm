@@ -1,0 +1,7 @@
+name: account_number
+label: 客户编号
+type: autonumber
+formula: ACC-{0000}
+readonly: true
+searchable: true
+sortable: true

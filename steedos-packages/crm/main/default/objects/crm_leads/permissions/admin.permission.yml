@@ -1,0 +1,10 @@
+name: admin
+label: 系统管理员
+permission_set_id: admin
+object_name: crm_leads
+allowCreate: true
+allowEdit: true
+allowRead: true
+allowDelete: true
+modifyAllRecords: true
+viewAllRecords: true

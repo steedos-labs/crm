@@ -1,0 +1,5 @@
+name: converted_contact
+label: 转化联系人
+type: lookup
+reference_to: crm_contacts
+readonly: true

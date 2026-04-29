@@ -1,0 +1,16 @@
+name: crm_leads
+label: 线索
+icon: lead
+description: 尚未确认的潜在客户或商机来源
+enable_search: true
+enable_audit: true
+enable_trash: true
+enable_files: true
+enable_api: true
+enable_share: true
+enable_chatter: true
+enable_tasks: true
+enable_notes: true
+enable_events: true
+list_view_id: all
+in_development: false

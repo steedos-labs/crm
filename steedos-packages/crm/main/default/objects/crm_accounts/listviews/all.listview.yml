@@ -1,0 +1,17 @@
+name: all
+label: 全部客户
+filter_scope: space
+shared: true
+columns:
+  - field: name
+  - field: account_number
+  - field: account_type
+  - field: industry
+  - field: level
+  - field: phone
+  - field: status
+  - field: owner
+  - field: created
+sort:
+  - field: created
+    order: desc

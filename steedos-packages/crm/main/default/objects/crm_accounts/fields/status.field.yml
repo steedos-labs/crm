@@ -1,0 +1,11 @@
+name: status
+label: 客户状态
+type: select
+defaultValue: active
+options:
+  - label: 启用
+    value: active
+  - label: 停用
+    value: inactive
+  - label: 黑名单
+    value: blacklist

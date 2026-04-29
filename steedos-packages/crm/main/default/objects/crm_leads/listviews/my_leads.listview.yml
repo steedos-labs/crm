@@ -1,0 +1,15 @@
+name: my_leads
+label: 我的线索
+filter_scope: mine
+shared: true
+columns:
+  - field: lead_number
+  - field: company
+  - field: contact_name
+  - field: mobile
+  - field: source
+  - field: status
+  - field: modified
+sort:
+  - field: modified
+    order: desc

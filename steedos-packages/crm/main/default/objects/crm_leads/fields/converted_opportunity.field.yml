@@ -1,0 +1,6 @@
+name: converted_opportunity
+label: 转化商机
+type: lookup
+reference_to: crm_opportunities
+readonly: true
+omit: false

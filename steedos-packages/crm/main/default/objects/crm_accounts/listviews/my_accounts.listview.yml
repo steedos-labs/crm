@@ -1,0 +1,16 @@
+name: my_accounts
+label: 我的客户
+filter_scope: mine
+shared: true
+columns:
+  - field: name
+  - field: account_number
+  - field: account_type
+  - field: industry
+  - field: level
+  - field: phone
+  - field: status
+  - field: modified
+sort:
+  - field: modified
+    order: desc

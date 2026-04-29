@@ -1,0 +1,4 @@
+name: email
+label: 邮箱
+type: email
+searchable: true

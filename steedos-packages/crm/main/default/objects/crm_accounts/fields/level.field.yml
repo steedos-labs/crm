@@ -1,0 +1,13 @@
+name: level
+label: 客户级别
+type: select
+defaultValue: c
+options:
+  - label: A 级
+    value: a
+  - label: B 级
+    value: b
+  - label: C 级
+    value: c
+  - label: D 级
+    value: d

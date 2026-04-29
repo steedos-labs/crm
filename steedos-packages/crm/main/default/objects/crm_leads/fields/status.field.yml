@@ -1,0 +1,13 @@
+name: status
+label: 线索状态
+type: select
+defaultValue: new
+options:
+  - label: 新建
+    value: new
+  - label: 跟进中
+    value: working
+  - label: 已转化
+    value: converted
+  - label: 无效
+    value: invalid

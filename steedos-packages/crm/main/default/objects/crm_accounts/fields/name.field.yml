@@ -1,0 +1,8 @@
+name: name
+label: 客户名称
+type: text
+required: true
+searchable: true
+sortable: true
+index: true
+is_name: true

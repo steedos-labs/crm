@@ -1,0 +1,16 @@
+name: converted
+label: 已转化线索
+filter_scope: space
+shared: true
+filters:
+  - [status, "=", converted]
+columns:
+  - field: lead_number
+  - field: company
+  - field: converted_account
+  - field: converted_contact
+  - field: converted_opportunity
+  - field: owner
+sort:
+  - field: modified
+    order: desc

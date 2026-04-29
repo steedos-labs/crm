@@ -1,0 +1,4 @@
+name: is_primary
+label: 主要联系人
+type: boolean
+defaultValue: false

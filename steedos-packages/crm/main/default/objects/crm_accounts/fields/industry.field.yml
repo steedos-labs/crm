@@ -1,0 +1,22 @@
+name: industry
+label: 行业
+type: select
+options:
+  - label: 信息技术
+    value: it
+  - label: 制造业
+    value: manufacturing
+  - label: 金融
+    value: finance
+  - label: 教育
+    value: education
+  - label: 医疗
+    value: healthcare
+  - label: 零售
+    value: retail
+  - label: 物流
+    value: logistics
+  - label: 政府
+    value: government
+  - label: 其他
+    value: other

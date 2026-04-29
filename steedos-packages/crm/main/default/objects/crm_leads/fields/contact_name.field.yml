@@ -1,0 +1,5 @@
+name: contact_name
+label: 联系人姓名
+type: text
+required: true
+searchable: true
