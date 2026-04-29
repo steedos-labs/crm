@@ -18,5 +18,8 @@
     "@crm/steedos-package-crm": "*",
     "@steedos/server": "latest",
     "mongodb": "^6.21.0"
+  },
+  "overrides": {
+    "graphql": "15.10.2"
   }
 }
