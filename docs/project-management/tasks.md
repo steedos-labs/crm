@@ -14,13 +14,13 @@
 
 | 编号 | 阶段 | 任务 | 状态 | 负责人 | 验收标准 | 关联文档 |
 | --- | --- | --- | --- | --- | --- | --- |
-| CRM-001 | 第一阶段 | 初始化 Steedos 基础项目结构 | 待开始 | AI | `package.json`、`steedos-config.yml`、`.gitignore`、基础环境说明齐全 | `docs/project-management/sprints/phase-1-foundation.md` |
-| CRM-002 | 第一阶段 | 创建 CRM Steedos 包 | 待开始 | AI | `steedos-packages/crm`、`package.json`、`package.service.js`、`main/default` 目录齐全 | `docs/project-management/sprints/phase-1-foundation.md` |
-| CRM-003 | 第一阶段 | 创建 CRM 应用和导航框架 | 待开始 | AI | CRM 应用、侧边栏分组、首页和核心对象页签规划齐全 | `docs/project-management/sprints/phase-1-foundation.md` |
-| CRM-004 | 第一阶段 | 创建基础权限集 | 待开始 | AI | `crm_sales_manager`、`crm_sales_user`、`crm_service_user`、`crm_finance_user` 权限集齐全 | `docs/project-management/sprints/phase-1-foundation.md` |
-| CRM-005 | 第一阶段 | 实现 `crm_accounts` 客户对象 | 待开始 | AI | 对象、字段、权限、列表视图、页签齐全，可从 CRM 应用访问 | `docs/design.md` |
-| CRM-006 | 第一阶段 | 实现 `crm_contacts` 联系人对象 | 待开始 | AI | 对象、字段、权限、列表视图、页签齐全，并关联 `crm_accounts` | `docs/design.md` |
-| CRM-007 | 第一阶段 | 实现 `crm_leads` 线索对象 | 待开始 | AI | 对象、字段、权限、列表视图、页签齐全，并预留转化关联字段 | `docs/design.md` |
+| CRM-001 | 第一阶段 | 初始化 Steedos 基础项目结构 | 待验收 | AI | `package.json`、`steedos-config.yml`、`.gitignore`、基础环境说明齐全 | `docs/project-management/sprints/phase-1-foundation.md` |
+| CRM-002 | 第一阶段 | 创建 CRM Steedos 包 | 待验收 | AI | `steedos-packages/crm`、`package.json`、`package.service.js`、`main/default` 目录齐全 | `docs/project-management/sprints/phase-1-foundation.md` |
+| CRM-003 | 第一阶段 | 创建 CRM 应用和导航框架 | 待验收 | AI | CRM 应用、侧边栏分组、首页和核心对象页签规划齐全 | `docs/project-management/sprints/phase-1-foundation.md` |
+| CRM-004 | 第一阶段 | 创建基础权限集 | 待验收 | AI | `crm_sales_manager`、`crm_sales_user`、`crm_service_user`、`crm_finance_user` 权限集齐全 | `docs/project-management/sprints/phase-1-foundation.md` |
+| CRM-005 | 第一阶段 | 实现 `crm_accounts` 客户对象 | 待验收 | AI | 对象、字段、权限、列表视图、页签齐全，可从 CRM 应用访问 | `docs/design.md` |
+| CRM-006 | 第一阶段 | 实现 `crm_contacts` 联系人对象 | 待验收 | AI | 对象、字段、权限、列表视图、页签齐全，并关联 `crm_accounts` | `docs/design.md` |
+| CRM-007 | 第一阶段 | 实现 `crm_leads` 线索对象 | 待验收 | AI | 对象、字段、权限、列表视图、页签齐全，并预留转化关联字段 | `docs/design.md` |
 | CRM-008 | 第二阶段 | 实现 `crm_opportunities` 商机对象 | 待开始 | AI | 对象、字段、权限、列表视图、页签齐全，并关联客户和联系人 | `docs/project-management/sprints/phase-2-sales.md` |
 | CRM-009 | 第二阶段 | 实现 `crm_opportunity_products` 商机产品对象 | 待开始 | AI | master-detail 关系、字段、权限、列表视图齐全 | `docs/project-management/sprints/phase-2-sales.md` |
 | CRM-010 | 第二阶段 | 实现 `crm_activities` 销售活动对象 | 待开始 | AI | 支持拜访、电话、会议、邮件等活动记录 | `docs/project-management/sprints/phase-2-sales.md` |

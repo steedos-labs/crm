@@ -86,8 +86,9 @@ npx skills add steedos/steedos-platform
 
 - 帮我初始化为 steedos 项目。
 - 本项目基于steedos开发crm应用，目标全部使用ai 开发，请帮我初始化系统提示词。
-- 现在帮我做整体设计，编写设计文档。
+- 做整体设计，编写设计文档。
 - 整个项目由 ai 开发，帮我编写开发计划，以便于我逐条验收开发任务。
 - 完成一阶段的开发。
+- 在我本地安装 mongodb , redis
 - 启动服务，测试确认。
 - 使用 chrome mcp 在浏览器中测试
