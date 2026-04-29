@@ -8,8 +8,8 @@
 
 | 阶段 | 名称 | 目标 | 状态 | 关联任务文档 |
 | --- | --- | --- | --- | --- |
-| 第一阶段 | 基础工程和主数据 | 建立 Steedos 基础工程、CRM 包、应用导航、基础权限集、客户主数据 | 待开始 | `docs/project-management/sprints/phase-1-foundation.md` |
-| 第二阶段 | 销售过程 | 实现商机、商机产品、销售活动、销售任务和线索转化 | 待开始 | `docs/project-management/sprints/phase-2-sales.md` |
+| 第一阶段 | 基础工程和主数据 | 建立 Steedos 基础工程、CRM 包、应用导航、基础权限集、客户主数据 | 待验收 | `docs/project-management/sprints/phase-1-foundation.md` |
+| 第二阶段 | 销售过程 | 实现商机、商机产品、销售活动、销售任务和线索转化 | 待验收 | `docs/project-management/sprints/phase-2-sales.md` |
 | 第三阶段 | 报价合同 | 实现产品、价格表、报价、报价明细、合同、发票和相关自动化 | 待开始 | `docs/project-management/sprints/phase-3-contracts.md` |
 | 第四阶段 | 服务和分析 | 实现客户服务记录、CRM 首页、销售仪表盘、报表和自动化校验 | 待开始 | `docs/project-management/sprints/phase-4-service-analytics.md` |
 

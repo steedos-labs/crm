@@ -4,6 +4,28 @@
 
 当需求、设计、对象模型、权限策略、交付范围或验收标准发生变化时，必须在本文件记录。AI Agent 开发前应先检查本文件，避免按旧设计继续实现。
 
+## 2026-04-29：完成第二阶段销售过程交付
+
+- 变更类型：数据模型 / 自动化 / 计划
+- 影响范围：`steedos-packages/crm/main/default/objects/` 下 `crm_opportunities`、`crm_opportunity_products`、`crm_activities`、`crm_tasks`；`steedos-packages/crm/main/default/functions/crm_leads_convert.function.yml`；`crm.app.yml`；`tabs/object_crm_*.tab.yml`；`tasks.md`、`phase-2-sales.md`
+- 变更原因：执行第二阶段「销售过程」交付目标，完成 CRM-008 ~ CRM-012。
+- 变更内容：
+  - `crm_opportunities` 商机对象：对象定义 + 11 个字段（含 `opportunity_number` 自动编号、`stage`、`amount`、`probability`、`expected_close_date`、`source_lead`、`primary_contact` 等）+ 4 个列表视图（全部 / 我的 / 进行中 / 赢单）+ 5 个权限文件。
+  - `crm_opportunity_products` 商机产品对象：对象定义 + 6 个字段（`opportunity` master-detail、`product_name` 占位、`quantity`、`unit_price`、`amount` formula）+ 1 个列表视图 + 5 个权限文件。第三阶段引入 `crm_products` 后将把 `product_name` 替换为产品 lookup。
+  - `crm_activities` 销售活动对象：对象定义 + 10 个字段（含 `activity_type` 拜访/电话/会议/邮件、关联客户/联系人/商机）+ 3 个列表视图 + 5 个权限文件。
+  - `crm_tasks` 销售任务对象：对象定义 + 11 个字段（`assignee` 用户 lookup、`due_date`、`priority`、`status`、关联线索/客户/联系人/商机）+ 5 个列表视图（全部 / 我的 / 今日到期 / 逾期任务 / 已完成）+ 5 个权限文件。
+  - 线索转化：在 `crm_leads` 上新增 `convert_lead` amis 按钮，弹出对话框收集客户名称、商机名称、预计金额和预计成交日期，提交到 REST function `POST /api/v6/functions/crm_leads/convert`；function 创建客户、联系人、商机并回写 `converted_account`、`converted_contact`、`converted_opportunity` 与 `status=converted`。已转化线索按钮自动隐藏。
+  - CRM 应用导航新增「跟进」分组，整合销售活动和销售任务；销售分组新增商机和商机产品。
+- 验证（API + 浏览器双验证）：
+  - REST：`GET /api/v6/objects/crm_{opportunities,opportunity_products,activities,tasks}` 全部 200；CRUD 创建样本数据成功；`POST /api/v6/functions/crm_leads/convert` 一次性产出 `account_id`/`contact_id`/`opportunity_id` 并完成线索回写。
+  - 浏览器：登录后侧边栏显示「客户 / 销售 / 跟进」三组共 7 个页签，列表视图渲染无「接口报错」；商机详情页正确显示 `OPP-20260429-0001`、来源线索 `LEAD-20260429-0001`、主要联系人「李四」、客户 lookup「潜在客户公司(转化)」；商机产品 `amount` 字段（formula）正确计算 `quantity * unit_price`。
+- 已知修复点：
+  - Steedos REST function 的 `_name` 等于 `name` 去掉 `<objectApiName>_` 前缀；URL 路径必须使用去前缀后的名字（即 `/api/v6/functions/crm_leads/convert`）。
+  - 函数脚本中请求体在 `ctx.input`，而 `ctx.params` 仅含 `userId`/`spaceId`。
+  - `formula` 字段使用 Salesforce 风格语法（裸变量名，如 `quantity * unit_price`），不要写 `${var}` 或 `{var}`。
+  - `percent` 字段以 0~1 存储；`defaultValue: 0.1` 表示 10%。
+- 后续动作：人工验收第二阶段任务后状态置为「已完成」；进入第三阶段（CRM-013 起）实现产品、价格表、报价、合同、发票。
+
 ## 变更模板
 
 ```markdown
