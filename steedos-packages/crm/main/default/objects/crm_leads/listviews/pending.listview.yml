@@ -13,5 +13,5 @@ columns:
   - field: status
   - field: owner
 sort:
-  - field: created
+  - field_name: created
     order: desc

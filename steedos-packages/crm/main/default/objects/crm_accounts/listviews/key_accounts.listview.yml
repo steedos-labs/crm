@@ -13,5 +13,5 @@ columns:
   - field: phone
   - field: owner
 sort:
-  - field: name
+  - field_name: name
     order: asc

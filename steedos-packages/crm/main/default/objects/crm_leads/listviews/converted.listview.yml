@@ -12,5 +12,5 @@ columns:
   - field: converted_opportunity
   - field: owner
 sort:
-  - field: modified
+  - field_name: modified
     order: desc

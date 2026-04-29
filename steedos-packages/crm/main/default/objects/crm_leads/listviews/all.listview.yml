@@ -12,5 +12,5 @@ columns:
   - field: owner
   - field: created
 sort:
-  - field: created
+  - field_name: created
     order: desc

@@ -10,5 +10,5 @@ columns:
   - field: email
   - field: status
 sort:
-  - field: modified
+  - field_name: modified
     order: desc

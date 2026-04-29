@@ -11,5 +11,5 @@ columns:
   - field: status
   - field: modified
 sort:
-  - field: modified
+  - field_name: modified
     order: desc

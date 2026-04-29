@@ -12,5 +12,5 @@ columns:
   - field: mobile
   - field: email
 sort:
-  - field: account
+  - field_name: account
     order: asc
