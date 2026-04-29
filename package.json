@@ -11,6 +11,7 @@
     "build": "echo \"no build step\""
   },
   "dependencies": {
+    "@builder6/moleculer": "^4.0.0",
     "@crm/steedos-package-crm": "*",
     "@steedos/server": "latest"
   }
