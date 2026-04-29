@@ -1,0 +1,4 @@
+name: resolution
+label: 解决方案
+type: textarea
+description: 状态置为已解决或已关闭时必填

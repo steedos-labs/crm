@@ -1,0 +1,18 @@
+name: open
+label: 待处理服务
+filter_scope: space
+shared: true
+filters:
+  - - status
+    - in
+    - [new, in_progress, waiting_customer]
+columns:
+  - field: case_number
+  - field: subject
+  - field: account
+  - field: priority
+  - field: status
+  - field: assignee
+sort:
+  - field_name: priority
+    order: desc

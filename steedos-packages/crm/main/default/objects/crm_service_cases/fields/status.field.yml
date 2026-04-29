@@ -1,0 +1,16 @@
+name: status
+label: 状态
+type: select
+required: true
+defaultValue: new
+options:
+  - label: 新建
+    value: new
+  - label: 处理中
+    value: in_progress
+  - label: 待客户反馈
+    value: waiting_customer
+  - label: 已解决
+    value: resolved
+  - label: 已关闭
+    value: closed

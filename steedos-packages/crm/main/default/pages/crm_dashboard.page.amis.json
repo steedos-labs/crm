@@ -1,0 +1,146 @@
+{
+  "type": "page",
+  "title": "销售仪表盘",
+  "body": [
+    {
+      "type": "grid",
+      "columns": [
+        {
+          "md": 6,
+          "body": {
+            "type": "service",
+            "api": {
+              "method": "get",
+              "url": "/api/v6/data/crm_opportunities?fields=stage,amount&top=1000&skip=0",
+              "adaptor": "var arr = (payload && payload.data) ? payload.data : (Array.isArray(payload)?payload:[]); return { status:0, data:{ rows: arr } };"
+            },
+            "body": {
+              "type": "chart",
+              "style": {
+                "height": "320px"
+              },
+              "config": {
+                "title": {
+                  "text": "商机阶段分布"
+                },
+                "tooltip": {}
+              },
+              "trackExpression": "${rows}",
+              "dataFilter": "const labels=['初步沟通','需求确认','方案报价','商务谈判','赢单','输单'];\nconst m={prospecting:0,qualification:1,proposal:2,negotiation:3,closed_won:4,closed_lost:5};\nconst c=[0,0,0,0,0,0]; (data.rows||[]).forEach(r=>{const i=m[r.stage]; if(i!=null) c[i]++;});\nconfig.xAxis={type:'category',data:labels}; config.yAxis={type:'value'};\nconfig.series=[{type:'bar',name:'数量',data:c,itemStyle:{color:'#0d6efd'}}]; return config;"
+            }
+          }
+        },
+        {
+          "md": 6,
+          "body": {
+            "type": "service",
+            "api": {
+              "method": "get",
+              "url": "/api/v6/data/crm_opportunities?fields=owner,amount,stage&filters=[[\"stage\",\"=\",\"closed_won\"]]&top=1000&skip=0",
+              "adaptor": "var arr = (payload && payload.data) ? payload.data : (Array.isArray(payload)?payload:[]); return { status:0, data:{ rows: arr } };"
+            },
+            "body": {
+              "type": "chart",
+              "style": {
+                "height": "320px"
+              },
+              "config": {
+                "title": {
+                  "text": "赢单业绩 Top（按负责人金额）"
+                },
+                "tooltip": {}
+              },
+              "trackExpression": "${rows}",
+              "dataFilter": "const sum={}; (data.rows||[]).forEach(r=>{const k=r.owner||'未指派'; sum[k]=(sum[k]||0)+(+r.amount||0);});\nconst ents=Object.entries(sum).sort((a,b)=>b[1]-a[1]).slice(0,10);\nconfig.xAxis={type:'category',data:ents.map(e=>e[0])}; config.yAxis={type:'value'};\nconfig.series=[{type:'bar',name:'成交金额',data:ents.map(e=>e[1]),itemStyle:{color:'#198754'}}]; return config;"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "grid",
+      "columns": [
+        {
+          "md": 6,
+          "body": {
+            "type": "service",
+            "api": {
+              "method": "get",
+              "url": "/api/v6/data/crm_contracts?fields=status,amount&top=1000&skip=0",
+              "adaptor": "var arr = (payload && payload.data) ? payload.data : (Array.isArray(payload)?payload:[]); return { status:0, data:{ rows: arr } };"
+            },
+            "body": {
+              "type": "chart",
+              "style": {
+                "height": "320px"
+              },
+              "config": {
+                "title": {
+                  "text": "合同金额（按状态）"
+                },
+                "tooltip": {}
+              },
+              "trackExpression": "${rows}",
+              "dataFilter": "const labels={draft:'草稿',in_approval:'审批中',active:'执行中',completed:'已完成',terminated:'已终止'};\nconst sum={}; (data.rows||[]).forEach(r=>{const k=labels[r.status]||r.status||'未知'; sum[k]=(sum[k]||0)+(+r.amount||0);});\nconfig.tooltip={trigger:'item'};\nconfig.series=[{type:'pie',radius:'60%',data:Object.entries(sum).map(([n,v])=>({name:n,value:v}))}]; return config;"
+            }
+          }
+        },
+        {
+          "md": 6,
+          "body": {
+            "type": "service",
+            "api": {
+              "method": "get",
+              "url": "/api/v6/data/crm_invoices?fields=invoice_amount,paid_amount,status&top=1000&skip=0",
+              "adaptor": "var arr = (payload && payload.data) ? payload.data : (Array.isArray(payload)?payload:[]); return { status:0, data:{ rows: arr } };"
+            },
+            "body": {
+              "type": "chart",
+              "style": {
+                "height": "320px"
+              },
+              "config": {
+                "title": {
+                  "text": "开票回款总览"
+                },
+                "tooltip": {}
+              },
+              "trackExpression": "${rows}",
+              "dataFilter": "let inv=0,paid=0; (data.rows||[]).forEach(r=>{inv+=(+r.invoice_amount||0); paid+=(+r.paid_amount||0);});\nconfig.xAxis={type:'category',data:['开票金额','已收金额','未收金额']}; config.yAxis={type:'value'};\nconfig.series=[{type:'bar',name:'金额',data:[inv,paid,inv-paid],itemStyle:{color:'#fd7e14'}}]; return config;"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "grid",
+      "columns": [
+        {
+          "md": 12,
+          "body": {
+            "type": "service",
+            "api": {
+              "method": "get",
+              "url": "/api/v6/data/crm_service_cases?fields=status,priority&top=1000&skip=0",
+              "adaptor": "var arr = (payload && payload.data) ? payload.data : (Array.isArray(payload)?payload:[]); return { status:0, data:{ rows: arr } };"
+            },
+            "body": {
+              "type": "chart",
+              "style": {
+                "height": "320px"
+              },
+              "config": {
+                "title": {
+                  "text": "服务记录状态分布"
+                },
+                "tooltip": {}
+              },
+              "trackExpression": "${rows}",
+              "dataFilter": "const m={new:0,in_progress:1,waiting_customer:2,resolved:3,closed:4};\nconst c=[0,0,0,0,0]; (data.rows||[]).forEach(r=>{const i=m[r.status]; if(i!=null) c[i]++;});\nconfig.xAxis={type:'category',data:['新建','处理中','待客户反馈','已解决','已关闭']}; config.yAxis={type:'value'};\nconfig.series=[{type:'bar',name:'数量',data:c,itemStyle:{color:'#dc3545'}}]; return config;"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

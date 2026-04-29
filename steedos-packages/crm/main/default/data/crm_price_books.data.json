@@ -1,0 +1,9 @@
+[
+  {
+    "_id": "crm_seed_price_book_standard",
+    "name": "标准价格表",
+    "is_standard": true,
+    "active": true,
+    "description": "种子示例：标准对外价格表"
+  }
+]

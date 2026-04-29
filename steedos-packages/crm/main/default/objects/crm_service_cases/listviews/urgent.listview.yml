@@ -1,0 +1,21 @@
+name: urgent
+label: 紧急/高优先级
+filter_scope: space
+shared: true
+filters:
+  - - priority
+    - in
+    - [high, urgent]
+  - - status
+    - in
+    - [new, in_progress, waiting_customer]
+columns:
+  - field: case_number
+  - field: subject
+  - field: account
+  - field: priority
+  - field: status
+  - field: assignee
+sort:
+  - field_name: created
+    order: desc

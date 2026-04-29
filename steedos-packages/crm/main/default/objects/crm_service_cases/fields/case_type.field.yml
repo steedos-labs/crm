@@ -1,0 +1,16 @@
+name: case_type
+label: 服务类型
+type: select
+required: true
+defaultValue: question
+options:
+  - label: 咨询
+    value: question
+  - label: 问题
+    value: issue
+  - label: 投诉
+    value: complaint
+  - label: 需求
+    value: feature_request
+  - label: 其他
+    value: other

@@ -4,6 +4,31 @@
 
 当需求、设计、对象模型、权限策略、交付范围或验收标准发生变化时，必须在本文件记录。AI Agent 开发前应先检查本文件，避免按旧设计继续实现。
 
+## 2026-04-29：完成第四阶段服务与分析交付
+
+- 变更类型：数据模型 / 自动化 / 微页面 / 计划
+- 影响范围：`steedos-packages/crm/main/default/objects/crm_service_cases/`；`triggers/crm_service_cases_validate.trigger.yml`；`pages/crm_home.page.{yml,amis.json}`、`pages/crm_dashboard.page.{yml,amis.json}`；`tabs/object_crm_service_cases.tab.yml`、`tabs/page_crm_home.tab.yml`、`tabs/page_crm_dashboard.tab.yml`；`applications/crm.app.yml`；`data/crm_products.data.json`、`data/crm_price_books.data.json`；`tasks.md`、`roadmap.md`、`phase-4-service-analytics.md`
+- 变更原因：执行第四阶段「服务和分析」交付目标，完成 CRM-019 ~ CRM-022。
+- 变更内容：
+  - `crm_service_cases` 客户服务对象：11 字段（`case_number` 自动编号 `SC-{YYYY}{MM}{DD}-{0000}`、`subject`、`account`、`contact`、`case_type`、`priority`、`status`、`assignee`、`description`、`resolution`、`closed_at`）+ 4 列表视图（全部 / 待处理 / 我处理的 / 紧急高优先级）+ 5 权限。
+  - 触发器 `crm_service_cases_validate`：`beforeInsert` + `beforeUpdate`，状态置为 `resolved`/`closed` 时强制要求 `resolution` 非空，状态首次切到 `closed` 时自动写入 `closed_at`。
+  - CRM 首页 `crm_home`：4 张 KPI 卡片（待跟进线索 / 进行中商机 / 未完成任务 / 待处理服务）+ 4 个 crud 列表（待跟进线索 / 进行中商机 / 未完成任务 / 待处理服务）。
+  - 销售仪表盘 `crm_dashboard`：5 张 ECharts 图表（商机阶段分布 / 赢单业绩 Top / 合同金额按状态饼图 / 开票回款总览 / 服务记录状态分布），均通过 amis `service` + `chart.dataFilter` 从 REST API 拉数据并就地聚合。
+  - CRM 应用导航新增「工作台」「服务」两个分组，整合首页、仪表盘和客户服务页签，共 17 个页签。
+  - 种子数据：`data/crm_products.data.json`（4 个示例产品覆盖软件 / 硬件 / 服务 / 其他四类）和 `data/crm_price_books.data.json`（标准价格表）作为 seed 文件参考；当前样例数据通过 REST API 写入。
+- 验证：
+  - YAML + JSON 校验：296 个文件 0 错误。
+  - 启动日志：0 条 `MongoError`/`Error`，HTTP 200。
+  - 触发器：未填解决方案直接 `closed` 返回 500 拦截；填 `resolution` 后再 `closed` 自动写入 `closed_at`。
+  - 自动编号：`SC-20260429-0001`、`SC-20260429-0002` 正常生成。
+  - 浏览器：`/app/crm/page/crm_home` KPI 与 4 列表正确显示业务数据；`/app/crm/page/crm_dashboard` 5 张图表正确渲染（开票 ¥40,500 / 已收 ¥20,000 / 未收 ¥20,500）。
+- 已知修复点（开发过程中踩坑）：
+  - Steedos 的 `page` 元数据必须含 `is_active: true`，否则前端不识别为页面。
+  - `page` 类型 tab 的访问 URL 是 `/app/<app>/page/<page_name>`（不是 `/app/<app>/<tab_name>`）。
+  - Steedos REST `/api/v6/data/<obj>` 必须同时传 `skip` 和 `top`（`ParseIntPipe`），否则 400「numeric string is expected」。
+  - REST 返回 `{data:[], totalCount:n}`，amis 的 `service`/`crud` 必须提供 `adaptor` 转换为 `{status:0, data:{items, total}}` 才能渲染。
+  - 触发器 YAML 字段是 `handler:`（不是 `todo:`），且需显式 `isEnabled: true`。
+
 ## 2026-04-29：完成第三阶段报价合同交付
 
 - 变更类型：数据模型 / 计划 / 运行环境

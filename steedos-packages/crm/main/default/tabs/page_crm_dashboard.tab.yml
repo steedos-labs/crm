@@ -1,0 +1,18 @@
+name: page_crm_dashboard
+type: page
+page: crm_dashboard
+label: 销售仪表盘
+icon: report
+desktop: true
+mobile: true
+permissions:
+  - permission: 'on'
+    permission_set: admin
+  - permission: 'on'
+    permission_set: crm_sales_manager
+  - permission: 'on'
+    permission_set: crm_sales_user
+  - permission: 'on'
+    permission_set: crm_service_user
+  - permission: 'on'
+    permission_set: crm_finance_user

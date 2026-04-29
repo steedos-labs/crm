@@ -1,0 +1,14 @@
+name: priority
+label: 优先级
+type: select
+required: true
+defaultValue: medium
+options:
+  - label: 低
+    value: low
+  - label: 中
+    value: medium
+  - label: 高
+    value: high
+  - label: 紧急
+    value: urgent

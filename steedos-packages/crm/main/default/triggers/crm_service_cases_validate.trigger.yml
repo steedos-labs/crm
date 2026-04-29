@@ -1,0 +1,19 @@
+name: crm_service_cases_validate
+listenTo: crm_service_cases
+when:
+  - beforeInsert
+  - beforeUpdate
+isEnabled: true
+handler: |
+  const doc = ctx.params.doc || {};
+  const prev = ctx.params.previousDoc || {};
+  const status = doc.status !== undefined ? doc.status : prev.status;
+  const resolution = doc.resolution !== undefined ? doc.resolution : prev.resolution;
+  if (status === 'resolved' || status === 'closed') {
+    if (!resolution || String(resolution).trim() === '') {
+      throw new Error('状态置为已解决或已关闭时，必须填写解决方案');
+    }
+    if (status === 'closed' && prev.status !== 'closed') {
+      doc.closed_at = new Date();
+    }
+  }

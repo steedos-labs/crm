@@ -1,0 +1,18 @@
+name: page_crm_home
+type: page
+page: crm_home
+label: 首页
+icon: home
+desktop: true
+mobile: true
+permissions:
+  - permission: 'on'
+    permission_set: admin
+  - permission: 'on'
+    permission_set: crm_sales_manager
+  - permission: 'on'
+    permission_set: crm_sales_user
+  - permission: 'on'
+    permission_set: crm_service_user
+  - permission: 'on'
+    permission_set: crm_finance_user

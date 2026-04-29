@@ -1,0 +1,42 @@
+[
+  {
+    "_id": "crm_seed_product_software",
+    "name": "标准 CRM 软件套件",
+    "product_code": "SEED-SW-001",
+    "category": "software",
+    "unit": "set",
+    "standard_price": 15000,
+    "status": "active",
+    "description": "种子示例：CRM 标准软件许可"
+  },
+  {
+    "_id": "crm_seed_product_hardware",
+    "name": "客户呼叫中心一体机",
+    "product_code": "SEED-HW-001",
+    "category": "hardware",
+    "unit": "piece",
+    "standard_price": 8000,
+    "status": "active",
+    "description": "种子示例：硬件设备"
+  },
+  {
+    "_id": "crm_seed_product_service",
+    "name": "实施服务（标准版）",
+    "product_code": "SEED-SV-001",
+    "category": "service",
+    "unit": "man_day",
+    "standard_price": 1500,
+    "status": "active",
+    "description": "种子示例：实施服务，按人天计费"
+  },
+  {
+    "_id": "crm_seed_product_other",
+    "name": "客户培训",
+    "product_code": "SEED-OT-001",
+    "category": "other",
+    "unit": "year",
+    "standard_price": 6000,
+    "status": "active",
+    "description": "种子示例：年度培训"
+  }
+]

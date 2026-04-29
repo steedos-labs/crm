@@ -1,0 +1,219 @@
+{
+  "type": "page",
+  "title": "CRM 工作台",
+  "body": [
+    {
+      "type": "grid",
+      "columns": [
+        {
+          "md": 3,
+          "body": {
+            "type": "service",
+            "name": "kpi_leads",
+            "api": {
+              "method": "get",
+              "url": "/api/v6/data/crm_leads?fields=_id&filters=[[\"status\",\"in\",[\"new\",\"contacted\",\"qualified\"]]]&top=1000&skip=0",
+              "adaptor": "var arr = (payload && payload.data) ? payload.data : (Array.isArray(payload)?payload:[]); var total = (payload && payload.totalCount!=null)?payload.totalCount:arr.length; return { status:0, msg:'', data:{ items: arr, total: total, count: arr.length } };"
+            },
+            "body": {
+              "type": "tpl",
+              "tpl": "<div style='text-align:center;padding:24px;background:#fff;border-radius:8px;border:1px solid #e9ecef'><div style='color:#6c757d;font-size:13px'>待跟进线索</div><div style='font-size:32px;color:#0d6efd;font-weight:600'>${count}</div></div>"
+            }
+          }
+        },
+        {
+          "md": 3,
+          "body": {
+            "type": "service",
+            "name": "kpi_opps",
+            "api": {
+              "method": "get",
+              "url": "/api/v6/data/crm_opportunities?fields=_id&filters=[[\"stage\",\"in\",[\"prospecting\",\"qualification\",\"proposal\",\"negotiation\"]]]&top=1000&skip=0",
+              "adaptor": "var arr = (payload && payload.data) ? payload.data : (Array.isArray(payload)?payload:[]); var total = (payload && payload.totalCount!=null)?payload.totalCount:arr.length; return { status:0, msg:'', data:{ items: arr, total: total, count: arr.length } };"
+            },
+            "body": {
+              "type": "tpl",
+              "tpl": "<div style='text-align:center;padding:24px;background:#fff;border-radius:8px;border:1px solid #e9ecef'><div style='color:#6c757d;font-size:13px'>进行中商机</div><div style='font-size:32px;color:#198754;font-weight:600'>${count}</div></div>"
+            }
+          }
+        },
+        {
+          "md": 3,
+          "body": {
+            "type": "service",
+            "name": "kpi_tasks",
+            "api": {
+              "method": "get",
+              "url": "/api/v6/data/crm_tasks?fields=_id&filters=[[\"status\",\"!=\",\"completed\"]]&top=1000&skip=0",
+              "adaptor": "var arr = (payload && payload.data) ? payload.data : (Array.isArray(payload)?payload:[]); var total = (payload && payload.totalCount!=null)?payload.totalCount:arr.length; return { status:0, msg:'', data:{ items: arr, total: total, count: arr.length } };"
+            },
+            "body": {
+              "type": "tpl",
+              "tpl": "<div style='text-align:center;padding:24px;background:#fff;border-radius:8px;border:1px solid #e9ecef'><div style='color:#6c757d;font-size:13px'>未完成任务</div><div style='font-size:32px;color:#fd7e14;font-weight:600'>${count}</div></div>"
+            }
+          }
+        },
+        {
+          "md": 3,
+          "body": {
+            "type": "service",
+            "name": "kpi_cases",
+            "api": {
+              "method": "get",
+              "url": "/api/v6/data/crm_service_cases?fields=_id&filters=[[\"status\",\"in\",[\"new\",\"in_progress\",\"waiting_customer\"]]]&top=1000&skip=0",
+              "adaptor": "var arr = (payload && payload.data) ? payload.data : (Array.isArray(payload)?payload:[]); var total = (payload && payload.totalCount!=null)?payload.totalCount:arr.length; return { status:0, msg:'', data:{ items: arr, total: total, count: arr.length } };"
+            },
+            "body": {
+              "type": "tpl",
+              "tpl": "<div style='text-align:center;padding:24px;background:#fff;border-radius:8px;border:1px solid #e9ecef'><div style='color:#6c757d;font-size:13px'>待处理服务</div><div style='font-size:32px;color:#dc3545;font-weight:600'>${count}</div></div>"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "grid",
+      "columns": [
+        {
+          "md": 6,
+          "body": {
+            "type": "panel",
+            "title": "待跟进线索",
+            "body": {
+              "type": "crud",
+              "api": {
+                "method": "get",
+                "url": "/api/v6/data/crm_leads?fields=name,company,status&filters=[[\"status\",\"in\",[\"new\",\"contacted\",\"qualified\"]]]&top=10&sort=created desc&skip=0",
+                "adaptor": "var arr = (payload && payload.data) ? payload.data : (Array.isArray(payload)?payload:[]); var total = (payload && payload.totalCount!=null)?payload.totalCount:arr.length; return { status:0, msg:'', data:{ items: arr, total: total, count: arr.length } };"
+              },
+              "syncLocation": false,
+              "columns": [
+                {
+                  "name": "name",
+                  "label": "姓名"
+                },
+                {
+                  "name": "company",
+                  "label": "公司"
+                },
+                {
+                  "name": "status",
+                  "label": "状态"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "md": 6,
+          "body": {
+            "type": "panel",
+            "title": "进行中商机",
+            "body": {
+              "type": "crud",
+              "api": {
+                "method": "get",
+                "url": "/api/v6/data/crm_opportunities?fields=name,opportunity_number,stage,amount&filters=[[\"stage\",\"in\",[\"prospecting\",\"qualification\",\"proposal\",\"negotiation\"]]]&top=10&sort=created desc&skip=0",
+                "adaptor": "var arr = (payload && payload.data) ? payload.data : (Array.isArray(payload)?payload:[]); var total = (payload && payload.totalCount!=null)?payload.totalCount:arr.length; return { status:0, msg:'', data:{ items: arr, total: total, count: arr.length } };"
+              },
+              "syncLocation": false,
+              "columns": [
+                {
+                  "name": "name",
+                  "label": "商机"
+                },
+                {
+                  "name": "stage",
+                  "label": "阶段"
+                },
+                {
+                  "name": "amount",
+                  "label": "金额",
+                  "type": "tpl",
+                  "tpl": "¥${amount}"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "grid",
+      "columns": [
+        {
+          "md": 6,
+          "body": {
+            "type": "panel",
+            "title": "未完成任务",
+            "body": {
+              "type": "crud",
+              "api": {
+                "method": "get",
+                "url": "/api/v6/data/crm_tasks?fields=subject,due_date,priority,status&filters=[[\"status\",\"!=\",\"completed\"]]&top=10&sort=due_date asc&skip=0",
+                "adaptor": "var arr = (payload && payload.data) ? payload.data : (Array.isArray(payload)?payload:[]); var total = (payload && payload.totalCount!=null)?payload.totalCount:arr.length; return { status:0, msg:'', data:{ items: arr, total: total, count: arr.length } };"
+              },
+              "syncLocation": false,
+              "columns": [
+                {
+                  "name": "subject",
+                  "label": "任务"
+                },
+                {
+                  "name": "due_date",
+                  "label": "截止",
+                  "type": "date"
+                },
+                {
+                  "name": "priority",
+                  "label": "优先级"
+                },
+                {
+                  "name": "status",
+                  "label": "状态"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "md": 6,
+          "body": {
+            "type": "panel",
+            "title": "待处理服务",
+            "body": {
+              "type": "crud",
+              "api": {
+                "method": "get",
+                "url": "/api/v6/data/crm_service_cases?fields=case_number,subject,priority,status&filters=[[\"status\",\"in\",[\"new\",\"in_progress\",\"waiting_customer\"]]]&top=10&sort=created desc&skip=0",
+                "adaptor": "var arr = (payload && payload.data) ? payload.data : (Array.isArray(payload)?payload:[]); var total = (payload && payload.totalCount!=null)?payload.totalCount:arr.length; return { status:0, msg:'', data:{ items: arr, total: total, count: arr.length } };"
+              },
+              "syncLocation": false,
+              "columns": [
+                {
+                  "name": "case_number",
+                  "label": "编号"
+                },
+                {
+                  "name": "subject",
+                  "label": "主题"
+                },
+                {
+                  "name": "priority",
+                  "label": "优先级"
+                },
+                {
+                  "name": "status",
+                  "label": "状态"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+name: my
+label: 我处理的服务
+filter_scope: mine
+shared: true
+columns:
+  - field: case_number
+  - field: subject
+  - field: account
+  - field: priority
+  - field: status
+sort:
+  - field_name: created
+    order: desc

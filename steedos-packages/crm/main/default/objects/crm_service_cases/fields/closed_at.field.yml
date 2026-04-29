@@ -1,0 +1,4 @@
+name: closed_at
+label: 关闭时间
+type: datetime
+readonly: true

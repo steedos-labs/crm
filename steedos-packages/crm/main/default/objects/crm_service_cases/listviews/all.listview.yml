@@ -1,0 +1,16 @@
+name: all
+label: 全部服务
+filter_scope: space
+shared: true
+columns:
+  - field: case_number
+  - field: subject
+  - field: account
+  - field: case_type
+  - field: priority
+  - field: status
+  - field: assignee
+  - field: created
+sort:
+  - field_name: created
+    order: desc
