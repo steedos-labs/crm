@@ -51,7 +51,12 @@
   - `crm_leads` 线索对象：对象定义 + 13 个字段（含 `lead_number` 日期自动编号、`source`、`status`、`converted_account/contact/opportunity` 转化引用）+ 4 个列表视图（全部、我的、待跟进、已转化）+ 5 个权限文件。
   - CRM-001 ~ CRM-007 状态由「待开始」更新为「待验收」。
   - 三个对象均在 `crm.app.yml` 中已通过既有页签 `object_crm_*` 接入侧边栏导航。
-- 验证：`npm install` 通过；`npm start` 启动到 Steedos 元数据加载阶段无 YAML 解析或元数据校验报错；后续连接 MongoDB / Redis 失败属于本机基础设施缺失，非元数据问题。
+- 验证：`npm install` 通过；本地启动 `mongod`/`redis-server` 后 `npm start` 完成元数据加载，CRM 包注入 `.steedos/steedos-packages.yml` 后 `service @crm/steedos-package-crm started`；REST `GET /api/v6/objects/crm_{accounts,contacts,leads}` 返回完整元数据；POST CRUD 写入成功；浏览器登录后进入「客户关系管理」应用，客户 / 联系人 / 线索三个列表页正常加载、字段渲染正确、`lead_number` 自动编号生效、`crm_contacts.account` lookup 正常显示关联客户。
+- 已知修复：
+  - `steedos-packages/crm/package.service.js` 增加 `@steedos/service-package-loader` mixin，否则元数据不会被扫描。
+  - 新增 `.steedos/steedos-packages.yml` 注册 `@crm/steedos-package-crm` 为本地包；`steedos-config.yml` 中的 `metadata_packages` 字段并不被 Steedos 实际读取。
+  - 列表视图 `sort` 块字段名修正为 `field_name`（对齐 Steedos schema）。
+  - 在根 `package.json` 增加 `overrides.graphql=15.10.2`，统一 `@steedos/objectql` 与 `apollo-server` 树的 graphql 版本，修复浏览器侧 `POST /graphql 500`（"Cannot use GraphQLScalarType from another module or realm"）导致列表「接口报错：{}」。
 - 后续动作：人工验收第一阶段任务后状态置为「已完成」；进入第二阶段销售过程开发（CRM-008 起）。
 
 ## 2026-04-27：初始化总体设计和项目管理文档
