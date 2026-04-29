@@ -6,6 +6,25 @@
 
 本项目用于构建一套可维护、可扩展的 CRM 系统。开发时优先采用 Steedos 元数据驱动模式，能通过对象、字段、权限、列表视图、应用、页签和 Amis 页面配置实现的能力，不优先编写自定义代码。
 
+##  安装 Skills
+
+```
+npx skills add steedos/steedos-platform
+```
+
+## AI 自动化开发提示词
+
+按顺序发给AI
+
+- 帮我初始化为 steedos 项目。
+- 本项目基于steedos开发crm应用，目标全部使用ai 开发，请帮我初始化系统提示词。
+- 做整体设计，编写设计文档。
+- 整个项目由 ai 开发，帮我编写开发计划，以便于我逐条验收开发任务。
+- 完成一阶段的开发。
+- 在我本地安装 mongodb , redis
+- 启动服务，测试确认。
+- 使用 chrome mcp 在浏览器中测试
+
 ## 技术栈
 
 - 平台：Steedos
@@ -71,24 +90,3 @@ npm run build
 
 如果当前阶段尚未创建 `package.json` 或 Steedos 配置文件，应先按 Steedos 项目结构补齐基础工程文件。
 
-
-## AI 自动化开发流程
-
-本项目完全用AI开发。
-
-###  安装 Skills
-
-```
-npx skills add steedos/steedos-platform
-```
-
-### 按顺序发给AI的提示词
-
-- 帮我初始化为 steedos 项目。
-- 本项目基于steedos开发crm应用，目标全部使用ai 开发，请帮我初始化系统提示词。
-- 做整体设计，编写设计文档。
-- 整个项目由 ai 开发，帮我编写开发计划，以便于我逐条验收开发任务。
-- 完成一阶段的开发。
-- 在我本地安装 mongodb , redis
-- 启动服务，测试确认。
-- 使用 chrome mcp 在浏览器中测试
