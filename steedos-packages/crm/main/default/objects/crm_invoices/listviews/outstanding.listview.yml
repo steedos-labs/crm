@@ -1,0 +1,18 @@
+name: outstanding
+label: 未结清发票
+filter_scope: space
+shared: true
+filters:
+  - - status
+    - in
+    - [issued, partially_paid]
+columns:
+  - field: invoice_number
+  - field: account
+  - field: invoice_amount
+  - field: paid_amount
+  - field: outstanding_amount
+  - field: due_date
+sort:
+  - field_name: due_date
+    order: asc

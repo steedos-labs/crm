@@ -1,0 +1,5 @@
+name: total_amount
+label: 报价总额
+type: currency
+scale: 2
+sortable: true

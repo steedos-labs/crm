@@ -1,0 +1,7 @@
+name: quote
+label: 所属报价
+type: master_detail
+reference_to: crm_quotes
+required: true
+searchable: true
+write_requires_master_read: false

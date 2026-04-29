@@ -1,0 +1,6 @@
+name: list_price
+label: 销售价
+type: currency
+scale: 2
+required: true
+sortable: true

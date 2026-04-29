@@ -1,0 +1,6 @@
+name: account
+label: 客户
+type: lookup
+reference_to: crm_accounts
+required: true
+searchable: true

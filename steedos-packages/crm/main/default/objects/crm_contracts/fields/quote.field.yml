@@ -1,0 +1,5 @@
+name: quote
+label: 报价
+type: lookup
+reference_to: crm_quotes
+searchable: true

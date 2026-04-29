@@ -1,0 +1,16 @@
+name: status
+label: 发票状态
+type: select
+required: true
+defaultValue: not_issued
+options:
+  - label: 未开票
+    value: not_issued
+  - label: 已开票
+    value: issued
+  - label: 部分回款
+    value: partially_paid
+  - label: 已回款
+    value: paid
+  - label: 作废
+    value: cancelled

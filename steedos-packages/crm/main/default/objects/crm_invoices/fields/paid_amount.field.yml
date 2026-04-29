@@ -1,0 +1,6 @@
+name: paid_amount
+label: 已收金额
+type: currency
+scale: 2
+defaultValue: 0
+sortable: true

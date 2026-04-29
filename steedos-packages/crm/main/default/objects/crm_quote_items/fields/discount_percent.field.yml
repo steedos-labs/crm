@@ -1,0 +1,5 @@
+name: discount_percent
+label: 折扣比例
+type: percent
+scale: 2
+defaultValue: 0

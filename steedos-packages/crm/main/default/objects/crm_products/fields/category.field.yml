@@ -1,0 +1,13 @@
+name: category
+label: 产品分类
+type: select
+defaultValue: software
+options:
+  - label: 软件
+    value: software
+  - label: 硬件
+    value: hardware
+  - label: 服务
+    value: service
+  - label: 其他
+    value: other

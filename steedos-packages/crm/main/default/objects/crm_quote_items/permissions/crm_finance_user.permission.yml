@@ -1,0 +1,10 @@
+name: crm_finance_user
+label: 财务人员
+permission_set_id: crm_finance_user
+object_name: crm_quote_items
+allowCreate: false
+allowEdit: false
+allowRead: true
+allowDelete: false
+modifyAllRecords: false
+viewAllRecords: true

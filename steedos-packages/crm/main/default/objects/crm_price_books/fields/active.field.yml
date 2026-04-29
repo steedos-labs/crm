@@ -1,0 +1,4 @@
+name: active
+label: 启用
+type: boolean
+defaultValue: true

@@ -1,0 +1,6 @@
+name: outstanding_amount
+label: 未收金额
+type: formula
+data_type: currency
+scale: 2
+formula: 'invoice_amount - paid_amount'

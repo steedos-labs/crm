@@ -1,0 +1,15 @@
+name: all
+label: 全部产品
+filter_scope: space
+shared: true
+columns:
+  - field: name
+  - field: product_code
+  - field: category
+  - field: unit
+  - field: standard_price
+  - field: status
+  - field: created
+sort:
+  - field_name: created
+    order: desc

@@ -1,0 +1,18 @@
+name: all
+label: 全部发票
+filter_scope: space
+shared: true
+columns:
+  - field: invoice_number
+  - field: contract
+  - field: account
+  - field: status
+  - field: invoice_amount
+  - field: paid_amount
+  - field: outstanding_amount
+  - field: invoice_date
+  - field: due_date
+  - field: created
+sort:
+  - field_name: created
+    order: desc

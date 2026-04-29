@@ -1,0 +1,17 @@
+name: active
+label: 在售产品
+filter_scope: space
+shared: true
+filters:
+  - - status
+    - "="
+    - active
+columns:
+  - field: name
+  - field: product_code
+  - field: category
+  - field: unit
+  - field: standard_price
+sort:
+  - field_name: name
+    order: asc

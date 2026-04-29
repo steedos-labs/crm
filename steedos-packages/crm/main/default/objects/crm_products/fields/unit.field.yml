@@ -1,0 +1,15 @@
+name: unit
+label: 单位
+type: select
+defaultValue: set
+options:
+  - label: 套
+    value: set
+  - label: 个
+    value: piece
+  - label: 年
+    value: year
+  - label: 月
+    value: month
+  - label: 人天
+    value: man_day

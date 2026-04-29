@@ -1,0 +1,18 @@
+name: open
+label: 进行中报价
+filter_scope: space
+shared: true
+filters:
+  - - status
+    - in
+    - [draft, submitted, sent]
+columns:
+  - field: name
+  - field: account
+  - field: status
+  - field: total_amount
+  - field: valid_until
+  - field: owner
+sort:
+  - field_name: valid_until
+    order: asc

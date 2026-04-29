@@ -1,12 +1,13 @@
 name: all
-label: 全部商机产品
+label: 全部报价明细
 filter_scope: space
 shared: true
 columns:
   - field: product
-  - field: opportunity
+  - field: quote
   - field: quantity
   - field: unit_price
+  - field: discount_percent
   - field: amount
   - field: created
 sort:

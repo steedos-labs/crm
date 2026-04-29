@@ -1,0 +1,4 @@
+name: is_standard
+label: 标准价格表
+type: boolean
+defaultValue: false

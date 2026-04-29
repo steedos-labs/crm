@@ -1,0 +1,19 @@
+name: active
+label: 执行中合同
+filter_scope: space
+shared: true
+filters:
+  - - status
+    - "="
+    - active
+columns:
+  - field: name
+  - field: contract_number
+  - field: account
+  - field: amount
+  - field: start_date
+  - field: end_date
+  - field: owner
+sort:
+  - field_name: end_date
+    order: asc

@@ -1,0 +1,6 @@
+name: name
+label: 报价名称
+type: text
+required: true
+searchable: true
+sortable: true

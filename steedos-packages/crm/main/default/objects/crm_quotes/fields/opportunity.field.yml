@@ -1,0 +1,5 @@
+name: opportunity
+label: 商机
+type: lookup
+reference_to: crm_opportunities
+searchable: true

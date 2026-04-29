@@ -1,0 +1,3 @@
+name: valid_from
+label: 生效日期
+type: date

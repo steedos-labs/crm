@@ -1,0 +1,6 @@
+name: product_code
+label: 产品编码
+type: text
+required: true
+searchable: true
+sortable: true

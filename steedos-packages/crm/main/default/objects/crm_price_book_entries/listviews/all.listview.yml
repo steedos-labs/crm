@@ -1,13 +1,12 @@
 name: all
-label: 全部商机产品
+label: 全部价格条目
 filter_scope: space
 shared: true
 columns:
   - field: product
-  - field: opportunity
-  - field: quantity
-  - field: unit_price
-  - field: amount
+  - field: price_book
+  - field: list_price
+  - field: active
   - field: created
 sort:
   - field_name: created

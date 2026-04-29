@@ -1,0 +1,4 @@
+name: signed_by
+label: 签约人
+type: lookup
+reference_to: users

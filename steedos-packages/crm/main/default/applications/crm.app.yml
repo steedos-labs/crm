@@ -1,7 +1,7 @@
 _id: crm
 name: 客户关系管理
 code: crm
-description: 基于 Steedos 的 CRM 应用，覆盖线索、客户、联系人、商机等核心业务
+description: 基于 Steedos 的 CRM 应用，覆盖线索、客户、商机、报价、合同与发票全流程
 icon_slds: opportunity
 color: orange
 is_creator: true
@@ -16,6 +16,13 @@ tabs:
   - object_crm_contacts
   - object_crm_opportunities
   - object_crm_opportunity_products
+  - object_crm_quotes
+  - object_crm_quote_items
+  - object_crm_contracts
+  - object_crm_invoices
+  - object_crm_products
+  - object_crm_price_books
+  - object_crm_price_book_entries
   - object_crm_activities
   - object_crm_tasks
 
@@ -24,8 +31,12 @@ tab_groups:
     default_open: true
   - group_name: 销售
     default_open: true
-  - group_name: 跟进
+  - group_name: 报价合同
     default_open: true
+  - group_name: 产品
+    default_open: false
+  - group_name: 跟进
+    default_open: false
 
 tab_items:
   object_crm_accounts:
@@ -42,6 +53,27 @@ tab_items:
     index: 2
   object_crm_opportunity_products:
     group: 销售
+    index: 3
+  object_crm_quotes:
+    group: 报价合同
+    index: 1
+  object_crm_quote_items:
+    group: 报价合同
+    index: 2
+  object_crm_contracts:
+    group: 报价合同
+    index: 3
+  object_crm_invoices:
+    group: 报价合同
+    index: 4
+  object_crm_products:
+    group: 产品
+    index: 1
+  object_crm_price_books:
+    group: 产品
+    index: 2
+  object_crm_price_book_entries:
+    group: 产品
     index: 3
   object_crm_activities:
     group: 跟进

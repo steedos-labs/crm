@@ -1,0 +1,5 @@
+name: standard_price
+label: 标准价
+type: currency
+scale: 2
+sortable: true

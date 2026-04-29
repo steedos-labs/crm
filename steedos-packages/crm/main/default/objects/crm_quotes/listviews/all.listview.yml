@@ -1,0 +1,17 @@
+name: all
+label: 全部报价
+filter_scope: space
+shared: true
+columns:
+  - field: name
+  - field: quote_number
+  - field: account
+  - field: opportunity
+  - field: status
+  - field: total_amount
+  - field: valid_until
+  - field: owner
+  - field: created
+sort:
+  - field_name: created
+    order: desc

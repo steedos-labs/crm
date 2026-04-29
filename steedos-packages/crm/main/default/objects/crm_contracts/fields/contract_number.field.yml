@@ -1,0 +1,7 @@
+name: contract_number
+label: 合同编号
+type: autonumber
+formula: CT-{YYYY}{MM}{DD}-{0000}
+readonly: true
+searchable: true
+sortable: true

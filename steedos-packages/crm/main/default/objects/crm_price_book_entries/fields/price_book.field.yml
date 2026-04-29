@@ -1,0 +1,7 @@
+name: price_book
+label: 所属价格表
+type: master_detail
+reference_to: crm_price_books
+required: true
+searchable: true
+write_requires_master_read: false

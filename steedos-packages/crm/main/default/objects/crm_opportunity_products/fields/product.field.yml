@@ -1,0 +1,7 @@
+name: product
+label: 产品
+type: lookup
+reference_to: crm_products
+required: true
+is_name: true
+searchable: true

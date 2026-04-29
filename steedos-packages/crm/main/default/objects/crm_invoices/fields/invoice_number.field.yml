@@ -1,0 +1,7 @@
+name: invoice_number
+label: 发票编号
+type: autonumber
+formula: INV-{YYYY}{MM}{DD}-{0000}
+readonly: true
+searchable: true
+sortable: true

@@ -1,7 +1,0 @@
-name: product_name
-label: 产品名称
-type: text
-required: true
-is_name: true
-searchable: true
-description: 第三阶段引入 crm_products 后将切换为 lookup 类型

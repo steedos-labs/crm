@@ -1,0 +1,14 @@
+name: all
+label: 全部价格表
+filter_scope: space
+shared: true
+columns:
+  - field: name
+  - field: is_standard
+  - field: active
+  - field: valid_from
+  - field: valid_to
+  - field: created
+sort:
+  - field_name: created
+    order: desc

@@ -1,0 +1,6 @@
+name: amount
+label: 金额
+type: formula
+data_type: currency
+scale: 2
+formula: 'quantity * unit_price * (1 - discount_percent)'

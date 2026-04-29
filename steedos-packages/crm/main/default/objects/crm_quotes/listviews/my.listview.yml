@@ -1,0 +1,14 @@
+name: my
+label: 我的报价
+filter_scope: mine
+shared: true
+columns:
+  - field: name
+  - field: quote_number
+  - field: account
+  - field: status
+  - field: total_amount
+  - field: valid_until
+sort:
+  - field_name: created
+    order: desc

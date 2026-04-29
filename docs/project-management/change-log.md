@@ -4,6 +4,31 @@
 
 当需求、设计、对象模型、权限策略、交付范围或验收标准发生变化时，必须在本文件记录。AI Agent 开发前应先检查本文件，避免按旧设计继续实现。
 
+## 2026-04-29：完成第三阶段报价合同交付
+
+- 变更类型：数据模型 / 计划 / 运行环境
+- 影响范围：`steedos-packages/crm/main/default/objects/` 下 `crm_products`、`crm_price_books`、`crm_price_book_entries`、`crm_quotes`、`crm_quote_items`、`crm_contracts`、`crm_invoices`；`crm_opportunity_products`（占位字段替换）；`crm.app.yml`；`tabs/object_crm_*.tab.yml`；`tasks.md`、`roadmap.md`、`phase-3-contracts.md`；本地 `mongod` 配置
+- 变更原因：执行第三阶段「报价合同」交付目标，完成 CRM-013 ~ CRM-018，并解决启动期间唯一真实错误。
+- 变更内容：
+  - `crm_products` 产品对象：对象定义 + 7 字段（`name`、`product_code`、`category`、`unit`、`standard_price`、`status`、`description`）+ 2 列表视图（全部 / 在售）+ 5 权限。
+  - `crm_price_books` 价格表对象 + `crm_price_book_entries` 价格条目对象（`price_book` master-detail，`product` lookup `crm_products`，`list_price` 销售价）。
+  - `crm_quotes` 报价对象：9 字段（`quote_number` 自动编号 `QT-{YYYY}{MM}{DD}-{0000}`、`account`、`opportunity`、`status`、`valid_until`、`total_amount`、`discount_percent`）+ 3 列表视图（全部 / 我的 / 进行中）+ 5 权限。
+  - `crm_quote_items` 报价明细对象：master-detail 到 `crm_quotes`，`product` lookup `crm_products`，`amount` formula 字段 `quantity * unit_price * (1 - discount_percent)`。
+  - `crm_contracts` 合同对象：11 字段（`contract_number` 自动编号 `CT-...`、`account`、`opportunity`、`quote`、`amount`、`start_date`、`end_date`、`status`、`signed_by` users lookup）+ 3 列表视图。
+  - `crm_invoices` 发票对象：10 字段（`invoice_number` 自动编号 `INV-...`、`contract`、`account`、`invoice_amount`、`paid_amount`、`outstanding_amount` formula = `invoice_amount - paid_amount`、`invoice_date`、`due_date`、`status`）+ 2 列表视图（全部 / 未结清）。
+  - 补丁：将 `crm_opportunity_products.product_name`（占位 text）替换为 `product` lookup → `crm_products`，并把 listview 列同步改名。
+  - CRM 应用导航重组为 5 个分组：客户 / 销售 / 报价合同 / 产品 / 跟进，共 14 个页签。
+  - 运行环境：本地 `mongod` 改为单节点副本集 `rs0`（`/opt/homebrew/etc/mongod.conf` 增加 `replication.replSetName: rs0`，`mongosh rs.initiate(...)`），消除 `Transaction numbers are only allowed on a replica set member` 报错。
+- 验证：
+  - YAML：`js-yaml` 解析 265 个文件 0 错误。
+  - 启动日志：0 条 `MongoError`/`Error`，HTTP 200。
+  - REST CRUD：在已有 `OPP-20260429-0001` 商机上重建 `crm_opportunity_products` 引用产品 P-CRM-STD，`amount=45000`（3 × 15000）。
+  - Formula 验证：`crm_quote_items.amount=40500`（3 × 15000 × (1 − 0.1)）；`crm_invoices.outstanding_amount=20500`（40500 − 20000）。
+  - 自动编号：`QT-20260429-0001`、`CT-20260429-0001`、`INV-20260429-0001` 正常生成。
+- 注意事项：
+  - 单节点副本集 `rs0` 仅用于本地开发，生产环境需要按运维标准部署多节点。
+  - `crm_quotes.total_amount` 当前由前端/调用方维护；如需自动汇总，应在第四阶段用触发器或 summary 字段（未启用 master-detail 汇总时需 trigger）实现。
+
 ## 2026-04-29：完成第二阶段销售过程交付
 
 - 变更类型：数据模型 / 自动化 / 计划
