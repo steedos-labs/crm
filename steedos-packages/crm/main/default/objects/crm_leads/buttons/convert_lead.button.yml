@@ -1,0 +1,128 @@
+name: convert_lead
+label: 转化为客户
+'on': record_only
+is_enable: true
+type: amis_button
+visible: true
+visible_on: '{{!record || record.status !== "converted"}}'
+amis_schema: |-
+  {
+    "type": "service",
+    "body": [
+      {
+        "type": "button",
+        "label": "转化为客户",
+        "level": "primary",
+        "id": "u:crm_leads_convert_btn",
+        "onEvent": {
+          "click": {
+            "actions": [
+              {
+                "actionType": "dialog",
+                "dialog": {
+                  "title": "线索转化",
+                  "size": "md",
+                  "closeOnEsc": false,
+                  "data": {
+                    "&": "$$",
+                    "lead_id": "${recordId}",
+                    "lead_company": "${record.company}",
+                    "lead_contact": "${record.contact_name}"
+                  },
+                  "body": [
+                    {
+                      "type": "form",
+                      "title": "",
+                      "mode": "horizontal",
+                      "horizontal": { "left": 4, "right": 8 },
+                      "body": [
+                        {
+                          "type": "static",
+                          "name": "lead_company",
+                          "label": "线索公司"
+                        },
+                        {
+                          "type": "static",
+                          "name": "lead_contact",
+                          "label": "线索联系人"
+                        },
+                        {
+                          "type": "input-text",
+                          "name": "account_name",
+                          "label": "客户名称",
+                          "value": "${lead_company}",
+                          "required": true
+                        },
+                        {
+                          "type": "input-text",
+                          "name": "opportunity_name",
+                          "label": "商机名称",
+                          "value": "${lead_company} 商机",
+                          "required": true
+                        },
+                        {
+                          "type": "input-number",
+                          "name": "amount",
+                          "label": "预计金额",
+                          "min": 0
+                        },
+                        {
+                          "type": "input-date",
+                          "name": "expected_close_date",
+                          "label": "预计成交日期",
+                          "format": "YYYY-MM-DD"
+                        }
+                      ],
+                      "api": {
+                        "url": "${context.rootUrl}/api/v6/functions/crm_leads/convert",
+                        "method": "post",
+                        "headers": {
+                          "Authorization": "Bearer ${context.tenantId},${context.authToken}"
+                        },
+                        "data": {
+                          "lead_id": "${lead_id}",
+                          "account_name": "${account_name}",
+                          "opportunity_name": "${opportunity_name}",
+                          "amount": "${amount}",
+                          "expected_close_date": "${expected_close_date}"
+                        }
+                      },
+                      "actions": [
+                        { "type": "button", "actionType": "cancel", "label": "取消" },
+                        { "type": "submit", "level": "primary", "label": "确认转化" }
+                      ],
+                      "onEvent": {
+                        "submitSucc": {
+                          "actions": [
+                            {
+                              "actionType": "toast",
+                              "args": {
+                                "msgType": "success",
+                                "msg": "线索已转化为客户、联系人和商机"
+                              }
+                            },
+                            {
+                              "actionType": "broadcast",
+                              "args": { "eventName": "@data.changed.crm_leads" },
+                              "data": { "objectName": "crm_leads" }
+                            },
+                            { "actionType": "closeDialog" },
+                            {
+                              "actionType": "reload",
+                              "componentId": ""
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "regions": ["body"],
+    "id": "u:crm_leads_convert_service"
+  }

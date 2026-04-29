@@ -1,0 +1,4 @@
+name: source_lead
+label: 来源线索
+type: lookup
+reference_to: crm_leads

@@ -1,0 +1,17 @@
+name: won
+label: 赢单商机
+filter_scope: space
+shared: true
+filters:
+  - - stage
+    - '='
+    - closed_won
+columns:
+  - field: name
+  - field: account
+  - field: amount
+  - field: expected_close_date
+  - field: owner
+sort:
+  - field_name: expected_close_date
+    order: desc

@@ -1,0 +1,5 @@
+name: activity_date
+label: 活动时间
+type: datetime
+required: true
+sortable: true

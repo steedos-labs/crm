@@ -1,0 +1,16 @@
+name: activity_type
+label: 活动类型
+type: select
+required: true
+defaultValue: visit
+options:
+  - label: 拜访
+    value: visit
+  - label: 电话
+    value: call
+  - label: 会议
+    value: meeting
+  - label: 邮件
+    value: email
+  - label: 其他
+    value: other

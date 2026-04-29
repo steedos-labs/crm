@@ -1,0 +1,4 @@
+name: completed_at
+label: 完成时间
+type: datetime
+readonly: true

@@ -1,0 +1,6 @@
+name: assignee
+label: 负责人
+type: lookup
+reference_to: users
+required: true
+searchable: true

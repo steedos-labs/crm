@@ -1,0 +1,14 @@
+name: all
+label: 全部商机产品
+filter_scope: space
+shared: true
+columns:
+  - field: product_name
+  - field: opportunity
+  - field: quantity
+  - field: unit_price
+  - field: amount
+  - field: created
+sort:
+  - field_name: created
+    order: desc

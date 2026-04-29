@@ -1,0 +1,6 @@
+name: name
+label: 商机名称
+type: text
+required: true
+searchable: true
+is_name: true

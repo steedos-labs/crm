@@ -14,11 +14,17 @@ tabs:
   - object_crm_leads
   - object_crm_accounts
   - object_crm_contacts
+  - object_crm_opportunities
+  - object_crm_opportunity_products
+  - object_crm_activities
+  - object_crm_tasks
 
 tab_groups:
   - group_name: 客户
     default_open: true
   - group_name: 销售
+    default_open: true
+  - group_name: 跟进
     default_open: true
 
 tab_items:
@@ -31,3 +37,15 @@ tab_items:
   object_crm_leads:
     group: 销售
     index: 1
+  object_crm_opportunities:
+    group: 销售
+    index: 2
+  object_crm_opportunity_products:
+    group: 销售
+    index: 3
+  object_crm_activities:
+    group: 跟进
+    index: 1
+  object_crm_tasks:
+    group: 跟进
+    index: 2

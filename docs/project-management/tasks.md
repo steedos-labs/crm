@@ -21,11 +21,11 @@
 | CRM-005 | 第一阶段 | 实现 `crm_accounts` 客户对象 | 待验收 | AI | 对象、字段、权限、列表视图、页签齐全，可从 CRM 应用访问 | `docs/design.md` |
 | CRM-006 | 第一阶段 | 实现 `crm_contacts` 联系人对象 | 待验收 | AI | 对象、字段、权限、列表视图、页签齐全，并关联 `crm_accounts` | `docs/design.md` |
 | CRM-007 | 第一阶段 | 实现 `crm_leads` 线索对象 | 待验收 | AI | 对象、字段、权限、列表视图、页签齐全，并预留转化关联字段 | `docs/design.md` |
-| CRM-008 | 第二阶段 | 实现 `crm_opportunities` 商机对象 | 待开始 | AI | 对象、字段、权限、列表视图、页签齐全，并关联客户和联系人 | `docs/project-management/sprints/phase-2-sales.md` |
-| CRM-009 | 第二阶段 | 实现 `crm_opportunity_products` 商机产品对象 | 待开始 | AI | master-detail 关系、字段、权限、列表视图齐全 | `docs/project-management/sprints/phase-2-sales.md` |
-| CRM-010 | 第二阶段 | 实现 `crm_activities` 销售活动对象 | 待开始 | AI | 支持拜访、电话、会议、邮件等活动记录 | `docs/project-management/sprints/phase-2-sales.md` |
-| CRM-011 | 第二阶段 | 实现 `crm_tasks` 销售任务对象 | 待开始 | AI | 支持任务负责人、到期日期、状态和我的任务视图 | `docs/project-management/sprints/phase-2-sales.md` |
-| CRM-012 | 第二阶段 | 实现线索转化能力 | 待开始 | AI | 可从线索生成客户、联系人和商机，并回写转化引用 | `docs/project-management/sprints/phase-2-sales.md` |
+| CRM-008 | 第二阶段 | 实现 `crm_opportunities` 商机对象 | 待验收 | AI | 对象、字段、权限、列表视图、页签齐全，并关联客户和联系人 | `docs/project-management/sprints/phase-2-sales.md` |
+| CRM-009 | 第二阶段 | 实现 `crm_opportunity_products` 商机产品对象 | 待验收 | AI | master-detail 关系、字段、权限、列表视图齐全 | `docs/project-management/sprints/phase-2-sales.md` |
+| CRM-010 | 第二阶段 | 实现 `crm_activities` 销售活动对象 | 待验收 | AI | 支持拜访、电话、会议、邮件等活动记录 | `docs/project-management/sprints/phase-2-sales.md` |
+| CRM-011 | 第二阶段 | 实现 `crm_tasks` 销售任务对象 | 待验收 | AI | 支持任务负责人、到期日期、状态和我的任务视图 | `docs/project-management/sprints/phase-2-sales.md` |
+| CRM-012 | 第二阶段 | 实现线索转化能力 | 待验收 | AI | 可从线索生成客户、联系人和商机，并回写转化引用 | `docs/project-management/sprints/phase-2-sales.md` |
 | CRM-013 | 第三阶段 | 实现 `crm_products` 产品对象 | 待开始 | AI | 产品编码、分类、单位、标准价、状态等字段齐全 | `docs/project-management/sprints/phase-3-contracts.md` |
 | CRM-014 | 第三阶段 | 实现 `crm_price_books` 价格表对象 | 待开始 | AI | 价格表基础字段、权限和列表视图齐全 | `docs/project-management/sprints/phase-3-contracts.md` |
 | CRM-015 | 第三阶段 | 实现 `crm_quotes` 报价对象 | 待开始 | AI | 报价编号、商机、客户、状态、总额、有效期字段齐全 | `docs/project-management/sprints/phase-3-contracts.md` |

@@ -1,0 +1,17 @@
+name: planned
+label: 计划中的活动
+filter_scope: space
+shared: true
+filters:
+  - - status
+    - '='
+    - planned
+columns:
+  - field: subject
+  - field: activity_type
+  - field: account
+  - field: activity_date
+  - field: owner
+sort:
+  - field_name: activity_date
+    order: asc

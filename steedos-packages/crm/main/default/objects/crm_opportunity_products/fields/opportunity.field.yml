@@ -1,0 +1,7 @@
+name: opportunity
+label: 所属商机
+type: master_detail
+reference_to: crm_opportunities
+required: true
+searchable: true
+write_requires_master_read: false

@@ -1,0 +1,17 @@
+name: all
+label: 全部商机
+filter_scope: space
+shared: true
+columns:
+  - field: name
+  - field: opportunity_number
+  - field: account
+  - field: stage
+  - field: amount
+  - field: probability
+  - field: expected_close_date
+  - field: owner
+  - field: created
+sort:
+  - field_name: created
+    order: desc

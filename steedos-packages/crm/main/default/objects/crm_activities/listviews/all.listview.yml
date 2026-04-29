@@ -1,0 +1,15 @@
+name: all
+label: 全部活动
+filter_scope: space
+shared: true
+columns:
+  - field: subject
+  - field: activity_type
+  - field: account
+  - field: opportunity
+  - field: activity_date
+  - field: status
+  - field: owner
+sort:
+  - field_name: activity_date
+    order: desc

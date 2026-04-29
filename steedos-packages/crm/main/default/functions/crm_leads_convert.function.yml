@@ -1,0 +1,105 @@
+name: crm_leads_convert
+objectApiName: crm_leads
+isEnabled: true
+is_rest: true
+description: 将线索转化为客户、联系人和商机，并回写转化引用
+locked: false
+script: >-
+  // global: {_:lodash, moment, validator, filters}
+
+  // objects
+
+  // ctx: {input, params, broker, getObject, getUser}
+
+
+  const userSession = await ctx.getUser(ctx.params.userId, ctx.params.spaceId);
+
+  if (!userSession || !userSession.userId) {
+      throw new Error('未登录或会话失效');
+  }
+
+
+  const input = ctx.input || ctx.params || {};
+
+  const leadId = input.lead_id;
+
+  if (!leadId) {
+      throw new Error('缺少参数 lead_id');
+  }
+
+
+  const lead = await objects.crm_leads.findOne(leadId, {}, userSession);
+
+  if (!lead) {
+      throw new Error('线索不存在: ' + leadId);
+  }
+
+  if (lead.status === 'converted') {
+      throw new Error('线索已转化，不能重复转化');
+  }
+
+
+  const accountName = input.account_name || lead.company || (lead.contact_name ? (lead.contact_name + ' 客户') : '新客户');
+
+  const newAccount = await objects.crm_accounts.insert({
+      name: accountName,
+      industry: lead.industry,
+      phone: lead.mobile,
+      account_type: 'prospect',
+      status: 'active'
+  }, userSession);
+
+
+  let newContact = null;
+
+  if (lead.contact_name) {
+      newContact = await objects.crm_contacts.insert({
+          name: lead.contact_name,
+          account: newAccount._id,
+          mobile: lead.mobile,
+          email: lead.email,
+          title: lead.title,
+          is_primary: true,
+          status: 'on_duty'
+      }, userSession);
+  }
+
+
+  const oppName = input.opportunity_name || (accountName + ' 商机');
+
+  const oppDoc = {
+      name: oppName,
+      account: newAccount._id,
+      stage: 'prospecting',
+      source_lead: lead._id
+  };
+
+  if (newContact) {
+      oppDoc.primary_contact = newContact._id;
+  }
+
+  if (input.amount !== undefined && input.amount !== null && input.amount !== '') {
+      oppDoc.amount = Number(input.amount);
+  }
+
+  if (input.expected_close_date) {
+      oppDoc.expected_close_date = input.expected_close_date;
+  }
+
+  const newOpportunity = await objects.crm_opportunities.insert(oppDoc, userSession);
+
+
+  await objects.crm_leads.update(lead._id, {
+      status: 'converted',
+      converted_account: newAccount._id,
+      converted_contact: newContact ? newContact._id : null,
+      converted_opportunity: newOpportunity._id
+  }, userSession);
+
+
+  return {
+      account_id: newAccount._id,
+      contact_id: newContact ? newContact._id : null,
+      opportunity_id: newOpportunity._id,
+      message: '线索已成功转化'
+  };

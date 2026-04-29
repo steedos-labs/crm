@@ -1,0 +1,4 @@
+name: loss_reason
+label: 输单原因
+type: textarea
+visible_on: '{{!!record && record.stage === "closed_lost"}}'

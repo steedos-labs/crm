@@ -1,0 +1,21 @@
+name: overdue
+label: 逾期任务
+filter_scope: space
+shared: true
+filters:
+  - - due_date
+    - '<'
+    - '{now}'
+  - - status
+    - notin
+    - - completed
+      - cancelled
+columns:
+  - field: subject
+  - field: assignee
+  - field: account
+  - field: due_date
+  - field: priority
+sort:
+  - field_name: due_date
+    order: asc

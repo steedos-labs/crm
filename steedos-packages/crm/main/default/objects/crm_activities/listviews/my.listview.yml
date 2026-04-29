@@ -1,0 +1,13 @@
+name: my
+label: 我的活动
+filter_scope: mine
+shared: true
+columns:
+  - field: subject
+  - field: activity_type
+  - field: account
+  - field: activity_date
+  - field: status
+sort:
+  - field_name: activity_date
+    order: desc

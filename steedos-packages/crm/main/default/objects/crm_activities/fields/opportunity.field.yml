@@ -1,0 +1,4 @@
+name: opportunity
+label: 关联商机
+type: lookup
+reference_to: crm_opportunities

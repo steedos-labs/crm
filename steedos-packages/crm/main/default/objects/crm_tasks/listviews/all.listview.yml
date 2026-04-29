@@ -1,0 +1,15 @@
+name: all
+label: 全部任务
+filter_scope: space
+shared: true
+columns:
+  - field: subject
+  - field: assignee
+  - field: account
+  - field: opportunity
+  - field: due_date
+  - field: priority
+  - field: status
+sort:
+  - field_name: due_date
+    order: asc

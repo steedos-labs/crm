@@ -1,0 +1,14 @@
+name: my
+label: 我的任务
+filter_scope: mine
+shared: true
+columns:
+  - field: subject
+  - field: account
+  - field: opportunity
+  - field: due_date
+  - field: priority
+  - field: status
+sort:
+  - field_name: due_date
+    order: asc

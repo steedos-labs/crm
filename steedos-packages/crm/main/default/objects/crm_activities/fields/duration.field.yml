@@ -1,0 +1,4 @@
+name: duration
+label: 时长（分钟）
+type: number
+scale: 0

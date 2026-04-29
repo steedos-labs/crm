@@ -1,0 +1,5 @@
+name: unit_price
+label: 单价
+type: currency
+scale: 2
+required: true

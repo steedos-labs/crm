@@ -1,0 +1,14 @@
+name: my
+label: 我的商机
+filter_scope: mine
+shared: true
+columns:
+  - field: name
+  - field: account
+  - field: stage
+  - field: amount
+  - field: expected_close_date
+  - field: created
+sort:
+  - field_name: expected_close_date
+    order: asc

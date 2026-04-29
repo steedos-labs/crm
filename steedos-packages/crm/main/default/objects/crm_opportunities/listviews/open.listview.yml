@@ -1,0 +1,20 @@
+name: open
+label: 进行中商机
+filter_scope: space
+shared: true
+filters:
+  - - stage
+    - notin
+    - - closed_won
+      - closed_lost
+columns:
+  - field: name
+  - field: account
+  - field: stage
+  - field: amount
+  - field: probability
+  - field: expected_close_date
+  - field: owner
+sort:
+  - field_name: expected_close_date
+    order: asc

@@ -1,0 +1,4 @@
+name: account
+label: 关联客户
+type: lookup
+reference_to: crm_accounts

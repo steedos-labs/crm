@@ -1,0 +1,5 @@
+name: probability
+label: 成交概率
+type: percent
+scale: 2
+defaultValue: 0.1

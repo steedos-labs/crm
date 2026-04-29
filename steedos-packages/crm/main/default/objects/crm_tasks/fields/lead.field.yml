@@ -1,0 +1,4 @@
+name: lead
+label: 关联线索
+type: lookup
+reference_to: crm_leads

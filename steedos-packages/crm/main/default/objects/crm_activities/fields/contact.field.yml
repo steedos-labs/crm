@@ -1,0 +1,4 @@
+name: contact
+label: 关联联系人
+type: lookup
+reference_to: crm_contacts

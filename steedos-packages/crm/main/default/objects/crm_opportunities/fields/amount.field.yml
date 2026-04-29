@@ -1,0 +1,5 @@
+name: amount
+label: 预计金额
+type: currency
+scale: 2
+sortable: true

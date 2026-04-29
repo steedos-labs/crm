@@ -1,0 +1,12 @@
+name: status
+label: 状态
+type: select
+required: true
+defaultValue: planned
+options:
+  - label: 计划中
+    value: planned
+  - label: 已完成
+    value: completed
+  - label: 已取消
+    value: cancelled

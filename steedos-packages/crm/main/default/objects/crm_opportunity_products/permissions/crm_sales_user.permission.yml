@@ -1,0 +1,10 @@
+name: crm_sales_user
+label: 销售人员
+permission_set_id: crm_sales_user
+object_name: crm_opportunity_products
+allowCreate: true
+allowEdit: true
+allowRead: true
+allowDelete: true
+modifyAllRecords: false
+viewAllRecords: false

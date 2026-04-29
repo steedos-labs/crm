@@ -1,0 +1,4 @@
+name: expected_close_date
+label: 预计成交日期
+type: date
+sortable: true

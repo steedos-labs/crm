@@ -1,0 +1,21 @@
+name: today
+label: 今日到期
+filter_scope: space
+shared: true
+filters:
+  - - due_date
+    - between
+    - 0_day_ago
+  - - status
+    - notin
+    - - completed
+      - cancelled
+columns:
+  - field: subject
+  - field: assignee
+  - field: account
+  - field: priority
+  - field: status
+sort:
+  - field_name: priority
+    order: desc
