@@ -3,9 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "description": "基于 Steedos 的 CRM 应用，由 AI 主导开发",
-  "workspaces": [
-    "steedos-packages/*"
-  ],
+  "packageManager": "pnpm@9.15.0",
   "scripts": {
     "start": "steedos start",
     "build": "echo \"no build step\""

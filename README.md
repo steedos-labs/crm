@@ -83,9 +83,9 @@ AI Agent 在本仓库中开发时必须遵循以上指令文件，尤其是 Stee
 项目初始化后优先使用 `package.json` 中已有脚本。常见命令如下：
 
 ```bash
-npm install
-npm start
-npm run build
+pnpm install
+pnpm start
+pnpm run build
 ```
 
 如果当前阶段尚未创建 `package.json` 或 Steedos 配置文件，应先按 Steedos 项目结构补齐基础工程文件。
