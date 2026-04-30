@@ -15,7 +15,7 @@
     "@builder6/microservices": "^4.0.0",
     "@builder6/moleculer": "^4.0.0",
     "@builder6/query-mongodb": "^4.0.0",
-    "@crm/steedos-package-crm": "*",
+    "@crm/steedos-package-crm": "workspace:*",
     "@steedos/server": "latest",
     "mongodb": "^6.21.0"
   },
