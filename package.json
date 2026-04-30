@@ -11,15 +11,18 @@
     "test:mongo": "node scripts/test-mongo.js"
   },
   "dependencies": {
-    "@builder6/core": "^4.0.0",
-    "@builder6/microservices": "^4.0.0",
-    "@builder6/moleculer": "^4.0.0",
-    "@builder6/query-mongodb": "^4.0.0",
     "@crm/steedos-package-crm": "workspace:*",
     "@steedos/server": "latest",
-    "mongodb": "^6.21.0"
+    "steedos-cli": "latest"
+  },
+  "pnpm": {
+    "overrides": {
+      "graphql": "15.10.2",
+      "ioredis": "5.10.1"
+    }
   },
   "overrides": {
-    "graphql": "15.10.2"
+    "graphql": "15.10.2",
+    "ioredis": "5.10.1"
   }
 }

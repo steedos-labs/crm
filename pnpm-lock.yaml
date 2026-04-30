@@ -4,31 +4,23 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  graphql: 15.10.2
+  ioredis: 5.10.1
+
 importers:
 
   .:
     dependencies:
-      '@builder6/core':
-        specifier: ^4.0.0
-        version: 4.0.0(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/config@4.0.4(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2))(@nestjs/core@11.1.19)(@nestjs/jwt@11.0.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2)))(@nestjs/platform-socket.io@11.1.19)(@nestjs/platform-ws@11.1.19(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/websockets@11.1.19)(rxjs@7.8.2))(@nestjs/swagger@11.4.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(class-validator@0.14.4)(reflect-metadata@0.2.2))(moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0))(nestjs-pino@4.6.1(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(pino-http@11.0.0)(pino@10.3.1)(rxjs@7.8.2))(pino-http@11.0.0)(pino-pretty@13.1.3)
-      '@builder6/microservices':
-        specifier: ^4.0.0
-        version: 4.0.0
-      '@builder6/moleculer':
-        specifier: ^4.0.0
-        version: 4.0.0(moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0))
-      '@builder6/query-mongodb':
-        specifier: ^4.0.0
-        version: 4.0.0
       '@crm/steedos-package-crm':
         specifier: workspace:*
         version: link:steedos-packages/crm
       '@steedos/server':
         specifier: latest
         version: 3.0.13(@azure/core-client@1.10.1)(@opentelemetry/api@1.9.0)(@steedos/utils@3.0.13)(@types/express@5.0.6)(@types/node@25.6.0)(cbor-x@1.6.4)(debug@4.4.3)(express@5.2.1)(graphql@15.10.2)(mssql@11.0.1(@azure/core-client@1.10.1))(nats@2.29.3)(notepack.io@3.0.1)(oracledb@6.10.0)(pg@8.20.0)(postcss@8.5.12)(react-dom@16.14.0(react@16.14.0))(react@16.14.0)(redlock@4.2.0)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))(typescript@6.0.3)
-      mongodb:
-        specifier: ^6.21.0
-        version: 6.21.0(socks@2.8.8)
+      steedos-cli:
+        specifier: latest
+        version: 3.0.13(@types/node@25.6.0)(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)(typescript@6.0.3)
 
   steedos-packages/crm: {}
 
@@ -66,7 +58,7 @@ packages:
   '@apollo/client@4.1.9':
     resolution: {integrity: sha512-qfpkQD51tdU/7iAR6aLb4w9o/L7I475DluWHRb61U/3Q0AH29nNOxOBHjBbWDdf16ncPOoQuxne1sEs2NjqBFw==}
     peerDependencies:
-      graphql: ^16.0.0
+      graphql: 15.10.2
       graphql-ws: ^5.5.5 || ^6.0.3
       react: ^17.0.0 || ^18.0.0 || >=19.0.0-rc
       react-dom: ^17.0.0 || ^18.0.0 || >=19.0.0-rc
@@ -97,7 +89,7 @@ packages:
     resolution: {integrity: sha512-jU1XjMr6ec9pPoL+BFWzEPW7VHHulVdGKMkPAMiCigpVIT11VmCbnij0bWob8uS3ODJ65tZLYKAh/55vLw2rbg==}
     engines: {node: '>=12.13.0'}
     peerDependencies:
-      graphql: 14.x || 15.x || 16.x
+      graphql: 15.10.2
 
   '@apollo/utils.keyvaluecache@1.0.2':
     resolution: {integrity: sha512-p7PVdLPMnPzmXSQVEsy27cYEjVON+SH/Wb7COyW3rQN8+wJgT1nv9jZouYtztWW8ZgTkii5T6tC9qfoDREd4mg==}
@@ -109,37 +101,37 @@ packages:
     resolution: {integrity: sha512-GfFSkAv3n1toDZ4V6u2d7L4xMwLA+lv+6hqXicMN9KELSJ9yy9RzuEXaX73c/Ry+GzRsBy/fdSUGayGqdHfT2Q==}
     engines: {node: '>=12.13.0'}
     peerDependencies:
-      graphql: 14.x || 15.x || 16.x
+      graphql: 15.10.2
 
   '@apollo/utils.removealiases@1.0.0':
     resolution: {integrity: sha512-6cM8sEOJW2LaGjL/0vHV0GtRaSekrPQR4DiywaApQlL9EdROASZU5PsQibe2MWeZCOhNrPRuHh4wDMwPsWTn8A==}
     engines: {node: '>=12.13.0'}
     peerDependencies:
-      graphql: 14.x || 15.x || 16.x
+      graphql: 15.10.2
 
   '@apollo/utils.sortast@1.1.0':
     resolution: {integrity: sha512-VPlTsmUnOwzPK5yGZENN069y6uUHgeiSlpEhRnLFYwYNoJHsuJq2vXVwIaSmts015WTPa2fpz1inkLYByeuRQA==}
     engines: {node: '>=12.13.0'}
     peerDependencies:
-      graphql: 14.x || 15.x || 16.x
+      graphql: 15.10.2
 
   '@apollo/utils.stripsensitiveliterals@1.2.0':
     resolution: {integrity: sha512-E41rDUzkz/cdikM5147d8nfCFVKovXxKBcjvLEQ7bjZm/cg9zEcXvS6vFY8ugTubI3fn6zoqo0CyU8zT+BGP9w==}
     engines: {node: '>=12.13.0'}
     peerDependencies:
-      graphql: 14.x || 15.x || 16.x
+      graphql: 15.10.2
 
   '@apollo/utils.usagereporting@1.0.1':
     resolution: {integrity: sha512-6dk+0hZlnDbahDBB2mP/PZ5ybrtCJdLMbeNJD+TJpKyZmSY6bA3SjI8Cr2EM9QA+AdziywuWg+SgbWUF3/zQqQ==}
     engines: {node: '>=12.13.0'}
     peerDependencies:
-      graphql: 14.x || 15.x || 16.x
+      graphql: 15.10.2
 
   '@apollographql/apollo-tools@0.5.4':
     resolution: {integrity: sha512-shM3q7rUbNyXVVRkQJQseXv6bnYM3BUma/eZhwXR4xsuM+bqWnJKvW7SAfRjP7LuSCocrexa5AXhjjawNHrIlw==}
     engines: {node: '>=8', npm: '>=6'}
     peerDependencies:
-      graphql: ^14.2.1 || ^15.0.0 || ^16.0.0
+      graphql: 15.10.2
 
   '@apollographql/graphql-playground-html@1.6.29':
     resolution: {integrity: sha512-xCcXpoz52rI4ksJSdOCxeOCn2DLocxwHf9dVT/Q90Pte1LX+LY+91SFtJF3KXVHH8kEin+g1KKCQPKBjZJfWNA==}
@@ -526,21 +518,6 @@ packages:
       pino-http: ^11.0.0
       pino-pretty: ^13.0.0
 
-  '@builder6/core@4.0.0':
-    resolution: {integrity: sha512-KDCJdrwodBQmOlx4Ag7RulmdekRKTLu887aUXbp9Rpm1w86FBws5kD3bP3OQ0CoAr2V1zvxBIy2VSEI6VDR2Gg==}
-    peerDependencies:
-      '@nestjs/common': ^11.0.0
-      '@nestjs/config': ^4.0.1
-      '@nestjs/core': ^11.0.0
-      '@nestjs/jwt': ^11.0.0
-      '@nestjs/platform-socket.io': ^11.0.0
-      '@nestjs/platform-ws': ^11.0.0
-      '@nestjs/swagger': ^11.0.7
-      moleculer: ^0.14.35
-      nestjs-pino: ^4.4.1
-      pino-http: ^11.0.0
-      pino-pretty: ^13.0.0
-
   '@builder6/docs-client@3.0.4-beta.8':
     resolution: {integrity: sha512-bXb/kls1fbWVfkUXVkyCM0SXkyUOkgaqedqdxMUlVdVcYGcEghDuw9BwxuvqSYOuiA3A35zI6Jt29/QKIv9sWg==}
 
@@ -581,16 +558,8 @@ packages:
   '@builder6/microservices@3.2.12':
     resolution: {integrity: sha512-ekuiQc/c3YHpm5M82KX6i8pz2a5bOBu9Er+ysV7rVqL8hAG/Szmzy9CEXLmE/uUofyJXBCbRoszNojEFSjFuDg==}
 
-  '@builder6/microservices@4.0.0':
-    resolution: {integrity: sha512-BNi7WQ88D4P2aQNv5oIUNhnqVjQxSB2qRIRRqowTkfZbI4Gfg4rlB/k5J7RPbRIqcT1rpWs6Kyq/H3tHL18Ycw==}
-
   '@builder6/moleculer@3.2.12':
     resolution: {integrity: sha512-TkcSjg0TuhiB5WG1iGKldp0fh+yiX9KxIeYCkDD2gOH4D1tqSOVuFtst9Z+qzVXnaFFiZ+IpNjxuOk7tjMfFmg==}
-    peerDependencies:
-      moleculer: ^0.14.35
-
-  '@builder6/moleculer@4.0.0':
-    resolution: {integrity: sha512-LjHdDvxyz5evhNeLn8868pGO/qP9r+NqfaCiGIbEJ1w3C7Z9KDzdSr+OK8K+27TQIwaAVKE00oIDiwbctqYZkQ==}
     peerDependencies:
       moleculer: ^0.14.35
 
@@ -635,10 +604,6 @@ packages:
 
   '@builder6/query-mongodb@3.2.12':
     resolution: {integrity: sha512-pL7jJzn1kUvu6JVCwx+ysGsWnBGkw9dNPP3mPOCt+6uJ+e/v5GJ6HYm9WoIMZV1wuu6TU5p6XJeOmWp70Rkxrg==}
-    engines: {node: '>=7.3'}
-
-  '@builder6/query-mongodb@4.0.0':
-    resolution: {integrity: sha512-n6+vhv0M38xG6IDRkuleE+tQFTi/lF9R4jwmVZIz8dd+qgu2qjP02FpGy97fJvnVfuCUBnnNap+IaQhTYN5Hqg==}
     engines: {node: '>=7.3'}
 
   '@builder6/rooms@3.2.12':
@@ -795,60 +760,60 @@ packages:
   '@graphql-tools/merge@8.3.1':
     resolution: {integrity: sha512-BMm99mqdNZbEYeTPK3it9r9S6rsZsQKtlqJsSBknAclXq2pGEfOxjcIZi+kBSkHZKPKCRrYDd5vY0+rUmIHVLg==}
     peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+      graphql: 15.10.2
 
   '@graphql-tools/merge@8.4.2':
     resolution: {integrity: sha512-XbrHAaj8yDuINph+sAfuq3QCZ/tKblrTLOpirK0+CAgNlZUCHs0Fa+xtMUURgwCVThLle1AF7svJCxFizygLsw==}
     peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+      graphql: 15.10.2
 
   '@graphql-tools/merge@9.1.9':
     resolution: {integrity: sha512-iHUWNjRHeQRYdgIMIuChThOwoKzA9vrzYeslgfBo5eUYEyHGZCoDPjAavssoYXLwstYt1dZj2J22jSzc2DrN0Q==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+      graphql: 15.10.2
 
   '@graphql-tools/mock@8.7.20':
     resolution: {integrity: sha512-ljcHSJWjC/ZyzpXd5cfNhPI7YljRVvabKHPzKjEs5ElxWu2cdlLGvyNYepApXDsM/OJG/2xuhGM+9GWu5gEAPQ==}
     peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+      graphql: 15.10.2
 
   '@graphql-tools/schema@10.0.33':
     resolution: {integrity: sha512-O6P3RIftO0jafnSsFAqpjurUuUxJ43s/AdPVLQsBkI6y4Ic/tKm4C1Qm1KKQsCDTOxXPJClh/v3g7k7yLKCFBQ==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+      graphql: 15.10.2
 
   '@graphql-tools/schema@8.5.1':
     resolution: {integrity: sha512-0Esilsh0P/qYcB5DKQpiKeQs/jevzIadNTaT0jeWklPMwNbT7yMX4EqZany7mbeRRlSRwMzNzL5olyFdffHBZg==}
     peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+      graphql: 15.10.2
 
   '@graphql-tools/schema@9.0.19':
     resolution: {integrity: sha512-oBRPoNBtCkk0zbUsyP4GaIzCt8C0aCI4ycIRUL67KK5pOHljKLBBtGT+Jr6hkzA74C8Gco8bpZPe7aWFjiaK2w==}
     peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+      graphql: 15.10.2
 
   '@graphql-tools/utils@11.1.0':
     resolution: {integrity: sha512-PtFVG4r8Z2LEBSaPYQMusBiB3o6kjLVJyjCLbnWem/SpSuM21v6LTmgpkXfYU1qpBV2UGsFyuEnSJInl8fR1Ag==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+      graphql: 15.10.2
 
   '@graphql-tools/utils@8.9.0':
     resolution: {integrity: sha512-pjJIWH0XOVnYGXCqej8g/u/tsfV4LvLlj0eATKQu5zwnxd/TiTHq7Cg313qUPTFFHZ3PP5wJ15chYVtLDwaymg==}
     peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+      graphql: 15.10.2
 
   '@graphql-tools/utils@9.2.1':
     resolution: {integrity: sha512-WUw506Ql6xzmOORlriNrD6Ugx+HjVgYxt9KCXD9mHAak+eaXSwuGGPyE60hy9xaDEoXKBsG7SkG69ybitaVl6A==}
     peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+      graphql: 15.10.2
 
   '@graphql-typed-document-node/core@3.2.0':
     resolution: {integrity: sha512-mB9oAsNCm9aM3/SOv4YtBMqZbYj10R7dkq8byBqxGY/ncFwhf2oQzMV+LCRlWoDSEBJ3COiR1yeDvMtsoOsuFQ==}
     peerDependencies:
-      graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+      graphql: 15.10.2
 
   '@hapi/accept@3.2.4':
     resolution: {integrity: sha512-soThGB+QMgfxlh0Vzhzlf3ZOEOPk5biEwcOXhkF0Eedqx8VnhGiggL9UYHrIsOb1rUg3Be3K8kp0iDL2wbVSOQ==}
@@ -864,9 +829,6 @@ packages:
 
   '@ioredis/commands@1.5.1':
     resolution: {integrity: sha512-JH8ZL/ywcJyR9MmJ5BNqZllXNZQqQbnVZOqpPQqE1vHiFgAw4NHbvE0FOduNU8IX9babitBT46571OnPTT0Zcw==}
-
-  '@ioredis/commands@1.7.0':
-    resolution: {integrity: sha512-5E3KP12g1Po3xMdaym6N3VBibWAH/vv7XxGl8M20KQyPfZWB7sAhLb90+9IX/WJWFHuRFai5caz+DXKQbLI51g==}
 
   '@isaacs/cliui@8.0.2':
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
@@ -924,9 +886,6 @@ packages:
 
   '@microsoft/tsdoc@0.16.0':
     resolution: {integrity: sha512-xgAyonlVVS+q7Vc7qLW0UrJU7rSFcETRWsqdXZtjzRU8dF+6CkozTK4V4y1LwOX7j8r/vHphjDeMeGI4tNGeGA==}
-
-  '@mongodb-js/saslprep@1.4.9':
-    resolution: {integrity: sha512-RXSxsokhAF/4nWys8An8npsqOI33Ex1Hlzqjw2pZOO+GKtMAR2noGnUdsFiGwsaO/xXI+56mtjTmDA3JXJsvmA==}
 
   '@msgpackr-extract/msgpackr-extract-darwin-arm64@3.0.3':
     resolution: {integrity: sha512-QZHtlVgbAdy2zAqNA9Gu1UpIuI8Xvsd1v8ic6B2pZmeFnFcMWiPLfWXh7TVw4eGEZ/C9TH281KwhVoeQUKbyjw==}
@@ -1023,7 +982,7 @@ packages:
       amqp-connection-manager: '*'
       amqplib: '*'
       cache-manager: '*'
-      ioredis: '*'
+      ioredis: 5.10.1
       kafkajs: '*'
       mqtt: '*'
       nats: '*'
@@ -2117,12 +2076,6 @@ packages:
   '@types/validator@13.15.10':
     resolution: {integrity: sha512-T8L6i7wCuyoK8A/ZeLYt1+q0ty3Zb9+qbSSvrIVitzT3YjZqkTZ40IbRsPanlB4h1QB3JVL1SYCdR6ngtFYcuA==}
 
-  '@types/webidl-conversions@7.0.3':
-    resolution: {integrity: sha512-CiJJvcRtIgzadHCYXw7dqEnMNRjhGZlYK05Mj9OyktqV8uVT8fD2BFOB7S1uwBE3Kj2Z+4UyPmFw/Ixgw/LAlA==}
-
-  '@types/whatwg-url@11.0.5':
-    resolution: {integrity: sha512-coYR071JRaHa+xoEvvYqvnIHaVqaYrLPbsufM9BF63HkwI5Lgmy2QR8Q5K/lYDYo5AK82wOvSOS0UsLTpTG7uQ==}
-
   '@types/ws@8.18.1':
     resolution: {integrity: sha512-ThVF6DCVhA8kUGy+aazFQ4kXQ7E1Ty7A3ypFOe0IcJV8O/M511G99AW24irKrW56Wt44yG9+ij8FaqoBGkuBXg==}
 
@@ -2282,7 +2235,7 @@ packages:
     engines: {node: '>=12.0'}
     deprecated: The `apollo-server-core` package is part of Apollo Server v2 and v3, which are now end-of-life (as of October 22nd 2023 and October 22nd 2024, respectively). This package's functionality is now found in the `@apollo/server` package. See https://www.apollographql.com/docs/apollo-server/previous-versions/ for more details.
     peerDependencies:
-      graphql: ^15.3.0 || ^16.0.0
+      graphql: 15.10.2
 
   apollo-server-env@4.2.1:
     resolution: {integrity: sha512-vm/7c7ld+zFMxibzqZ7SSa5tBENc4B0uye9LTfjJwGoQFY5xsUPH5FpO5j0bMUDZ8YYNbrF9SNtzc5Cngcr90g==}
@@ -2294,21 +2247,21 @@ packages:
     engines: {node: '>=12.0'}
     deprecated: The `apollo-server-errors` package is part of Apollo Server v2 and v3, which are now end-of-life (as of October 22nd 2023 and October 22nd 2024, respectively). This package's functionality is now found in the `@apollo/server` package. See https://www.apollographql.com/docs/apollo-server/previous-versions/ for more details.
     peerDependencies:
-      graphql: ^15.3.0 || ^16.0.0
+      graphql: 15.10.2
 
   apollo-server-plugin-base@3.7.2:
     resolution: {integrity: sha512-wE8dwGDvBOGehSsPTRZ8P/33Jan6/PmL0y0aN/1Z5a5GcbFhDaaJCjK5cav6npbbGL2DPKK0r6MPXi3k3N45aw==}
     engines: {node: '>=12.0'}
     deprecated: The `apollo-server-plugin-base` package is part of Apollo Server v2 and v3, which are now end-of-life (as of October 22nd 2023 and October 22nd 2024, respectively). This package's functionality is now found in the `@apollo/server` package. See https://www.apollographql.com/docs/apollo-server/previous-versions/ for more details.
     peerDependencies:
-      graphql: ^15.3.0 || ^16.0.0
+      graphql: 15.10.2
 
   apollo-server-types@3.8.0:
     resolution: {integrity: sha512-ZI/8rTE4ww8BHktsVpb91Sdq7Cb71rdSkXELSwdSR0eXu600/sY+1UXhTWdiJvk+Eq5ljqoHLwLbY2+Clq2b9A==}
     engines: {node: '>=12.0'}
     deprecated: The `apollo-server-types` package is part of Apollo Server v2 and v3, which are now end-of-life (as of October 22nd 2023 and October 22nd 2024, respectively). This package's functionality is now found in the `@apollo/server` package. See https://www.apollographql.com/docs/apollo-server/previous-versions/ for more details.
     peerDependencies:
-      graphql: ^15.3.0 || ^16.0.0
+      graphql: 15.10.2
 
   app-root-path@2.2.1:
     resolution: {integrity: sha512-91IFKeKk7FjfmezPKkwtaRvSpnUc4gDwPAjA1YZ9Gn0q0PPeW+vbeUsZuyDwjI7+QTHhcLen2v25fi/AmhvbJA==}
@@ -2505,10 +2458,6 @@ packages:
   bson@4.6.4:
     resolution: {integrity: sha512-TdQ3FzguAu5HKPPlr0kYQCyrYUYh8tFM+CMTpxjNzVzxeiJY00Rtuj3LXLHSgiGvmaWlZ8PE+4KyM2thqE38pQ==}
     engines: {node: '>=6.9.0'}
-
-  bson@6.10.4:
-    resolution: {integrity: sha512-WIsKqkSC0ABoBJuT1LEX+2HEvNmNKKgnTAyd0fL8qzK4SH2i9NXg+t08YtdZp/V9IZ33cxe3iV4yM0qg8lMQng==}
-    engines: {node: '>=16.20.1'}
 
   buffer-alloc-unsafe@1.1.0:
     resolution: {integrity: sha512-TEM2iMIEQdJ2yjPJoSIsldnleVaAk1oW3DBVUykyOLsEsFmEc9kn+SFFPz+gl54KQNxlDnAwCXosOS9Okx2xAg==}
@@ -3781,35 +3730,35 @@ packages:
   graphql-iso-date@3.6.1:
     resolution: {integrity: sha512-AwFGIuYMJQXOEAgRlJlFL4H1ncFM8n8XmoVDTNypNOZyQ8LFDG2ppMFlsS862BSTCDcSUfHp8PD3/uJhv7t59Q==}
     peerDependencies:
-      graphql: ^0.5.0 || ^0.6.0 || ^0.7.0 || ^0.8.0-b || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0
+      graphql: 15.10.2
 
   graphql-parse-resolve-info@4.14.1:
     resolution: {integrity: sha512-WKHukfEuZamP1ZONR84b8iT+4sJgEhtXMDArm1jpXEsU2vTb5EgkCZ4Obfl+v09oNTKXm0CJjPfBUZ5jcJ2Ykg==}
     engines: {node: '>=8.6'}
     peerDependencies:
-      graphql: '>=0.9 <0.14 || ^14.0.2 || ^15.4.0 || ^16.3.0'
+      graphql: 15.10.2
 
   graphql-subscriptions@1.2.1:
     resolution: {integrity: sha512-95yD/tKi24q8xYa7Q9rhQN16AYj5wPbrb8tmHGM3WRc9EBmWrG/0kkMl+tQG8wcEuE9ibR4zyOM31p5Sdr2v4g==}
     peerDependencies:
-      graphql: ^0.10.5 || ^0.11.3 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
+      graphql: 15.10.2
 
   graphql-tag@2.12.6:
     resolution: {integrity: sha512-FdSNcu2QQcWnM2VNvSCCDCVS5PpPqpzgFT8+GXzqJuoDd0CBncxCY278u4mhRO7tMgo2JjgJA5aZ+nWSQ/Z+xg==}
     engines: {node: '>=10'}
     peerDependencies:
-      graphql: ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+      graphql: 15.10.2
 
   graphql-tools@9.0.28:
     resolution: {integrity: sha512-QLRgoUXg7AciHYRWJ4TSfUbfBy/wCGSYG4fl8ccSFG3fXyAilekM1V+2ym+Fyv+DqbT1xM1CQ6BcSdCoOV3otA==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+      graphql: 15.10.2
 
   graphql-type-json@0.3.2:
     resolution: {integrity: sha512-J+vjof74oMlCWXSvt0DOf2APEdZOCdubEvGDUAlqH//VBYcOYsGgRW7Xzorr44LvkjiuvecWc8fChxuZZbChtg==}
     peerDependencies:
-      graphql: '>=0.8.0'
+      graphql: 15.10.2
 
   graphql-upload@17.0.0:
     resolution: {integrity: sha512-AI42S1UR1mdqg+LQ7KqGbrgcf4l9gpPu/R0drM4vSA5C94NfIjYyCeCdpktEledvZoAL8JURLLeB53++WACo1w==}
@@ -3817,7 +3766,7 @@ packages:
     peerDependencies:
       '@types/express': 4.0.29 - 5
       '@types/koa': ^2.11.4
-      graphql: ^16.3.0
+      graphql: 15.10.2
     peerDependenciesMeta:
       '@types/express':
         optional: true
@@ -3827,10 +3776,6 @@ packages:
   graphql@15.10.2:
     resolution: {integrity: sha512-1PRqdDPAmViWr4h1GVBT8RoPZfWSGZa7kDzleTilOfVIslsgf+cia3Nl95v1KDmR4iERPaT7WzQ+tN4MJmbg3w==}
     engines: {node: '>= 10.x'}
-
-  graphql@16.13.2:
-    resolution: {integrity: sha512-5bJ+nf/UCpAjHM8i06fl7eLyVC9iuNAjm9qzkiu2ZGhM0VscSvS6WDPfAwkdkBuoXGM9FJSbKl6wylMwP9Ktig==}
-    engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
 
   gunzip-maybe@1.4.2:
     resolution: {integrity: sha512-4haO1M4mLO91PW57BMsDFf75UmwoRX0GkdD+Faw+Lr+r/OZrOCS0pIBwOL1xCKQqnQzbNFGgK2V2CpBUPeFNTw==}
@@ -4029,10 +3974,6 @@ packages:
   inquirer@6.5.2:
     resolution: {integrity: sha512-cntlB5ghuB0iuO65Ovoi8ogLHiWGs/5yNrtUcKjFhSSiVeAIVpD7koaSU9RM8mpXw5YDi9RdYXGQMaOURB7ycQ==}
     engines: {node: '>=6.0.0'}
-
-  ioredis@4.31.0:
-    resolution: {integrity: sha512-tVrCrc4LWJwX82GD79dZ0teZQGq+5KJEGpXJRgzHOrhHtLgF9ME6rTwDV5+HN5bjnvmtrnS8ioXhflY16sy2HQ==}
-    engines: {node: '>=6'}
 
   ioredis@5.10.1:
     resolution: {integrity: sha512-HuEDBTI70aYdx1v6U97SbNx9F1+svQKBDo30o0b9fw055LMepzpOOd0Ccg9Q6tbqmBSJaMuY0fB7yw9/vjBYCA==}
@@ -4729,7 +4670,7 @@ packages:
       dd-trace: ^0.33.0 || ^0.34.0 || ^0.35.0 || ^0.36.0 || >=1.0.0 <1.6.0
       debug: ^4.0.0
       etcd3: ^1.0.0
-      ioredis: ^4.0.0 || ^5.0.0
+      ioredis: 5.10.1
       jaeger-client: ^3.0.0
       kafka-node: ^5.0.0
       log4js: ^6.0.0
@@ -4799,9 +4740,6 @@ packages:
   moment@2.30.1:
     resolution: {integrity: sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how==}
 
-  mongodb-connection-string-url@3.0.2:
-    resolution: {integrity: sha512-rMO7CGo/9BFwyZABcKAWL8UJwH/Kc2x0g72uhDWzG48URRax5TCIcJ7Rc3RZqffZzO/Gwff/jyKwCU9TN8gehA==}
-
   mongodb-uri@0.9.7:
     resolution: {integrity: sha512-s6BdnqNoEYfViPJgkH85X5Nw5NpzxN8hoflKLweNa7vBxt2V7kaS06d74pAtqDxde8fn4r9h4dNdLiFGoNV0KA==}
     engines: {node: '>= 0.6.0'}
@@ -4828,33 +4766,6 @@ packages:
       mongodb-extjson:
         optional: true
       snappy:
-        optional: true
-
-  mongodb@6.21.0:
-    resolution: {integrity: sha512-URyb/VXMjJ4da46OeSXg+puO39XH9DeQpWCslifrRn9JWugy0D+DvvBvkm2WxmHe61O/H19JM66p1z7RHVkZ6A==}
-    engines: {node: '>=16.20.1'}
-    peerDependencies:
-      '@aws-sdk/credential-providers': ^3.188.0
-      '@mongodb-js/zstd': ^1.1.0 || ^2.0.0
-      gcp-metadata: ^5.2.0
-      kerberos: ^2.0.1
-      mongodb-client-encryption: '>=6.0.0 <7'
-      snappy: ^7.3.2
-      socks: ^2.7.1
-    peerDependenciesMeta:
-      '@aws-sdk/credential-providers':
-        optional: true
-      '@mongodb-js/zstd':
-        optional: true
-      gcp-metadata:
-        optional: true
-      kerberos:
-        optional: true
-      mongodb-client-encryption:
-        optional: true
-      snappy:
-        optional: true
-      socks:
         optional: true
 
   morgan@1.10.1:
@@ -5300,10 +5211,6 @@ packages:
   p-locate@4.1.0:
     resolution: {integrity: sha512-R79ZZ/0wAxKGu3oYMlz8jy/kbhsNrS7SKZ7PxEHBgJ5+F2mtFW2fK2cOtBh1cHYkQsbzFV7I+EoRKe6Yt0oK7A==}
     engines: {node: '>=8'}
-
-  p-map@2.1.0:
-    resolution: {integrity: sha512-y3b8Kpd8OAN444hxfBbFfj1FY/RjtTd8tzYwhUqNYXx0fXx2iX4maP4Qr6qhIKbQXI02wTLAda4fYUbDagTUFw==}
-    engines: {node: '>=6'}
 
   p-map@7.0.4:
     resolution: {integrity: sha512-tkAQEw8ysMzmkhgw8k+1U/iPhWNhykKnSk4Rd5zLoPJCuJaGRPo6YposrZgaxHKzDHdDWWZvE/Sk7hsL2X/CpQ==}
@@ -6692,10 +6599,6 @@ packages:
     resolution: {integrity: sha512-l7FvfAHlcmulp8kr+flpQZmVwtu7nfRV7NZujtN0OqES8EL4O4e0qqzL0DC5gAvx/ZC/9lk6rhcUwYvkBnBnYA==}
     engines: {node: '>=12'}
 
-  tr46@5.1.1:
-    resolution: {integrity: sha512-hdF5ZgjTqgAntKkklYw0R03MG2x/bSzTtkxmIRw/sTNV8YXsCJ1tfLAX23lhxhHJlEf3CRCOCGGWw3vI3GaSPw==}
-    engines: {node: '>=18'}
-
   ts-interface-checker@0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
 
@@ -6773,7 +6676,7 @@ packages:
       '@google-cloud/spanner': ^5.18.0 || ^6.0.0 || ^7.0.0
       '@sap/hana-client': ^2.14.22
       better-sqlite3: ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0
-      ioredis: ^5.0.4
+      ioredis: 5.10.1
       mongodb: ^5.8.0 || ^6.0.0
       mssql: ^9.1.1 || ^10.0.1 || ^11.0.1
       mysql2: ^2.2.5 || ^3.0.1
@@ -7034,10 +6937,6 @@ packages:
   whatwg-url@11.0.0:
     resolution: {integrity: sha512-RKT8HExMpoYx4igMiVMY83lN6UeITKJlBQ+vR/8ZJ8OCdSiN3RwCq+9gH0+Xzj0+5IrM6i4j/6LuvzbZIQgEcQ==}
     engines: {node: '>=12'}
-
-  whatwg-url@14.2.0:
-    resolution: {integrity: sha512-De72GdQZzNTUBBChsXueQUnPKDkg/5A5zp7pFDuQAj5UFoENpiACU0wlCvzpAGnTkj++ihpKwKyYewn/XNUbKw==}
-    engines: {node: '>=18'}
 
   whatwg-url@5.0.0:
     resolution: {integrity: sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw==}
@@ -8119,46 +8018,16 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@builder6/core@4.0.0(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/config@4.0.4(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2))(@nestjs/core@11.1.19)(@nestjs/jwt@11.0.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2)))(@nestjs/platform-socket.io@11.1.19)(@nestjs/platform-ws@11.1.19(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/websockets@11.1.19)(rxjs@7.8.2))(@nestjs/swagger@11.4.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(class-validator@0.14.4)(reflect-metadata@0.2.2))(moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0))(nestjs-pino@4.6.1(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(pino-http@11.0.0)(pino@10.3.1)(rxjs@7.8.2))(pino-http@11.0.0)(pino-pretty@13.1.3)':
-    dependencies:
-      '@aws-sdk/client-cloudwatch-logs': 3.1039.0
-      '@builder6/query-mongodb': 4.0.0
-      '@nestjs/common': 11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2)
-      '@nestjs/config': 4.0.4(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2)
-      '@nestjs/core': 11.1.19(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/microservices@11.1.19)(@nestjs/platform-express@11.1.19)(@nestjs/websockets@11.1.19)(reflect-metadata@0.2.2)(rxjs@7.8.2)
-      '@nestjs/jwt': 11.0.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))
-      '@nestjs/platform-socket.io': 11.1.19(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/websockets@11.1.19)(rxjs@7.8.2)
-      '@nestjs/platform-ws': 11.1.19(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/websockets@11.1.19)(rxjs@7.8.2)
-      '@nestjs/swagger': 11.4.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(class-validator@0.14.4)(reflect-metadata@0.2.2)
-      '@socket.io/redis-adapter': 8.3.0(socket.io-adapter@2.5.6)
-      moleculer: 0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
-      mongodb: 3.7.4
-      nestjs-pino: 4.6.1(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(pino-http@11.0.0)(pino@10.3.1)(rxjs@7.8.2)
-      pino-http: 11.0.0
-      pino-pretty: 13.1.3
-      socket.io-adapter: 2.5.6
-    transitivePeerDependencies:
-      - aws-crt
-      - aws4
-      - bson-ext
-      - bufferutil
-      - kerberos
-      - mongodb-client-encryption
-      - mongodb-extjson
-      - snappy
-      - supports-color
-      - utf-8-validate
-
   '@builder6/docs-client@3.0.4-beta.8': {}
 
   '@builder6/docs@3.2.12(4hscr45zyg5tqt5od2nfmmnv2e)':
     dependencies:
       '@builder6/core': 3.2.14(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/config@4.0.4(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2))(@nestjs/core@11.1.19)(@nestjs/jwt@11.0.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2)))(@nestjs/platform-socket.io@11.1.19)(@nestjs/platform-ws@11.1.19(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/websockets@11.1.19)(rxjs@7.8.2))(@nestjs/swagger@11.4.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(class-validator@0.14.4)(reflect-metadata@0.2.2))(moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0))(nestjs-pino@4.6.1(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(pino-http@11.0.0)(pino@10.3.1)(rxjs@7.8.2))(pino-http@11.0.0)(pino-pretty@13.1.3)
       '@builder6/docs-client': 3.0.4-beta.8
-      '@builder6/files': 3.2.12(cmwokvccedzdo426goqic6iqya)
+      '@builder6/files': 3.2.12(3wvohi6nb5bfh44yxgbwmdykvq)
       '@builder6/moleculer': 3.2.12(moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0))
-      '@builder6/oidc': 3.2.12(tzczlruhfg2kh5shqlz4c3xfum)
-      '@builder6/onlyoffice': 3.2.12(fbnzoc7b54elg5spvhzlqypx2a)
+      '@builder6/oidc': 3.2.12(mdr6ycjsmkjedxdaxmah55nvyy)
+      '@builder6/onlyoffice': 3.2.12(u2gqxbs3loiqa2aqzfbfngxg2q)
       '@nestjs/common': 11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/config': 4.0.4(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2)
       '@nestjs/core': 11.1.19(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/microservices@11.1.19)(@nestjs/platform-express@11.1.19)(@nestjs/websockets@11.1.19)(reflect-metadata@0.2.2)(rxjs@7.8.2)
@@ -8191,18 +8060,6 @@ snapshots:
       lodash: 4.18.1
       nodemailer: 7.0.13
 
-  '@builder6/email@3.2.12(cmwokvccedzdo426goqic6iqya)':
-    dependencies:
-      '@builder6/core': 4.0.0(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/config@4.0.4(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2))(@nestjs/core@11.1.19)(@nestjs/jwt@11.0.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2)))(@nestjs/platform-socket.io@11.1.19)(@nestjs/platform-ws@11.1.19(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/websockets@11.1.19)(rxjs@7.8.2))(@nestjs/swagger@11.4.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(class-validator@0.14.4)(reflect-metadata@0.2.2))(moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0))(nestjs-pino@4.6.1(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(pino-http@11.0.0)(pino@10.3.1)(rxjs@7.8.2))(pino-http@11.0.0)(pino-pretty@13.1.3)
-      '@builder6/moleculer': 4.0.0(moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0))
-      '@nestjs/common': 11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2)
-      '@nestjs/core': 11.1.19(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/microservices@11.1.19)(@nestjs/platform-express@11.1.19)(@nestjs/websockets@11.1.19)(reflect-metadata@0.2.2)(rxjs@7.8.2)
-      '@nestjs/swagger': 11.4.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(class-validator@0.14.4)(reflect-metadata@0.2.2)
-      bluebird: 3.7.2
-      email-addresses: 5.0.0
-      lodash: 4.18.1
-      nodemailer: 7.0.13
-
   '@builder6/files@3.2.12(3wvohi6nb5bfh44yxgbwmdykvq)':
     dependencies:
       '@builder6/core': 3.2.14(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/config@4.0.4(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2))(@nestjs/core@11.1.19)(@nestjs/jwt@11.0.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2)))(@nestjs/platform-socket.io@11.1.19)(@nestjs/platform-ws@11.1.19(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/websockets@11.1.19)(rxjs@7.8.2))(@nestjs/swagger@11.4.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(class-validator@0.14.4)(reflect-metadata@0.2.2))(moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0))(nestjs-pino@4.6.1(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(pino-http@11.0.0)(pino@10.3.1)(rxjs@7.8.2))(pino-http@11.0.0)(pino-pretty@13.1.3)
@@ -8212,24 +8069,9 @@ snapshots:
       '@nestjs/swagger': 11.4.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(class-validator@0.14.4)(reflect-metadata@0.2.2)
       nodemailer: 7.0.13
 
-  '@builder6/files@3.2.12(cmwokvccedzdo426goqic6iqya)':
-    dependencies:
-      '@builder6/core': 4.0.0(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/config@4.0.4(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2))(@nestjs/core@11.1.19)(@nestjs/jwt@11.0.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2)))(@nestjs/platform-socket.io@11.1.19)(@nestjs/platform-ws@11.1.19(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/websockets@11.1.19)(rxjs@7.8.2))(@nestjs/swagger@11.4.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(class-validator@0.14.4)(reflect-metadata@0.2.2))(moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0))(nestjs-pino@4.6.1(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(pino-http@11.0.0)(pino@10.3.1)(rxjs@7.8.2))(pino-http@11.0.0)(pino-pretty@13.1.3)
-      '@builder6/moleculer': 4.0.0(moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0))
-      '@nestjs/common': 11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2)
-      '@nestjs/core': 11.1.19(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/microservices@11.1.19)(@nestjs/platform-express@11.1.19)(@nestjs/websockets@11.1.19)(reflect-metadata@0.2.2)(rxjs@7.8.2)
-      '@nestjs/swagger': 11.4.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(class-validator@0.14.4)(reflect-metadata@0.2.2)
-      nodemailer: 7.0.13
-
   '@builder6/microservices@3.2.12': {}
 
-  '@builder6/microservices@4.0.0': {}
-
   '@builder6/moleculer@3.2.12(moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0))':
-    dependencies:
-      moleculer: 0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
-
-  '@builder6/moleculer@4.0.0(moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0))':
     dependencies:
       moleculer: 0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
 
@@ -8258,34 +8100,11 @@ snapshots:
       openid-client: 5.7.1
       request-ip: 3.3.0
 
-  '@builder6/oidc@3.2.12(tzczlruhfg2kh5shqlz4c3xfum)':
-    dependencies:
-      '@builder6/core': 4.0.0(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/config@4.0.4(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2))(@nestjs/core@11.1.19)(@nestjs/jwt@11.0.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2)))(@nestjs/platform-socket.io@11.1.19)(@nestjs/platform-ws@11.1.19(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/websockets@11.1.19)(rxjs@7.8.2))(@nestjs/swagger@11.4.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(class-validator@0.14.4)(reflect-metadata@0.2.2))(moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0))(nestjs-pino@4.6.1(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(pino-http@11.0.0)(pino@10.3.1)(rxjs@7.8.2))(pino-http@11.0.0)(pino-pretty@13.1.3)
-      '@nestjs/common': 11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2)
-      '@nestjs/core': 11.1.19(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/microservices@11.1.19)(@nestjs/platform-express@11.1.19)(@nestjs/websockets@11.1.19)(reflect-metadata@0.2.2)(rxjs@7.8.2)
-      '@nestjs/swagger': 11.4.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(class-validator@0.14.4)(reflect-metadata@0.2.2)
-      ejs: 3.1.10
-      ismobilejs: 1.1.1
-      lodash: 4.18.1
-      openid-client: 5.7.1
-      request-ip: 3.3.0
-
-  '@builder6/onlyoffice@3.2.12(fbnzoc7b54elg5spvhzlqypx2a)':
-    dependencies:
-      '@builder6/core': 4.0.0(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/config@4.0.4(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2))(@nestjs/core@11.1.19)(@nestjs/jwt@11.0.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2)))(@nestjs/platform-socket.io@11.1.19)(@nestjs/platform-ws@11.1.19(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/websockets@11.1.19)(rxjs@7.8.2))(@nestjs/swagger@11.4.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(class-validator@0.14.4)(reflect-metadata@0.2.2))(moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0))(nestjs-pino@4.6.1(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(pino-http@11.0.0)(pino@10.3.1)(rxjs@7.8.2))(pino-http@11.0.0)(pino-pretty@13.1.3)
-      '@builder6/email': 3.2.12(cmwokvccedzdo426goqic6iqya)
-      '@builder6/files': 3.2.12(cmwokvccedzdo426goqic6iqya)
-      '@builder6/moleculer': 4.0.0(moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0))
-      '@nestjs/common': 11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2)
-      '@nestjs/core': 11.1.19(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/microservices@11.1.19)(@nestjs/platform-express@11.1.19)(@nestjs/websockets@11.1.19)(reflect-metadata@0.2.2)(rxjs@7.8.2)
-      '@nestjs/swagger': 11.4.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(class-validator@0.14.4)(reflect-metadata@0.2.2)
-      url: 0.11.4
-
   '@builder6/onlyoffice@3.2.12(u2gqxbs3loiqa2aqzfbfngxg2q)':
     dependencies:
       '@builder6/core': 3.2.14(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/config@4.0.4(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2))(@nestjs/core@11.1.19)(@nestjs/jwt@11.0.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2)))(@nestjs/platform-socket.io@11.1.19)(@nestjs/platform-ws@11.1.19(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/websockets@11.1.19)(rxjs@7.8.2))(@nestjs/swagger@11.4.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(class-validator@0.14.4)(reflect-metadata@0.2.2))(moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0))(nestjs-pino@4.6.1(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(pino-http@11.0.0)(pino@10.3.1)(rxjs@7.8.2))(pino-http@11.0.0)(pino-pretty@13.1.3)
-      '@builder6/email': 3.2.12(cmwokvccedzdo426goqic6iqya)
-      '@builder6/files': 3.2.12(cmwokvccedzdo426goqic6iqya)
+      '@builder6/email': 3.2.12(3wvohi6nb5bfh44yxgbwmdykvq)
+      '@builder6/files': 3.2.12(3wvohi6nb5bfh44yxgbwmdykvq)
       '@builder6/moleculer': 3.2.12(moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0))
       '@nestjs/common': 11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/core': 11.1.19(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/microservices@11.1.19)(@nestjs/platform-express@11.1.19)(@nestjs/websockets@11.1.19)(reflect-metadata@0.2.2)(rxjs@7.8.2)
@@ -8299,8 +8118,8 @@ snapshots:
       '@nestjs/common': 11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/core': 11.1.19(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/microservices@11.1.19)(@nestjs/platform-express@11.1.19)(@nestjs/websockets@11.1.19)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/swagger': 11.4.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(class-validator@0.14.4)(reflect-metadata@0.2.2)
-      '@steedos/auth': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
-      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/auth': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       '@tailwindcss/typography': 0.5.19(tailwindcss@3.4.19)
       autoprefixer: 10.5.0(postcss@8.5.12)
       cssnano: 7.1.7(postcss@8.5.12)
@@ -8317,15 +8136,11 @@ snapshots:
     dependencies:
       yup: 1.7.1
 
-  '@builder6/query-mongodb@4.0.0':
-    dependencies:
-      yup: 1.7.1
-
   '@builder6/rooms@3.2.12(mm2c7k7pmt3dljglm5ssugreza)':
     dependencies:
       '@builder6/core': 3.2.14(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/config@4.0.4(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2))(@nestjs/core@11.1.19)(@nestjs/jwt@11.0.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2)))(@nestjs/platform-socket.io@11.1.19)(@nestjs/platform-ws@11.1.19(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/websockets@11.1.19)(rxjs@7.8.2))(@nestjs/swagger@11.4.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(class-validator@0.14.4)(reflect-metadata@0.2.2))(moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0))(nestjs-pino@4.6.1(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(pino-http@11.0.0)(pino@10.3.1)(rxjs@7.8.2))(pino-http@11.0.0)(pino-pretty@13.1.3)
-      '@builder6/email': 3.2.12(cmwokvccedzdo426goqic6iqya)
-      '@builder6/files': 3.2.12(cmwokvccedzdo426goqic6iqya)
+      '@builder6/email': 3.2.12(3wvohi6nb5bfh44yxgbwmdykvq)
+      '@builder6/files': 3.2.12(3wvohi6nb5bfh44yxgbwmdykvq)
       '@builder6/moleculer': 3.2.12(moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0))
       '@liveblocks/emails': 2.12.0(react@19.2.5)
       '@liveblocks/node': 2.12.0
@@ -8470,7 +8285,7 @@ snapshots:
   '@builder6/sharepoint@3.2.12(ktx2dbne2mgf2k5c2dhrt2bppq)':
     dependencies:
       '@builder6/core': 3.2.14(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/config@4.0.4(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2))(@nestjs/core@11.1.19)(@nestjs/jwt@11.0.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2)))(@nestjs/platform-socket.io@11.1.19)(@nestjs/platform-ws@11.1.19(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/websockets@11.1.19)(rxjs@7.8.2))(@nestjs/swagger@11.4.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(class-validator@0.14.4)(reflect-metadata@0.2.2))(moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0))(nestjs-pino@4.6.1(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(pino-http@11.0.0)(pino@10.3.1)(rxjs@7.8.2))(pino-http@11.0.0)(pino-pretty@13.1.3)
-      '@builder6/files': 3.2.12(cmwokvccedzdo426goqic6iqya)
+      '@builder6/files': 3.2.12(3wvohi6nb5bfh44yxgbwmdykvq)
       '@builder6/moleculer': 3.2.12(moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0))
       '@nestjs/common': 11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/core': 11.1.19(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/microservices@11.1.19)(@nestjs/platform-express@11.1.19)(@nestjs/websockets@11.1.19)(reflect-metadata@0.2.2)(rxjs@7.8.2)
@@ -8482,7 +8297,7 @@ snapshots:
   '@builder6/steedos@3.2.12(ktx2dbne2mgf2k5c2dhrt2bppq)':
     dependencies:
       '@builder6/core': 3.2.14(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/config@4.0.4(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2))(@nestjs/core@11.1.19)(@nestjs/jwt@11.0.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2)))(@nestjs/platform-socket.io@11.1.19)(@nestjs/platform-ws@11.1.19(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/websockets@11.1.19)(rxjs@7.8.2))(@nestjs/swagger@11.4.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(class-validator@0.14.4)(reflect-metadata@0.2.2))(moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0))(nestjs-pino@4.6.1(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(pino-http@11.0.0)(pino@10.3.1)(rxjs@7.8.2))(pino-http@11.0.0)(pino-pretty@13.1.3)
-      '@builder6/files': 3.2.12(cmwokvccedzdo426goqic6iqya)
+      '@builder6/files': 3.2.12(3wvohi6nb5bfh44yxgbwmdykvq)
       '@builder6/moleculer': 3.2.12(moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0))
       '@nestjs/common': 11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/core': 11.1.19(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/microservices@11.1.19)(@nestjs/platform-express@11.1.19)(@nestjs/websockets@11.1.19)(reflect-metadata@0.2.2)(rxjs@7.8.2)
@@ -8491,7 +8306,7 @@ snapshots:
   '@builder6/tables@3.2.12(ktx2dbne2mgf2k5c2dhrt2bppq)':
     dependencies:
       '@builder6/core': 3.2.14(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/config@4.0.4(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2))(@nestjs/core@11.1.19)(@nestjs/jwt@11.0.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2)))(@nestjs/platform-socket.io@11.1.19)(@nestjs/platform-ws@11.1.19(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/websockets@11.1.19)(rxjs@7.8.2))(@nestjs/swagger@11.4.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(class-validator@0.14.4)(reflect-metadata@0.2.2))(moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0))(nestjs-pino@4.6.1(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(pino-http@11.0.0)(pino@10.3.1)(rxjs@7.8.2))(pino-http@11.0.0)(pino-pretty@13.1.3)
-      '@builder6/files': 3.2.12(cmwokvccedzdo426goqic6iqya)
+      '@builder6/files': 3.2.12(3wvohi6nb5bfh44yxgbwmdykvq)
       '@builder6/moleculer': 3.2.12(moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0))
       '@nestjs/common': 11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/core': 11.1.19(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/microservices@11.1.19)(@nestjs/platform-express@11.1.19)(@nestjs/websockets@11.1.19)(reflect-metadata@0.2.2)(rxjs@7.8.2)
@@ -8693,8 +8508,6 @@ snapshots:
 
   '@ioredis/commands@1.5.1': {}
 
-  '@ioredis/commands@1.7.0': {}
-
   '@isaacs/cliui@8.0.2':
     dependencies:
       string-width: 5.1.2
@@ -8768,10 +8581,6 @@ snapshots:
   '@lukeed/csprng@1.1.0': {}
 
   '@microsoft/tsdoc@0.16.0': {}
-
-  '@mongodb-js/saslprep@1.4.9':
-    dependencies:
-      sparse-bitfield: 3.0.3
 
   '@msgpackr-extract/msgpackr-extract-darwin-arm64@3.0.3':
     optional: true
@@ -9716,12 +9525,12 @@ snapshots:
 
   '@steedos-widgets/amis-object@6.10.52': {}
 
-  '@steedos/accounts@3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
+  '@steedos/accounts@3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
     dependencies:
       '@accounts/types': 0.20.1
       '@babel/runtime': 7.29.2
-      '@steedos/auth': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
-      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/auth': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       '@steedos/utils': 3.0.13
       app-root-path: 2.2.1
       bcryptjs: 3.0.3
@@ -9786,7 +9595,7 @@ snapshots:
       '@nestjs/common': 11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/core': 11.1.19(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/microservices@11.1.19)(@nestjs/platform-express@11.1.19)(@nestjs/websockets@11.1.19)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/swagger': 11.4.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(class-validator@0.14.4)(reflect-metadata@0.2.2)
-      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       ai: 5.0.180(zod@4.4.1)
       openai: 6.35.0(ws@8.20.0)(zod@4.4.1)
     transitivePeerDependencies:
@@ -9822,53 +9631,10 @@ snapshots:
       - ws
       - zod
 
-  '@steedos/auth@3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
+  '@steedos/auth@3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
     dependencies:
       '@steedos/cachers': 3.0.13
-      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
-      '@steedos/utils': 3.0.13
-      bcryptjs: 2.4.3
-      cookies: 0.8.0
-      express: 5.2.1
-      ismobilejs: 1.1.1
-      jsonwebtoken: 9.0.3
-      sha256: 0.2.0
-      underscore: 1.13.8
-    transitivePeerDependencies:
-      - '@google-cloud/spanner'
-      - '@sap/hana-client'
-      - aws4
-      - babel-plugin-macros
-      - better-sqlite3
-      - bson-ext
-      - debug
-      - ibm_db
-      - ioredis
-      - kerberos
-      - mariadb
-      - mongodb-client-encryption
-      - mongodb-extjson
-      - mssql
-      - mysql2
-      - oracledb
-      - pg
-      - pg-hstore
-      - pg-native
-      - pg-query-stream
-      - redis
-      - snappy
-      - snowflake-sdk
-      - sql.js
-      - sqlite3
-      - supports-color
-      - tedious
-      - ts-node
-      - typeorm-aurora-data-api-driver
-
-  '@steedos/auth@3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
-    dependencies:
-      '@steedos/cachers': 3.0.13
-      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       '@steedos/utils': 3.0.13
       bcryptjs: 2.4.3
       cookies: 0.8.0
@@ -9918,11 +9684,11 @@ snapshots:
       '@steedos/filters': 3.0.13
       node-fetch: 3.3.2
 
-  '@steedos/data-import@3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
+  '@steedos/data-import@3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
     dependencies:
-      '@steedos/metadata-api': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/metadata-api': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       '@steedos/metadata-core': 3.0.13
-      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       bson: 4.6.4
       csvtojson: 2.0.14
       dotenv-flow: 3.3.0
@@ -10025,11 +9791,11 @@ snapshots:
       node-fetch: 3.3.2
       systeminformation: 5.31.5
 
-  '@steedos/metadata-api@3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
+  '@steedos/metadata-api@3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
     dependencies:
-      '@steedos/auth': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/auth': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       '@steedos/metadata-core': 3.0.13
-      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       chalk: 4.1.2
       clone: 2.1.2
       compressing: 1.10.5
@@ -10109,9 +9875,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@steedos/migrate@3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(nats@2.29.3)(notepack.io@3.0.1)(oracledb@6.10.0)(pg@8.20.0)(pino@10.3.1)(redis@4.7.1)(redlock@4.2.0)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
+  '@steedos/migrate@3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(nats@2.29.3)(notepack.io@3.0.1)(oracledb@6.10.0)(pg@8.20.0)(pino@10.3.1)(redis@4.7.1)(redlock@4.2.0)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
     dependencies:
-      '@steedos/service-package-registry': 3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(nats@2.29.3)(notepack.io@3.0.1)(oracledb@6.10.0)(pg@8.20.0)(pino@10.3.1)(redis@4.7.1)(redlock@4.2.0)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/service-package-registry': 3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(nats@2.29.3)(notepack.io@3.0.1)(oracledb@6.10.0)(pg@8.20.0)(pino@10.3.1)(redis@4.7.1)(redlock@4.2.0)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       migrate: 1.8.0
       mongodb: 3.7.4
     transitivePeerDependencies:
@@ -10194,7 +9960,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@steedos/objectql@3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
+  '@steedos/objectql@3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
     dependencies:
       '@salesforce/kit': 1.0.4
       '@salesforce/ts-types': 1.1.1
@@ -10232,78 +9998,7 @@ snapshots:
       reflect-metadata: 0.2.2
       sequelize: 6.37.8(oracledb@6.10.0)(pg@8.20.0)
       tslib: 2.8.1
-      typeorm: 0.3.26(ioredis@4.31.0)(mongodb@3.7.4)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(reflect-metadata@0.2.2)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
-      underscore: 1.13.8
-    transitivePeerDependencies:
-      - '@google-cloud/spanner'
-      - '@sap/hana-client'
-      - aws4
-      - babel-plugin-macros
-      - better-sqlite3
-      - bson-ext
-      - debug
-      - ibm_db
-      - ioredis
-      - kerberos
-      - mariadb
-      - mongodb-client-encryption
-      - mongodb-extjson
-      - mssql
-      - mysql2
-      - oracledb
-      - pg
-      - pg-hstore
-      - pg-native
-      - pg-query-stream
-      - redis
-      - snappy
-      - snowflake-sdk
-      - sql.js
-      - sqlite3
-      - supports-color
-      - tedious
-      - ts-node
-      - typeorm-aurora-data-api-driver
-
-  '@steedos/objectql@3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
-    dependencies:
-      '@salesforce/kit': 1.0.4
-      '@salesforce/ts-types': 1.1.1
-      '@steedos/cachers': 3.0.13
-      '@steedos/filters': 3.0.13
-      '@steedos/formula': 3.0.13
-      '@steedos/i18n': 3.0.13
-      '@steedos/metadata-core': 3.0.13
-      '@steedos/metadata-registrar': 3.0.13
-      '@steedos/odata-v4-mongodb': 3.0.13
-      '@steedos/odata-v4-sql': 3.0.13
-      '@steedos/odata-v4-typeorm': 3.0.13
-      '@steedos/schemas': 3.0.13
-      ajv: 8.20.0
-      amis-formula: 6.3.0
-      app-root-path: 2.2.1
-      axios: 1.15.2(debug@4.4.3)
-      body-parser: 2.2.2
-      bunyan-sfdx-no-dtrace: 1.8.2
-      clone: 2.1.2
-      cookies: 0.8.0
-      deasync: 0.1.30
-      eval: 0.1.8
-      express: 5.2.1
-      graphql: 15.10.2
-      graphql-parse-resolve-info: 4.14.1(graphql@15.10.2)
-      jsonwebtoken: 9.0.3
-      lodash: 4.18.1
-      mingo: 6.7.2
-      moment: 2.30.1
-      mongodb: 3.7.4
-      mongodb-uri: 0.9.7
-      node-fetch: 3.3.2
-      path: 0.12.7
-      reflect-metadata: 0.2.2
-      sequelize: 6.37.8(oracledb@6.10.0)(pg@8.20.0)
-      tslib: 2.8.1
-      typeorm: 0.3.26(ioredis@5.10.1)(mongodb@3.7.4)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(reflect-metadata@0.2.2)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      typeorm: 0.3.26(ioredis@5.10.1)(mongodb@3.7.4)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(reflect-metadata@0.2.2)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       underscore: 1.13.8
     transitivePeerDependencies:
       - '@google-cloud/spanner'
@@ -10354,10 +10049,10 @@ snapshots:
       '@steedos/odata-v4-sql': 3.0.13
       odata-v4-literal: 0.1.1
 
-  '@steedos/process@3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
+  '@steedos/process@3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
     dependencies:
-      '@steedos/auth': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
-      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/auth': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       express: 5.2.1
     transitivePeerDependencies:
       - '@google-cloud/spanner'
@@ -10404,13 +10099,13 @@ snapshots:
       '@builder6/cli': 3.2.13
       '@builder6/core': 3.2.14(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/config@4.0.4(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2))(@nestjs/core@11.1.19)(@nestjs/jwt@11.0.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2)))(@nestjs/platform-socket.io@11.1.19)(@nestjs/platform-ws@11.1.19(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/websockets@11.1.19)(rxjs@7.8.2))(@nestjs/swagger@11.4.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(class-validator@0.14.4)(reflect-metadata@0.2.2))(moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0))(nestjs-pino@4.6.1(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(pino-http@11.0.0)(pino@10.3.1)(rxjs@7.8.2))(pino-http@11.0.0)(pino-pretty@13.1.3)
       '@builder6/docs': 3.2.12(4hscr45zyg5tqt5od2nfmmnv2e)
-      '@builder6/email': 3.2.12(cmwokvccedzdo426goqic6iqya)
-      '@builder6/files': 3.2.12(cmwokvccedzdo426goqic6iqya)
+      '@builder6/email': 3.2.12(3wvohi6nb5bfh44yxgbwmdykvq)
+      '@builder6/files': 3.2.12(3wvohi6nb5bfh44yxgbwmdykvq)
       '@builder6/microservices': 3.2.12
       '@builder6/moleculer': 3.2.12(moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0))
-      '@builder6/oidc': 3.2.12(tzczlruhfg2kh5shqlz4c3xfum)
+      '@builder6/oidc': 3.2.12(mdr6ycjsmkjedxdaxmah55nvyy)
       '@builder6/oidc-provider': 3.2.12(3wvohi6nb5bfh44yxgbwmdykvq)
-      '@builder6/onlyoffice': 3.2.12(fbnzoc7b54elg5spvhzlqypx2a)
+      '@builder6/onlyoffice': 3.2.12(u2gqxbs3loiqa2aqzfbfngxg2q)
       '@builder6/pages': 3.2.12(6gueefwkcv7ozhdp5yfzwf7bha)
       '@builder6/query-mongodb': 3.2.12
       '@builder6/rooms': 3.2.12(mm2c7k7pmt3dljglm5ssugreza)
@@ -10433,8 +10128,8 @@ snapshots:
       '@nestjs/swagger': 11.4.2(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(class-validator@0.14.4)(reflect-metadata@0.2.2)
       '@nestjs/websockets': 11.1.19(@nestjs/common@11.1.19(class-validator@0.14.4)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.19)(@nestjs/platform-socket.io@11.1.19)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@steedos/ai': 3.0.13(uvlvs5esfuxxqizog6uivghfwm)
-      '@steedos/auth': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
-      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/auth': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       '@steedos/service-community': 3.0.13(@azure/core-client@1.10.1)(@opentelemetry/api@1.9.0)(@steedos/utils@3.0.13)(@types/express@5.0.6)(@types/node@25.6.0)(debug@4.4.3)(express@5.2.1)(graphql@15.10.2)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pino@10.3.1)(postcss@8.5.12)(react-dom@16.14.0(react@16.14.0))(react@16.14.0)(redis@4.7.1)(rxjs@7.8.2)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))(typescript@6.0.3)
       '@steedos/service-enterprise': 3.0.13(@azure/core-client@1.10.1)(@steedos/utils@3.0.13)(debug@4.4.3)(graphql@15.10.2)
       '@steedos/webapp': 3.0.13(postcss@8.5.12)
@@ -10552,9 +10247,9 @@ snapshots:
       - winston
       - yaml
 
-  '@steedos/service-accounts@3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
+  '@steedos/service-accounts@3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
     dependencies:
-      '@steedos/auth': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/auth': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       node-schedule: 2.1.1
     transitivePeerDependencies:
       - '@google-cloud/spanner'
@@ -10587,18 +10282,18 @@ snapshots:
       - ts-node
       - typeorm-aurora-data-api-driver
 
-  '@steedos/service-api@3.0.13(@types/express@5.0.6)(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(nats@2.29.3)(notepack.io@3.0.1)(oracledb@6.10.0)(pg@8.20.0)(pino@10.3.1)(react-dom@16.14.0(react@16.14.0))(react@16.14.0)(redis@4.7.1)(redlock@4.2.0)(rxjs@7.8.2)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
+  '@steedos/service-api@3.0.13(@types/express@5.0.6)(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(nats@2.29.3)(notepack.io@3.0.1)(oracledb@6.10.0)(pg@8.20.0)(pino@10.3.1)(react-dom@16.14.0(react@16.14.0))(react@16.14.0)(redis@4.7.1)(redlock@4.2.0)(rxjs@7.8.2)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
     dependencies:
-      '@steedos/auth': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/auth': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       '@steedos/moleculer-apollo-server': 3.0.13(@types/express@5.0.6)(graphql@15.10.2)(react-dom@16.14.0(react@16.14.0))(react@16.14.0)(rxjs@7.8.2)
       '@steedos/router': 3.0.13
-      '@steedos/service-object-graphql': 3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(nats@2.29.3)(notepack.io@3.0.1)(oracledb@6.10.0)(pg@8.20.0)(pino@10.3.1)(redis@4.7.1)(redlock@4.2.0)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
-      '@steedos/service-ui': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/service-object-graphql': 3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(nats@2.29.3)(notepack.io@3.0.1)(oracledb@6.10.0)(pg@8.20.0)(pino@10.3.1)(redis@4.7.1)(redlock@4.2.0)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/service-ui': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       graphql: 15.10.2
       graphql-iso-date: 3.6.1(graphql@15.10.2)
       graphql-type-json: 0.3.2(graphql@15.10.2)
       lru_map: 0.4.1
-      moleculer: 0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
+      moleculer: 0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
       moleculer-web: 0.11.0(moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0))
       validator: 13.15.35
     transitivePeerDependencies:
@@ -10660,12 +10355,12 @@ snapshots:
       - typeorm-aurora-data-api-driver
       - winston
 
-  '@steedos/service-bull-dashboard@3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(nats@2.29.3)(notepack.io@3.0.1)(oracledb@6.10.0)(pg@8.20.0)(pino@10.3.1)(redis@4.7.1)(redlock@4.2.0)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
+  '@steedos/service-bull-dashboard@3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(nats@2.29.3)(notepack.io@3.0.1)(oracledb@6.10.0)(pg@8.20.0)(pino@10.3.1)(redis@4.7.1)(redlock@4.2.0)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
     dependencies:
       '@bull-board/express': 6.21.3
-      '@steedos/auth': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/auth': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       '@steedos/router': 3.0.13
-      '@steedos/service-package-loader': 3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
+      '@steedos/service-package-loader': 3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
       bullmq: 5.76.4
     transitivePeerDependencies:
       - '@google-cloud/spanner'
@@ -10730,34 +10425,34 @@ snapshots:
   '@steedos/service-community@3.0.13(@azure/core-client@1.10.1)(@opentelemetry/api@1.9.0)(@steedos/utils@3.0.13)(@types/express@5.0.6)(@types/node@25.6.0)(debug@4.4.3)(express@5.2.1)(graphql@15.10.2)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pino@10.3.1)(postcss@8.5.12)(react-dom@16.14.0(react@16.14.0))(react@16.14.0)(redis@4.7.1)(rxjs@7.8.2)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))(typescript@6.0.3)':
     dependencies:
       '@steedos-builder/amis-editor': 6.10.0-beta.3
-      '@steedos/data-import': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
-      '@steedos/migrate': 3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(nats@2.29.3)(notepack.io@3.0.1)(oracledb@6.10.0)(pg@8.20.0)(pino@10.3.1)(redis@4.7.1)(redlock@4.2.0)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/data-import': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/migrate': 3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(nats@2.29.3)(notepack.io@3.0.1)(oracledb@6.10.0)(pg@8.20.0)(pino@10.3.1)(redis@4.7.1)(redlock@4.2.0)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       '@steedos/server': 3.0.13(@azure/core-client@1.10.1)(@opentelemetry/api@1.9.0)(@steedos/utils@3.0.13)(@types/express@5.0.6)(@types/node@25.6.0)(cbor-x@1.6.4)(debug@4.4.3)(express@5.2.1)(graphql@15.10.2)(mssql@11.0.1(@azure/core-client@1.10.1))(nats@2.29.3)(notepack.io@3.0.1)(oracledb@6.10.0)(pg@8.20.0)(postcss@8.5.12)(react-dom@16.14.0(react@16.14.0))(react@16.14.0)(redlock@4.2.0)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))(typescript@6.0.3)
-      '@steedos/service-accounts': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
-      '@steedos/service-api': 3.0.13(@types/express@5.0.6)(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(nats@2.29.3)(notepack.io@3.0.1)(oracledb@6.10.0)(pg@8.20.0)(pino@10.3.1)(react-dom@16.14.0(react@16.14.0))(react@16.14.0)(redis@4.7.1)(redlock@4.2.0)(rxjs@7.8.2)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
-      '@steedos/service-bull-dashboard': 3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(nats@2.29.3)(notepack.io@3.0.1)(oracledb@6.10.0)(pg@8.20.0)(pino@10.3.1)(redis@4.7.1)(redlock@4.2.0)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/service-accounts': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/service-api': 3.0.13(@types/express@5.0.6)(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(nats@2.29.3)(notepack.io@3.0.1)(oracledb@6.10.0)(pg@8.20.0)(pino@10.3.1)(react-dom@16.14.0(react@16.14.0))(react@16.14.0)(redis@4.7.1)(redlock@4.2.0)(rxjs@7.8.2)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/service-bull-dashboard': 3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(nats@2.29.3)(notepack.io@3.0.1)(oracledb@6.10.0)(pg@8.20.0)(pino@10.3.1)(redis@4.7.1)(redlock@4.2.0)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       '@steedos/service-cachers-manager': 3.0.13
-      '@steedos/service-core-objects': 3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
+      '@steedos/service-core-objects': 3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
       '@steedos/service-fields-indexs': 3.0.13
       '@steedos/service-i18n': 3.0.13
-      '@steedos/service-identity-jwt': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
-      '@steedos/service-metadata-database': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
-      '@steedos/service-metadata-server': 3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(nats@2.29.3)(notepack.io@3.0.1)(oracledb@6.10.0)(pg@8.20.0)(pino@10.3.1)(redis@4.7.1)(redlock@4.2.0)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
-      '@steedos/service-objectql': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
-      '@steedos/service-package-loader': 3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
-      '@steedos/service-package-registry': 3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(nats@2.29.3)(notepack.io@3.0.1)(oracledb@6.10.0)(pg@8.20.0)(pino@10.3.1)(redis@4.7.1)(redlock@4.2.0)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/service-identity-jwt': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/service-metadata-database': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/service-metadata-server': 3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(nats@2.29.3)(notepack.io@3.0.1)(oracledb@6.10.0)(pg@8.20.0)(pino@10.3.1)(redis@4.7.1)(redlock@4.2.0)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/service-objectql': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/service-package-loader': 3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
+      '@steedos/service-package-registry': 3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(nats@2.29.3)(notepack.io@3.0.1)(oracledb@6.10.0)(pg@8.20.0)(pino@10.3.1)(redis@4.7.1)(redlock@4.2.0)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       '@steedos/service-pages': 3.0.13
       '@steedos/service-plugin-amis': 3.0.13
-      '@steedos/service-rest': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/service-rest': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       '@steedos/service-saas': 3.0.13
       '@steedos/standard-accounts': 3.0.13
       '@steedos/standard-object-database': 3.0.13
       '@steedos/standard-permission': 3.0.13
-      '@steedos/standard-process-approval': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/standard-process-approval': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       '@steedos/standard-ui': 3.0.13
       '@steedos/steedos-plugin-schema-builder': 3.0.13
       '@steedos/unpkg': 3.0.13
-      '@steedos/workflow_time_trigger': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/workflow_time_trigger': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       aliyun-sdk: 1.12.3
       async-retry: 1.3.3
       axios: 1.15.2(debug@4.4.3)
@@ -10766,13 +10461,13 @@ snapshots:
       chalk: 4.1.2
       cross-env: 7.0.3
       dotenv-flow: 3.3.0
-      ioredis: 4.31.0
+      ioredis: 5.10.1
       isomorphic-fetch: 3.0.0
       js-base64: 3.7.8
       keyv: 4.5.4
       lodash: 4.18.1
       md5: 2.3.0
-      moleculer: 0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
+      moleculer: 0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
       moleculer-cron: 0.0.2(moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0))
       moleculer-repl: 0.7.4
       moment: 2.30.1
@@ -10787,7 +10482,7 @@ snapshots:
       randomcolor: 0.6.2
       randomstring: 1.3.1
       redlock: 4.2.0
-      steedos-cli: 3.0.13(@types/node@25.6.0)(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)(typescript@6.0.3)
+      steedos-cli: 3.0.13(@types/node@25.6.0)(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)(typescript@6.0.3)
       tslib: 2.8.1
       validator: 13.15.35
     transitivePeerDependencies:
@@ -10867,9 +10562,9 @@ snapshots:
       - winston
       - yaml
 
-  '@steedos/service-core-objects@3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)':
+  '@steedos/service-core-objects@3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)':
     dependencies:
-      '@steedos/service-package-loader': 3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
+      '@steedos/service-package-loader': 3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
       bcryptjs: 3.0.3
       json2xls: 0.1.2
       lodash: 4.18.1
@@ -10925,9 +10620,9 @@ snapshots:
 
   '@steedos/service-i18n@3.0.13': {}
 
-  '@steedos/service-identity-jwt@3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
+  '@steedos/service-identity-jwt@3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
     dependencies:
-      '@steedos/accounts': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/accounts': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       express: 5.2.1
       jsonwebtoken: 9.0.3
       passport: 0.6.0
@@ -10973,12 +10668,12 @@ snapshots:
   '@steedos/service-metadata-apps@3.0.13(cbor-x@1.6.4)(debug@4.4.3)(mssql@11.0.1(@azure/core-client@1.10.1))(nats@2.29.3)(notepack.io@3.0.1)(oracledb@6.10.0)(pg@8.20.0)(pino@10.3.1)(redis@4.7.1)(redlock@4.2.0)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
     dependencies:
       '@steedos/i18n': 3.0.13
-      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       '@steedos/utils': 3.0.13
       dotenv-flow: 3.3.0
-      ioredis: 4.31.0
+      ioredis: 5.10.1
       lodash: 4.18.1
-      moleculer: 0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
+      moleculer: 0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
     transitivePeerDependencies:
       - '@google-cloud/spanner'
       - '@sap/hana-client'
@@ -11030,10 +10725,10 @@ snapshots:
       - typeorm-aurora-data-api-driver
       - winston
 
-  '@steedos/service-metadata-database@3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
+  '@steedos/service-metadata-database@3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
     dependencies:
       '@steedos/metadata-registrar': 3.0.13
-      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       lodash: 4.18.1
     transitivePeerDependencies:
       - '@google-cloud/spanner'
@@ -11069,9 +10764,9 @@ snapshots:
   '@steedos/service-metadata-layouts@3.0.13(cbor-x@1.6.4)(debug@4.4.3)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)':
     dependencies:
       dotenv-flow: 3.3.0
-      ioredis: 4.31.0
+      ioredis: 5.10.1
       lodash: 4.18.1
-      moleculer: 0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
+      moleculer: 0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
       tslib: 2.8.1
     transitivePeerDependencies:
       - amqplib
@@ -11105,9 +10800,9 @@ snapshots:
       '@steedos/i18n': 3.0.13
       '@steedos/metadata-registrar': 3.0.13
       dotenv-flow: 3.3.0
-      ioredis: 4.31.0
+      ioredis: 5.10.1
       lodash: 4.18.1
-      moleculer: 0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
+      moleculer: 0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
       tslib: 2.8.1
     transitivePeerDependencies:
       - amqplib
@@ -11137,9 +10832,9 @@ snapshots:
   '@steedos/service-metadata-permissionsets@3.0.13(cbor-x@1.6.4)(debug@4.4.3)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)':
     dependencies:
       dotenv-flow: 3.3.0
-      ioredis: 4.31.0
+      ioredis: 5.10.1
       lodash: 4.18.1
-      moleculer: 0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
+      moleculer: 0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
     transitivePeerDependencies:
       - amqplib
       - avsc
@@ -11165,9 +10860,9 @@ snapshots:
       - thrift
       - winston
 
-  '@steedos/service-metadata-server@3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(nats@2.29.3)(notepack.io@3.0.1)(oracledb@6.10.0)(pg@8.20.0)(pino@10.3.1)(redis@4.7.1)(redlock@4.2.0)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
+  '@steedos/service-metadata-server@3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(nats@2.29.3)(notepack.io@3.0.1)(oracledb@6.10.0)(pg@8.20.0)(pino@10.3.1)(redis@4.7.1)(redlock@4.2.0)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
     dependencies:
-      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       '@steedos/service-metadata': 3.0.13(cbor-x@1.6.4)(debug@4.4.3)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
       '@steedos/service-metadata-apps': 3.0.13(cbor-x@1.6.4)(debug@4.4.3)(mssql@11.0.1(@azure/core-client@1.10.1))(nats@2.29.3)(notepack.io@3.0.1)(oracledb@6.10.0)(pg@8.20.0)(pino@10.3.1)(redis@4.7.1)(redlock@4.2.0)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       '@steedos/service-metadata-layouts': 3.0.13(cbor-x@1.6.4)(debug@4.4.3)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
@@ -11234,9 +10929,9 @@ snapshots:
   '@steedos/service-metadata-tabs@3.0.13(cbor-x@1.6.4)(debug@4.4.3)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)':
     dependencies:
       dotenv-flow: 3.3.0
-      ioredis: 4.31.0
+      ioredis: 5.10.1
       lodash: 4.18.1
-      moleculer: 0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
+      moleculer: 0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
     transitivePeerDependencies:
       - amqplib
       - avsc
@@ -11266,9 +10961,9 @@ snapshots:
     dependencies:
       '@steedos/metadata-registrar': 3.0.13
       dotenv-flow: 3.3.0
-      ioredis: 4.31.0
+      ioredis: 5.10.1
       lodash: 4.18.1
-      moleculer: 0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
+      moleculer: 0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
     transitivePeerDependencies:
       - amqplib
       - avsc
@@ -11297,9 +10992,9 @@ snapshots:
   '@steedos/service-metadata-triggers@3.0.13(cbor-x@1.6.4)(debug@4.4.3)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)':
     dependencies:
       dotenv-flow: 3.3.0
-      ioredis: 4.31.0
+      ioredis: 5.10.1
       lodash: 4.18.1
-      moleculer: 0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
+      moleculer: 0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
       underscore: 1.13.8
     transitivePeerDependencies:
       - amqplib
@@ -11330,9 +11025,9 @@ snapshots:
     dependencies:
       '@steedos/metadata-registrar': 3.0.13
       dotenv-flow: 3.3.0
-      ioredis: 4.31.0
+      ioredis: 5.10.1
       lodash: 4.18.1
-      moleculer: 0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
+      moleculer: 0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
       underscore: 1.13.8
     transitivePeerDependencies:
       - amqplib
@@ -11359,15 +11054,15 @@ snapshots:
       - thrift
       - winston
 
-  '@steedos/service-object-graphql@3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(nats@2.29.3)(notepack.io@3.0.1)(oracledb@6.10.0)(pg@8.20.0)(pino@10.3.1)(redis@4.7.1)(redlock@4.2.0)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
+  '@steedos/service-object-graphql@3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(nats@2.29.3)(notepack.io@3.0.1)(oracledb@6.10.0)(pg@8.20.0)(pino@10.3.1)(redis@4.7.1)(redlock@4.2.0)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
     dependencies:
       '@steedos/filters': 3.0.13
       '@steedos/i18n': 3.0.13
-      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       '@steedos/service-object-mixin': 3.0.13
       graphql: 15.10.2
       graphql-parse-resolve-info: 4.14.1(graphql@15.10.2)
-      moleculer: 0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
+      moleculer: 0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
       moment: 2.30.1
       open: 7.4.2
       underscore: 1.13.8
@@ -11427,9 +11122,9 @@ snapshots:
     dependencies:
       '@steedos/utils': 3.0.13
 
-  '@steedos/service-objectql@3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
+  '@steedos/service-objectql@3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
     dependencies:
-      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
     transitivePeerDependencies:
       - '@google-cloud/spanner'
       - '@sap/hana-client'
@@ -11461,7 +11156,7 @@ snapshots:
       - ts-node
       - typeorm-aurora-data-api-driver
 
-  '@steedos/service-package-loader@3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)':
+  '@steedos/service-package-loader@3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)':
     dependencies:
       '@steedos/metadata-core': 3.0.13
       '@steedos/metadata-registrar': 3.0.13
@@ -11469,7 +11164,7 @@ snapshots:
       '@steedos/service-object-mixin': 3.0.13
       clone: 2.1.2
       csvtojson: 2.0.14
-      moleculer: 0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
+      moleculer: 0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
       moment: 2.30.1
       node-xlsx: 0.24.0
       underscore: 1.13.8
@@ -11499,12 +11194,12 @@ snapshots:
       - thrift
       - winston
 
-  '@steedos/service-package-registry@3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(nats@2.29.3)(notepack.io@3.0.1)(oracledb@6.10.0)(pg@8.20.0)(pino@10.3.1)(redis@4.7.1)(redlock@4.2.0)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
+  '@steedos/service-package-registry@3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(nats@2.29.3)(notepack.io@3.0.1)(oracledb@6.10.0)(pg@8.20.0)(pino@10.3.1)(redis@4.7.1)(redlock@4.2.0)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
     dependencies:
-      '@steedos/auth': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/auth': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       '@steedos/metadata-core': 3.0.13
-      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
-      '@steedos/service-package-loader': 3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
+      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/service-package-loader': 3.0.13(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
       clone: 2.1.2
       fs-extra: 8.1.0
       i18next: 20.3.2
@@ -11579,9 +11274,9 @@ snapshots:
 
   '@steedos/service-plugin-amis@3.0.13': {}
 
-  '@steedos/service-rest@3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
+  '@steedos/service-rest@3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
     dependencies:
-      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       '@steedos/service-object-mixin': 3.0.13
       lodash: 4.18.1
     transitivePeerDependencies:
@@ -11617,11 +11312,11 @@ snapshots:
 
   '@steedos/service-saas@3.0.13': {}
 
-  '@steedos/service-ui@3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
+  '@steedos/service-ui@3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
     dependencies:
-      '@steedos/auth': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/auth': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       '@steedos/i18n': 3.0.13
-      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       express: 5.2.1
     transitivePeerDependencies:
       - '@google-cloud/spanner'
@@ -11670,9 +11365,9 @@ snapshots:
     dependencies:
       clone: 2.1.2
 
-  '@steedos/standard-process-approval@3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
+  '@steedos/standard-process-approval@3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
     dependencies:
-      '@steedos/process': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/process': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       nanoid: 3.3.11
     transitivePeerDependencies:
       - '@google-cloud/spanner'
@@ -11735,9 +11430,9 @@ snapshots:
     transitivePeerDependencies:
       - postcss
 
-  '@steedos/workflow_time_trigger@3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
+  '@steedos/workflow_time_trigger@3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))':
     dependencies:
-      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@4.31.0)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
+      '@steedos/objectql': 3.0.13(debug@4.4.3)(ioredis@5.10.1)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))
       eval: 0.1.8
       node-schedule: 2.1.0
     transitivePeerDependencies:
@@ -11869,7 +11564,7 @@ snapshots:
       '@types/koa': 3.0.2
       '@types/node': 25.6.0
       fs-capacitor: 8.0.0
-      graphql: 16.13.2
+      graphql: 15.10.2
 
   '@types/http-assert@1.5.6': {}
 
@@ -11959,12 +11654,6 @@ snapshots:
       '@types/node': 25.6.0
 
   '@types/validator@13.15.10': {}
-
-  '@types/webidl-conversions@7.0.3': {}
-
-  '@types/whatwg-url@11.0.5':
-    dependencies:
-      '@types/webidl-conversions': 7.0.3
 
   '@types/ws@8.18.1':
     dependencies:
@@ -12187,7 +11876,7 @@ snapshots:
   archiver-utils@2.1.0:
     dependencies:
       glob: 7.2.3
-      graceful-fs: 4.2.10
+      graceful-fs: 4.2.11
       lazystream: 1.0.1
       lodash.defaults: 4.2.0
       lodash.difference: 4.5.0
@@ -12200,7 +11889,7 @@ snapshots:
   archiver-utils@3.0.4:
     dependencies:
       glob: 7.2.3
-      graceful-fs: 4.2.10
+      graceful-fs: 4.2.11
       lazystream: 1.0.1
       lodash.defaults: 4.2.0
       lodash.difference: 4.5.0
@@ -12421,8 +12110,6 @@ snapshots:
   bson@4.6.4:
     dependencies:
       buffer: 5.7.1
-
-  bson@6.10.4: {}
 
   buffer-alloc-unsafe@1.1.0: {}
 
@@ -13896,8 +13583,6 @@ snapshots:
 
   graphql@15.10.2: {}
 
-  graphql@16.13.2: {}
-
   gunzip-maybe@1.4.2:
     dependencies:
       browserify-zlib: 0.1.4
@@ -14145,22 +13830,6 @@ snapshots:
       string-width: 2.1.1
       strip-ansi: 5.2.0
       through: 2.3.8
-
-  ioredis@4.31.0:
-    dependencies:
-      '@ioredis/commands': 1.7.0
-      cluster-key-slot: 1.1.2
-      debug: 4.4.3(supports-color@8.1.1)
-      denque: 1.5.1
-      lodash.defaults: 4.2.0
-      lodash.flatten: 4.4.0
-      lodash.isarguments: 3.1.0
-      p-map: 2.1.0
-      redis-errors: 1.2.0
-      redis-parser: 3.0.0
-      standard-as-callback: 2.1.0
-    transitivePeerDependencies:
-      - supports-color
 
   ioredis@5.10.1:
     dependencies:
@@ -14700,7 +14369,8 @@ snapshots:
       next-tick: 0.2.2
       timers-ext: 0.1.8
 
-  memory-pager@1.5.0: {}
+  memory-pager@1.5.0:
+    optional: true
 
   merge-descriptors@2.0.0: {}
 
@@ -14843,29 +14513,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0):
-    dependencies:
-      args: 5.0.3
-      eventemitter2: 6.4.9
-      fastest-validator: 1.19.1
-      glob: 7.2.3
-      ipaddr.js: 2.3.0
-      kleur: 4.1.5
-      lodash: 4.18.1
-      lru-cache: 6.0.0
-      node-fetch: 2.7.0
-      recursive-watch: 1.1.4
-    optionalDependencies:
-      cbor-x: 1.6.4
-      debug: 4.4.3(supports-color@8.1.1)
-      ioredis: 4.31.0
-      nats: 2.29.3
-      notepack.io: 3.0.1
-      pino: 10.3.1
-      redlock: 4.2.0
-    transitivePeerDependencies:
-      - encoding
-
   moleculer@0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0):
     dependencies:
       args: 5.0.3
@@ -14899,11 +14546,6 @@ snapshots:
 
   moment@2.30.1: {}
 
-  mongodb-connection-string-url@3.0.2:
-    dependencies:
-      '@types/whatwg-url': 11.0.5
-      whatwg-url: 14.2.0
-
   mongodb-uri@0.9.7: {}
 
   mongodb@3.7.4:
@@ -14915,14 +14557,6 @@ snapshots:
       safe-buffer: 5.2.1
     optionalDependencies:
       saslprep: 1.0.3
-
-  mongodb@6.21.0(socks@2.8.8):
-    dependencies:
-      '@mongodb-js/saslprep': 1.4.9
-      bson: 6.10.4
-      mongodb-connection-string-url: 3.0.2
-    optionalDependencies:
-      socks: 2.8.8
 
   morgan@1.10.1:
     dependencies:
@@ -15305,8 +14939,6 @@ snapshots:
   p-locate@4.1.0:
     dependencies:
       p-limit: 2.3.0
-
-  p-map@2.1.0: {}
 
   p-map@7.0.4: {}
 
@@ -16437,6 +16069,7 @@ snapshots:
   sparse-bitfield@3.0.3:
     dependencies:
       memory-pager: 1.5.0
+    optional: true
 
   split-on-first@1.1.0: {}
 
@@ -16466,7 +16099,7 @@ snapshots:
 
   statuses@2.0.2: {}
 
-  steedos-cli@3.0.13(@types/node@25.6.0)(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)(typescript@6.0.3):
+  steedos-cli@3.0.13(@types/node@25.6.0)(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)(typescript@6.0.3):
     dependencies:
       '@geek/spinner': 1.0.0
       '@oclif/command': 1.8.36(@oclif/config@1.18.17)
@@ -16490,7 +16123,7 @@ snapshots:
       kleur: 4.1.5
       latest-version: 5.1.0
       lodash: 4.18.1
-      moleculer: 0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@4.31.0)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
+      moleculer: 0.14.35(cbor-x@1.6.4)(debug@4.4.3)(ioredis@5.10.1)(nats@2.29.3)(notepack.io@3.0.1)(pino@10.3.1)(redlock@4.2.0)
       readline-sync: 1.4.10
       reflect-metadata: 0.2.2
       rimraf: 3.0.2
@@ -16827,10 +16460,6 @@ snapshots:
     dependencies:
       punycode: 2.3.1
 
-  tr46@5.1.1:
-    dependencies:
-      punycode: 2.3.1
-
   ts-interface-checker@0.1.13: {}
 
   ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3):
@@ -16897,36 +16526,7 @@ snapshots:
 
   typedarray@0.0.6: {}
 
-  typeorm@0.3.26(ioredis@4.31.0)(mongodb@3.7.4)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(reflect-metadata@0.2.2)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3)):
-    dependencies:
-      '@sqltools/formatter': 1.2.5
-      ansis: 3.17.0
-      app-root-path: 3.1.0
-      buffer: 6.0.3
-      dayjs: 1.11.20
-      debug: 4.4.3(supports-color@8.1.1)
-      dedent: 1.7.2
-      dotenv: 16.6.1
-      glob: 10.5.0
-      reflect-metadata: 0.2.2
-      sha.js: 2.4.12
-      sql-highlight: 6.1.0
-      tslib: 2.8.1
-      uuid: 11.1.1
-      yargs: 17.7.2
-    optionalDependencies:
-      ioredis: 4.31.0
-      mongodb: 3.7.4
-      mssql: 11.0.1(@azure/core-client@1.10.1)
-      oracledb: 6.10.0
-      pg: 8.20.0
-      redis: 4.7.1
-      ts-node: 10.9.2(@types/node@25.6.0)(typescript@6.0.3)
-    transitivePeerDependencies:
-      - babel-plugin-macros
-      - supports-color
-
-  typeorm@0.3.26(ioredis@5.10.1)(mongodb@3.7.4)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@4.7.1)(reflect-metadata@0.2.2)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3)):
+  typeorm@0.3.26(ioredis@5.10.1)(mongodb@3.7.4)(mssql@11.0.1(@azure/core-client@1.10.1))(oracledb@6.10.0)(pg@8.20.0)(redis@5.12.1(@opentelemetry/api@1.9.0))(reflect-metadata@0.2.2)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3)):
     dependencies:
       '@sqltools/formatter': 1.2.5
       ansis: 3.17.0
@@ -16949,7 +16549,7 @@ snapshots:
       mssql: 11.0.1(@azure/core-client@1.10.1)
       oracledb: 6.10.0
       pg: 8.20.0
-      redis: 4.7.1
+      redis: 5.12.1(@opentelemetry/api@1.9.0)
       ts-node: 10.9.2(@types/node@25.6.0)(typescript@6.0.3)
     transitivePeerDependencies:
       - babel-plugin-macros
@@ -17116,11 +16716,6 @@ snapshots:
   whatwg-url@11.0.0:
     dependencies:
       tr46: 3.0.0
-      webidl-conversions: 7.0.0
-
-  whatwg-url@14.2.0:
-    dependencies:
-      tr46: 5.1.1
       webidl-conversions: 7.0.0
 
   whatwg-url@5.0.0:
