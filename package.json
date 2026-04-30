@@ -6,7 +6,8 @@
   "packageManager": "pnpm@9.15.0",
   "scripts": {
     "start": "steedos start",
-    "build": "echo \"no build step\""
+    "build": "echo \"no build step\"",
+    "test": "node scripts/test-metadata.js"
   },
   "dependencies": {
     "@builder6/core": "^4.0.0",
