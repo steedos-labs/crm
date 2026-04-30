@@ -7,7 +7,8 @@
   "scripts": {
     "start": "steedos start",
     "build": "echo \"no build step\"",
-    "test": "node scripts/test-metadata.js"
+    "test": "node scripts/test-metadata.js",
+    "test:mongo": "node scripts/test-mongo.js"
   },
   "dependencies": {
     "@builder6/core": "^4.0.0",

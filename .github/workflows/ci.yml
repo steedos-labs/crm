@@ -20,3 +20,30 @@ jobs:
 
       - name: 运行元数据测试
         run: node scripts/test-metadata.js
+
+  mongo-smoke-test:
+    name: MongoDB 连通性烟雾测试
+    runs-on: ubuntu-latest
+    services:
+      mongo:
+        image: mongo:6
+        ports:
+          - 27017:27017
+        options: >-
+          --health-cmd "mongosh --quiet --eval \"db.runCommand({ ping: 1 }).ok\""
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      MONGO_URL: mongodb://127.0.0.1:27017/crm
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 安装 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 验证 MongoDB 连通性
+        run: node scripts/test-mongo.js

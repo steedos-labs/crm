@@ -87,9 +87,12 @@ pnpm install
 pnpm start
 pnpm run build
 pnpm test
+pnpm test:mongo
 ```
 
 `pnpm test` 会执行 `scripts/test-metadata.js`，对 CRM 元数据进行基础校验（JSON/YAML 解析、`crm_` 前缀、对象目录结构、应用页签注册等），无需任何外部依赖。
+
+`pnpm test:mongo` 会执行 `scripts/test-mongo.js`，校验 `MONGO_URL` 指向的 MongoDB 端口可达。本地可先 `docker compose up -d mongo` 启动依赖，CI 则通过 GitHub Actions `services` 自动拉起 mongo:6 容器（见 `.github/workflows/ci.yml` 的 `mongo-smoke-test` 任务）。
 
 如果当前阶段尚未创建 `package.json` 或 Steedos 配置文件，应先按 Steedos 项目结构补齐基础工程文件。
 
