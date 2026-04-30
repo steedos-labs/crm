@@ -94,9 +94,9 @@
 
 - 如果存在 `package.json`，优先使用其中已有脚本。
 - 常见命令包括：
-  - `npm install`
-  - `npm start`
-  - `npm run build`
+  - `pnpm install`
+  - `pnpm start`
+  - `pnpm run build`
 - 除非任务需要，不要引入新的构建、检查或测试工具。
 
 ## 输出要求

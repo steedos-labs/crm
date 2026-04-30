@@ -60,9 +60,9 @@
 项目存在对应脚本时，按需执行：
 
 ```bash
-npm install
-npm start
-npm run build
+pnpm install
+pnpm start
+pnpm run build
 ```
 
 如果当前阶段尚未具备运行条件，应在任务记录中说明原因，不能伪造验证结果。

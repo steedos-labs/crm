@@ -3,23 +3,26 @@
   "version": "0.0.1",
   "private": true,
   "description": "基于 Steedos 的 CRM 应用，由 AI 主导开发",
-  "workspaces": [
-    "steedos-packages/*"
-  ],
+  "packageManager": "pnpm@9.15.0",
   "scripts": {
     "start": "steedos start",
-    "build": "echo \"no build step\""
+    "build": "echo \"no build step\"",
+    "test": "node scripts/test-metadata.js",
+    "test:mongo": "node scripts/test-mongo.js"
   },
   "dependencies": {
-    "@builder6/core": "^4.0.0",
-    "@builder6/microservices": "^4.0.0",
-    "@builder6/moleculer": "^4.0.0",
-    "@builder6/query-mongodb": "^4.0.0",
-    "@crm/steedos-package-crm": "*",
+    "@crm/steedos-package-crm": "workspace:*",
     "@steedos/server": "latest",
-    "mongodb": "^6.21.0"
+    "steedos-cli": "latest"
+  },
+  "pnpm": {
+    "overrides": {
+      "graphql": "15.10.2",
+      "ioredis": "5.10.1"
+    }
   },
   "overrides": {
-    "graphql": "15.10.2"
+    "graphql": "15.10.2",
+    "ioredis": "5.10.1"
   }
 }
