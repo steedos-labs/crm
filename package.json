@@ -20,9 +20,5 @@
       "graphql": "15.10.2",
       "ioredis": "5.10.1"
     }
-  },
-  "overrides": {
-    "graphql": "15.10.2",
-    "ioredis": "5.10.1"
   }
 }
