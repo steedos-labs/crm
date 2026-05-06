@@ -1,25 +1,39 @@
 version: '3.8'
 
-# 本地开发依赖：MongoDB + Redis
+# 本地开发依赖：MongoDB（副本集，支持事务）+ Redis
 # 用法：
-#   docker compose up -d mongo redis
-#   pnpm install
-#   pnpm start
+#   pnpm deps:up   # 等价于 docker compose up -d mongo redis
+#   pnpm dev       # 或 pnpm start
 
 services:
   mongo:
-    image: mongo:6
+    image: mongo:7
     container_name: crm-mongo
     restart: unless-stopped
+    command: ['--replSet', 'rs0', '--bind_ip_all']
     ports:
       - '27017:27017'
     volumes:
       - mongo-data:/data/db
+    # healthcheck 内顺便确保副本集已 init（idempotent）。
+    # Steedos 的 service-core-objects 需要 MongoDB 事务，事务只能在副本集/分片下使用。
     healthcheck:
-      test: ['CMD', 'mongosh', '--quiet', '--eval', "db.runCommand({ ping: 1 }).ok"]
+      test:
+        - CMD-SHELL
+        - >-
+          mongosh --quiet --eval "
+            try { rs.status() }
+            catch (e) {
+              if (e.codeName === 'NotYetInitialized') {
+                rs.initiate({ _id: 'rs0', members: [{ _id: 0, host: 'localhost:27017' }] });
+              } else { throw e; }
+            }
+            db.runCommand({ ping: 1 }).ok
+          "
       interval: 10s
-      timeout: 5s
-      retries: 10
+      timeout: 10s
+      retries: 30
+      start_period: 10s
 
   redis:
     image: redis:7-alpine

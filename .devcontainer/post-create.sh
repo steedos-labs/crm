@@ -14,5 +14,9 @@ fi
 pnpm install --frozen-lockfile || pnpm install
 
 echo ""
-echo "✅ 环境准备完成。运行 'pnpm dev' 一键启动 Steedos（内嵌 MongoDB + Redis）。"
+echo "✅ 环境准备完成。"
+echo ""
+echo "下一步（开两个终端）："
+echo "  终端 A: pnpm dev:deps    # 启动嵌入式 MongoDB（副本集）+ Redis，写入 .env.local"
+echo "  终端 B: pnpm dev         # 启动 Steedos（自动读取 .env / .env.local，监听元数据热重载）"
 

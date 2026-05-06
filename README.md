@@ -12,17 +12,23 @@
 2. 复制 `.env.example` 为 `.env`
 3. 执行 `pnpm install`（会顺带下载内嵌的 MongoDB / Redis 二进制）
 
-启动完成后在终端运行：
+启动完成后**开两个终端**：
 
 ```bash
+# 终端 A：启动开发依赖（嵌入式 MongoDB 副本集 + Redis），保持前台运行
+pnpm dev:deps
+
+# 终端 B：启动 Steedos（监听元数据热重载）
 pnpm dev
 ```
 
-`pnpm dev` 会通过 `mongodb-memory-server` 和 `redis-memory-server` **在 Node 进程内拉起内嵌的 MongoDB 与 Redis**，无需 Docker 或本地服务，再启动 Steedos。VS Code 会自动转发 `5100` 端口并打开浏览器。
+`pnpm dev:deps` 通过 `mongodb-memory-server`（副本集模式，支持事务）和 `redis-memory-server` **在 Node 进程内拉起内嵌依赖**，无需 Docker，并把连接地址写入 `.env.local`，`pnpm dev` / `pnpm start` 会自动读取。
 
-数据默认持久化到 `./.steedos/dev-db`。设置 `EPHEMERAL=1 pnpm dev` 可改为纯内存模式（退出即清空）。
+数据默认持久化到 `./.steedos/dev-db`。设置 `EPHEMERAL=1 pnpm dev:deps` 可改为纯内存模式（退出即清空）。Ctrl+C 停止 `dev:deps` 时会自动清理 `.env.local` 中由它管理的段（不影响你手写的其他变量）。
 
-如需对接已经在运行的真实 MongoDB / Redis，使用 `pnpm start` 并按 `.env.example` 配置 `MONGO_URL`、`TRANSPORTER`、`CACHER`。
+VS Code 会自动转发 `5100` 端口并打开浏览器。
+
+如果机器上已经有 MongoDB / Redis（或想用 Docker），见下文「常用命令」表格。
 
 ## 项目目标
 
@@ -102,21 +108,39 @@ AI Agent 在本仓库中开发时必须遵循以上指令文件，尤其是 Stee
 
 ## 常用命令
 
-项目初始化后优先使用 `package.json` 中已有脚本。常见命令如下：
+项目脚本遵循主流约定：`pnpm dev` 是开发循环（启动应用并热重载），不再附带拉起依赖；起依赖单独用 `pnpm dev:deps` 或 `pnpm deps:up`。按场景选择：
+
+| 场景 | 命令 |
+|---|---|
+| 标准开发循环（最常用） | 终端 A `pnpm dev:deps`（嵌入式 mongo+redis，写 `.env.local`）<br/>终端 B `pnpm dev`（`steedos start`，监听元数据热重载） |
+| 已用 Docker 跑 mongo/redis | `pnpm deps:up` 起容器 → `pnpm dev` |
+| 类生产 / 对接外部依赖 | 按 `.env.example` 配 `MONGO_URL` / `TRANSPORTER` / `CACHER`（注意 mongo 必须副本集），再 `pnpm start` |
+| 元数据离线校验 | `pnpm test`（无外部依赖，387 项校验） |
+| MongoDB 连通性烟雾测试 | `pnpm test:mongo` |
+| 端到端业务链路测试 | `pnpm test:e2e`（自带嵌入式 mongo+redis+steedos） |
 
 ```bash
 pnpm install
-pnpm dev          # 一键启动（内嵌 MongoDB + Redis，无需 Docker）
-pnpm start        # 使用 .env 中外部 MongoDB / Redis 启动
-pnpm run build
-pnpm test
-pnpm test:mongo
-pnpm test:e2e     # 端到端业务链路测试（自动拉起内嵌 MongoDB / Redis 与 Steedos）
+pnpm dev:deps     # 终端 A：嵌入式 MongoDB（副本集）+ Redis，前台运行
+pnpm dev          # 终端 B：steedos start（开发模式，监听元数据热重载）
+pnpm start        # 等价于 pnpm dev，按主流约定用于"无 watch 语义"的标准启动
+pnpm deps:up      # 用 Docker 起 mongo+redis（副本集自动 init）
+pnpm deps:down    # 停止并清理 docker compose
+pnpm test         # 元数据校验
+pnpm test:mongo   # MongoDB 连通性
+pnpm test:e2e     # 端到端业务链路测试
 ```
+
+### 说明
+
+- **`pnpm dev` 不再嵌入依赖**：与 Next.js / Vite / Strapi / NocoBase 等保持一致；不会和你本地已经在运行的 MongoDB / Redis 冲突
+- **`pnpm dev:deps` 端口非默认**：MongoDB `27027`、Redis `6399`，避免和本地常驻服务（27017 / 6379）打架；可通过 `DEV_MONGO_PORT` / `DEV_REDIS_PORT` 覆盖
+- **`.env.local` 自动管理**：`pnpm dev:deps` 启动时把连接 URL 以受管段（`# >>> pnpm dev:deps managed >>>`）写入 `.env.local`，Ctrl+C 停止时只清理这个段，**不会动你手写的其他变量**
+- **MongoDB 必须副本集**：Steedos 的 `service-core-objects`、`ai` 等模块用事务，事务只能在副本集/分片下使用。`pnpm dev:deps` 用 `MongoMemoryReplSet`，`docker-compose.yml` 用 `mongo:7 --replSet rs0` 并在 healthcheck 里幂等地 `rs.initiate()`
 
 `pnpm test` 会执行 `scripts/test-metadata.js`，对 CRM 元数据进行基础校验（JSON/YAML 解析、`crm_` 前缀、对象目录结构、应用页签注册等），无需任何外部依赖。
 
-`pnpm test:mongo` 会执行 `scripts/test-mongo.js`，校验 `MONGO_URL` 指向的 MongoDB 端口可达。本地可先 `docker compose up -d mongo` 启动依赖，CI 则通过 GitHub Actions `services` 自动拉起 mongo:6 容器（见 `.github/workflows/ci.yml` 的 `mongo-smoke-test` 任务）。
+`pnpm test:mongo` 会执行 `scripts/test-mongo.js`，校验 `MONGO_URL` 指向的 MongoDB 端口可达。本地可先 `pnpm deps:up` 启动依赖，CI 则通过 GitHub Actions `services` 自动拉起 mongo:6 容器（见 `.github/workflows/ci.yml` 的 `mongo-smoke-test` 任务）。
 
 `pnpm test:e2e` 会用 Vitest 启动一套完全自包含的 e2e：
 

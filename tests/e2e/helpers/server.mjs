@@ -63,7 +63,7 @@ export async function startServer({ port } = {}) {
   try { fs.mkdirSync(logDir, { recursive: true }); } catch {}
   const logPath = path.join(logDir, 'e2e-server.log');
   // 注意：使用文件描述符或全 ignore 时 steedos-cli 在某些环境会立即退出 0；
-  // 与 `pnpm dev` 一致地用 pipe，再自行落盘到文件，可避免该问题。
+  // 与 `pnpm dev:deps` 一致地用 pipe，再自行落盘到文件，可避免该问题。
   const logStream = fs.createWriteStream(logPath, { flags: 'w' });
   const child = spawn('npx', ['--no-install', 'steedos', 'start'], {
     cwd,

@@ -6,7 +6,10 @@
   "packageManager": "pnpm@9.15.0",
   "scripts": {
     "start": "steedos start",
-    "dev": "node scripts/dev.js",
+    "dev": "steedos start",
+    "dev:deps": "node scripts/dev-deps.js",
+    "deps:up": "docker compose up -d mongo redis",
+    "deps:down": "docker compose down",
     "build": "echo \"no build step\"",
     "test": "node scripts/test-metadata.js",
     "test:mongo": "node scripts/test-mongo.js",
