@@ -1,6 +1,28 @@
 # CRM
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/steedos-labs/crm)
+
 基于 Steedos 开发的 CRM 应用模板，目标是主要通过 AI Agent 完成系统设计、元数据建模、页面配置和业务功能开发。
+
+## 一键运行（GitHub Codespaces）
+
+点击上方徽章或在仓库页选择 **Code → Codespaces → Create codespace**，环境会自动：
+
+1. 安装 Node.js 20 + pnpm 9
+2. 复制 `.env.example` 为 `.env`
+3. 执行 `pnpm install`（会顺带下载内嵌的 MongoDB / Redis 二进制）
+
+启动完成后在终端运行：
+
+```bash
+pnpm dev
+```
+
+`pnpm dev` 会通过 `mongodb-memory-server` 和 `redis-memory-server` **在 Node 进程内拉起内嵌的 MongoDB 与 Redis**，无需 Docker 或本地服务，再启动 Steedos。VS Code 会自动转发 `5100` 端口并打开浏览器。
+
+数据默认持久化到 `./.steedos/dev-db`。设置 `EPHEMERAL=1 pnpm dev` 可改为纯内存模式（退出即清空）。
+
+如需对接已经在运行的真实 MongoDB / Redis，使用 `pnpm start` 并按 `.env.example` 配置 `MONGO_URL`、`TRANSPORTER`、`CACHER`。
 
 ## 项目目标
 
@@ -84,7 +106,8 @@ AI Agent 在本仓库中开发时必须遵循以上指令文件，尤其是 Stee
 
 ```bash
 pnpm install
-pnpm start
+pnpm dev          # 一键启动（内嵌 MongoDB + Redis，无需 Docker）
+pnpm start        # 使用 .env 中外部 MongoDB / Redis 启动
 pnpm run build
 pnpm test
 pnpm test:mongo

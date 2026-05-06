@@ -1,0 +1,22 @@
+{
+  "name": "crm",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "forwardPorts": [5100],
+  "portsAttributes": {
+    "5100": {
+      "label": "Steedos",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "remoteUser": "node",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "redhat.vscode-yaml"
+      ]
+    }
+  }
+}
+

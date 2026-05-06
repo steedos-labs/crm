@@ -6,6 +6,7 @@
   "packageManager": "pnpm@9.15.0",
   "scripts": {
     "start": "steedos start",
+    "dev": "node scripts/dev.js",
     "build": "echo \"no build step\"",
     "test": "node scripts/test-metadata.js",
     "test:mongo": "node scripts/test-mongo.js"
@@ -20,5 +21,9 @@
       "graphql": "15.10.2",
       "ioredis": "5.10.1"
     }
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "^11.1.0",
+    "redis-memory-server": "^0.16.1"
   }
 }
