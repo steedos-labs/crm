@@ -12,7 +12,7 @@
 const path = require('path');
 const fs = require('fs');
 const { spawn } = require('child_process');
-const { MongoMemoryServer } = require('mongodb-memory-server');
+const { MongoMemoryReplSet } = require('mongodb-memory-server');
 const { RedisMemoryServer } = require('redis-memory-server');
 
 const ROOT = path.resolve(__dirname, '..');
@@ -43,13 +43,19 @@ process.on('uncaughtException', (err) => { console.error(err); stop(1); });
 (async () => {
   if (!EPHEMERAL) fs.mkdirSync(DATA_DIR, { recursive: true });
 
-  console.log('▶ 启动内嵌 MongoDB ...');
-  mongo = await MongoMemoryServer.create({
-    instance: {
-      ...(MONGO_PORT ? { port: MONGO_PORT } : {}),
+  console.log('▶ 启动内嵌 MongoDB（副本集，支持事务） ...');
+  mongo = await MongoMemoryReplSet.create({
+    replSet: {
+      count: 1,
+      storageEngine: 'wiredTiger',
       dbName: 'crm',
-      ...(EPHEMERAL ? {} : { dbPath: DATA_DIR, storageEngine: 'wiredTiger' }),
     },
+    instanceOpts: [
+      {
+        ...(MONGO_PORT ? { port: MONGO_PORT } : {}),
+        ...(EPHEMERAL ? {} : { dbPath: DATA_DIR }),
+      },
+    ],
   });
 
   console.log('▶ 启动内嵌 Redis ...');
