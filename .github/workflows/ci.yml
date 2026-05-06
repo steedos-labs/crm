@@ -47,3 +47,50 @@ jobs:
 
       - name: 验证 MongoDB 连通性
         run: node scripts/test-mongo.js
+
+  e2e:
+    name: 端到端业务链路测试
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 安装 pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: 安装 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: pnpm
+
+      - name: 缓存 mongodb-memory-server 二进制
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/mongodb-binaries
+          key: mongo-mem-${{ runner.os }}-7.0
+
+      - name: 缓存 redis-memory-server 二进制
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/redis-binaries
+          key: redis-mem-${{ runner.os }}
+
+      - name: 安装依赖
+        run: pnpm install --frozen-lockfile=false
+
+      - name: 运行 e2e 测试
+        run: pnpm test:e2e
+        env:
+          CI: 'true'
+
+      - name: 失败时上传服务器日志
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-server-log
+          path: .steedos/e2e-server.log
+          if-no-files-found: ignore

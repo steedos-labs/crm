@@ -111,11 +111,22 @@ pnpm start        # 使用 .env 中外部 MongoDB / Redis 启动
 pnpm run build
 pnpm test
 pnpm test:mongo
+pnpm test:e2e     # 端到端业务链路测试（自动拉起内嵌 MongoDB / Redis 与 Steedos）
 ```
 
 `pnpm test` 会执行 `scripts/test-metadata.js`，对 CRM 元数据进行基础校验（JSON/YAML 解析、`crm_` 前缀、对象目录结构、应用页签注册等），无需任何外部依赖。
 
 `pnpm test:mongo` 会执行 `scripts/test-mongo.js`，校验 `MONGO_URL` 指向的 MongoDB 端口可达。本地可先 `docker compose up -d mongo` 启动依赖，CI 则通过 GitHub Actions `services` 自动拉起 mongo:6 容器（见 `.github/workflows/ci.yml` 的 `mongo-smoke-test` 任务）。
+
+`pnpm test:e2e` 会用 Vitest 启动一套完全自包含的 e2e：
+
+- 通过 `mongodb-memory-server`（副本集模式，支持事务）和 `redis-memory-server` 在本进程内拉起 MongoDB 与 Redis；
+- 在随机端口启动 `steedos start`，等待 `/api/health_check` + 注册接口就绪；
+- 注册账号 → 创建租户 → 拿到 token，再以 `Bearer <spaceId>,<token>` 调用 v6 数据/函数 API；
+- 串行执行 `tests/e2e/specs/10-crm-flow.spec.mjs` 中覆盖全部 15 个 CRM 业务对象的链路（线索→转化→客户/联系人→产品/价目表→商机/商机产品→报价/报价明细→合同→发票→服务工单触发器校验→活动/任务），最后做反向数据清理；
+- 服务器日志写入 `.steedos/e2e-server.log`，CI 失败时会作为 artifact 上传。
+
+整个 e2e **不会污染本地已有的 MongoDB / Redis**：内嵌 server 监听随机端口，运行结束自动关闭。
 
 如果当前阶段尚未创建 `package.json` 或 Steedos 配置文件，应先按 Steedos 项目结构补齐基础工程文件。
 
