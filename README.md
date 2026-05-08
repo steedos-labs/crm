@@ -1,8 +1,21 @@
-# CRM
+# CRM —— AI 自动化编程实践项目
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/steedos-labs/crm)
 
-基于 Steedos 开发的 CRM 应用模板，目标是主要通过 AI Agent 完成系统设计、元数据建模、页面配置和业务功能开发。
+> **本项目是一个 AI 自动化编程的示范项目。** 从系统设计、数据建模、权限配置、页面搭建到业务逻辑，**全部由 AI Agent（GitHub Copilot / Claude Code 等）自动生成和维护**，人工只负责需求描述和最终验收。
+
+## 什么是 AI 自动化编程？
+
+传统软件开发需要工程师手写每一行代码；本项目证明，通过结构化的 AI 提示词和 Steedos 低代码平台，可以让 AI Agent 完整承担：
+
+- **需求分析** → AI 根据业务描述生成设计文档
+- **数据建模** → AI 生成对象、字段、关系的 YAML 元数据
+- **权限配置** → AI 为每个角色生成增删改查权限
+- **页面搭建** → AI 用 Amis Schema 搭建列表、详情、表单页面
+- **业务逻辑** → AI 编写触发器、函数等服务端代码
+- **测试验证** → AI 生成端到端测试并在 CI 中自动执行
+
+人工只需要：**用中文描述需求 → 审核 AI 的输出 → 给出反馈**。
 
 ## 一键运行（GitHub Codespaces）
 
@@ -32,9 +45,15 @@ VS Code 会自动转发 `5100` 端口并打开浏览器。
 
 ## 项目目标
 
-本项目用于构建一套可维护、可扩展的 CRM 系统。开发时优先采用 Steedos 元数据驱动模式，能通过对象、字段、权限、列表视图、应用、页签和 Amis 页面配置实现的能力，不优先编写自定义代码。
+用 AI 自动化编程构建一套可维护、可扩展的 CRM 系统，验证"**人工写需求、AI 写代码**"这一开发模式在真实业务场景中的可行性。
 
-##  安装 Skills
+- 开发过程优先采用 Steedos **元数据驱动**模式（YAML 配置、Amis 页面），最大化 AI 生成的稳定性和可审查性。
+- 只有声明式配置无法表达时，才由 AI 生成 JavaScript/TypeScript 代码。
+- 所有代码、配置、文档均由 AI 产出，通过 CI 自动验证，人工只做需求描述和验收。
+
+##  安装 Skills（AI 专用）
+
+在 Copilot / Claude Code 等 AI 工具中执行以下命令，为 AI Agent 安装 Steedos 知识库，使 AI 能精准生成符合平台规范的元数据：
 
 ```
 npx skills add steedos/steedos-platform
@@ -42,16 +61,18 @@ npx skills add steedos/steedos-platform
 
 ## AI 自动化开发提示词
 
-按顺序发给AI
+以下提示词**按顺序**发给 AI，可驱动 AI 从零完成整个 CRM 项目：
 
-- 帮我初始化为 steedos 项目。
-- 本项目基于steedos开发crm应用，目标全部使用ai 开发，请帮我初始化系统提示词。
-- 做整体设计，编写设计文档。
-- 整个项目由 ai 开发，帮我编写开发计划，以便于我逐条验收开发任务。
-- 完成一阶段的开发。
-- 在我本地安装 mongodb , redis
-- 启动服务，测试确认。
-- 使用 chrome mcp 在浏览器中测试
+| 步骤 | 提示词 |
+|------|--------|
+| 1 | 帮我初始化为 steedos 项目。 |
+| 2 | 本项目基于 steedos 开发 CRM 应用，目标全部使用 AI 开发，请帮我初始化系统提示词。 |
+| 3 | 做整体设计，编写设计文档。 |
+| 4 | 整个项目由 AI 开发，帮我编写开发计划，以便于我逐条验收开发任务。 |
+| 5 | 完成第一阶段的开发。 |
+| 6 | 在我本地安装 MongoDB、Redis。 |
+| 7 | 启动服务，测试确认。 |
+| 8 | 使用 chrome mcp 在浏览器中测试。 |
 
 ## 技术栈
 
@@ -96,15 +117,22 @@ npx skills add steedos/steedos-platform
 
 ## AI 相关文档
 
-- Copilot 项目指令：`.github/copilot-instructions.md`
-- Claude Code 项目指令：`CLAUDE.md`
-- 总体设计文档：`docs/design.md`
-- 项目路线图：`docs/project-management/roadmap.md`
-- 任务进度：`docs/project-management/tasks.md`
-- 通用验收清单：`docs/project-management/acceptance-checklist.md`
-- 变更记录：`docs/project-management/change-log.md`
+AI Agent 在本仓库中开发时，必须遵循以下指令和文档，确保 AI 产出的元数据符合平台规范、可追溯、可验收：
 
-AI Agent 在本仓库中开发时必须遵循以上指令文件，尤其是 Steedos 元数据优先、`crm_` 前缀和中文文档要求。
+| 文档 | 用途 |
+|------|------|
+| `.github/copilot-instructions.md` | GitHub Copilot 项目级系统提示词 |
+| `CLAUDE.md` | Claude Code 项目级指令 |
+| `docs/design.md` | 总体设计文档（AI 生成） |
+| `docs/project-management/roadmap.md` | 项目路线图（AI 生成） |
+| `docs/project-management/tasks.md` | 任务进度（AI 维护） |
+| `docs/project-management/acceptance-checklist.md` | 通用验收清单（人工审核） |
+| `docs/project-management/change-log.md` | 变更记录（AI 维护） |
+
+**核心约定（AI 必须遵守）：**
+- Steedos 元数据优先，YAML 配置优于手写代码
+- 所有自定义对象 API 名必须以 `crm_` 开头
+- 所有文档必须使用中文
 
 ## 常用命令
 
